@@ -28,4 +28,9 @@ public class UserRepository
             return [];
         }
     }
+
+    public async Task CreateUserAsync(User user)
+    {
+        await _users.InsertOneAsync(user);
+    }
 }

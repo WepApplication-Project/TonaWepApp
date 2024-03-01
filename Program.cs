@@ -1,5 +1,4 @@
 using TonaWebApp.Config;
-using Microsoft.Extensions.Configuration;
 using TonaWebApp.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
