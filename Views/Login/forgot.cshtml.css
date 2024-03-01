@@ -1,0 +1,16 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo-container{
+    font-weight: bolder;
+}
+.logo-container img{
+    width: 4rem;
+}
