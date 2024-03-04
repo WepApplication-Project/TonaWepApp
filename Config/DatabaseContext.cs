@@ -5,7 +5,7 @@ namespace TonaWebApp.Config;
 
 public class MongoDBContext
 {
-    private IMongoDatabase _database;
+    private readonly IMongoDatabase _database;
 
     public MongoDBContext(string connectionString, string databaseName)
     {
@@ -14,6 +14,7 @@ public class MongoDBContext
     }
 
     public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
+    public IMongoCollection<Board> Boards => _database.GetCollection<Board>("Boards");
 
     public async Task InitializeUserDataAsync()
     {

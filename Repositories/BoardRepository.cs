@@ -1,0 +1,37 @@
+using MongoDB.Driver;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using TonaWebApp.Models;
+using TonaWebApp.Config;
+
+namespace TonaWebApp.Repositories;
+
+public class BoardRepository(MongoDBContext context)
+{
+    private readonly IMongoCollection<Board> _boards = context.Boards;
+
+    public async Task<List<Board>> GetAllBoardAsync()
+    {
+        try
+        {
+            var boardList = await _boards.Find(_ => true).ToListAsync();
+            return boardList;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred while fetching users: {ex}");
+            return [];
+        }
+    }
+
+    public async Task<Board> GetBoardByIdAsync(string Id)
+    {
+        var filter = Builders<Board>.Filter.Eq(u => u.Id, Id);
+        return await _boards.Find(filter).FirstOrDefaultAsync();
+    }
+
+    public async Task CreateBoardAsync(Board board)
+    {
+        await _boards.InsertOneAsync(board);
+    }
+}

@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TonaWebApp.Repositories;
 using TonaWebApp.Models;
-using System.Runtime.Serialization;
 
 namespace TonaWebApp.Controllers;
 
