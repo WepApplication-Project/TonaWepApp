@@ -3,7 +3,6 @@ using TonaWebApp.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<MongoDBContext>(provider =>
@@ -12,8 +11,9 @@ builder.Services.AddSingleton<MongoDBContext>(provider =>
     return context;
 });
 
-// Register UserRepository as a singleton service
 builder.Services.AddSingleton<AuthRepository>();
+
+builder.Services.AddSingleton<BoardRepository>();
 
 var app = builder.Build();
 

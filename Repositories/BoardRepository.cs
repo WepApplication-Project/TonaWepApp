@@ -34,4 +34,15 @@ public class BoardRepository(MongoDBContext context)
     {
         await _boards.InsertOneAsync(board);
     }
+
+    public async Task UpdateBoardAsync(Board board)
+    {
+        var filter = Builders<Board>.Filter.Eq(existingBoard => existingBoard.Id, board.Id);
+        await _boards.ReplaceOneAsync(filter, board);
+    }
+
+    public async Task DeleteBoardAsync(string id)
+    {
+        await _boards.DeleteOneAsync(board => board.Id == id);
+    }
 }

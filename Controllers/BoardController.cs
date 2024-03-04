@@ -25,4 +25,38 @@ public class BoardController(BoardRepository boardRepository) : Controller
         }
         return View(board);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> EditBoard(string Id, Board board)
+    {
+        if (Id != board.Id)
+        {
+            return NotFound();
+        }
+
+        if (ModelState.IsValid)
+        {
+            await _boardRepository.UpdateBoardAsync(board);
+            return RedirectToAction("Index", "Home");
+        }
+        return View(board);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteBoard(string id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+
+        var board = await _boardRepository.GetBoardByIdAsync(id);
+        if (board == null)
+        {
+            return NotFound();
+        }
+
+        await _boardRepository.DeleteBoardAsync(id);
+        return RedirectToAction("Index", "Home");
+    }
 }

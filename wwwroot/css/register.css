@@ -1,5 +1,5 @@
 .main-container {
-    display: grid;
+    display: flex;
     justify-content: space-around;
     height: 100vh;
     font-family: "Kanit", sans-serif;
@@ -83,6 +83,7 @@
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
+    border: 1px solid gray;
     font-size: 16px;
 }
 
