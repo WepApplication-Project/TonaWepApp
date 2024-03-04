@@ -13,7 +13,7 @@ builder.Services.AddSingleton<MongoDBContext>(provider =>
 });
 
 // Register UserRepository as a singleton service
-builder.Services.AddSingleton<UserRepository>();
+builder.Services.AddSingleton<AuthRepository>();
 
 var app = builder.Build();
 

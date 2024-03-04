@@ -6,14 +6,9 @@ using TonaWebApp.Config;
 
 namespace TonaWebApp.Repositories;
 
-public class UserRepository
+public class AuthRepository(MongoDBContext context)
 {
-    private readonly IMongoCollection<User> _users;
-
-    public UserRepository(MongoDBContext context)
-    {
-        _users = context.Users;
-    }
+    private readonly IMongoCollection<User> _users = context.Users;
 
     public async Task<List<User>> GetAllUsersAsync()
     {
@@ -27,6 +22,12 @@ public class UserRepository
             Console.WriteLine($"An error occurred while fetching users: {ex}");
             return [];
         }
+    }
+
+    public async Task<User> GetUserByEmailAsync(string email)
+    {
+        var filter = Builders<User>.Filter.Eq(u => u.Email, email);
+        return await _users.Find(filter).FirstOrDefaultAsync();
     }
 
     public async Task CreateUserAsync(User user)
