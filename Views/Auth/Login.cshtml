@@ -24,7 +24,8 @@
     <div class="wrapper">
         <div class="section-container">
             <div class="logo-container">
-                <img src="https://cdn.discordapp.com/attachments/1212717114238967838/1212717153686655006/tuna.png?ex=65f2d9dc&is=65e064dc&hm=986fc5efbc87b07f09d041abeb8bcd4841610843301f86c54d4dfbc3fe414319&" alt="TonaIcon">
+                <img src="https://cdn.discordapp.com/attachments/1212717114238967838/1212717153686655006/tuna.png?ex=65f2d9dc&is=65e064dc&hm=986fc5efbc87b07f09d041abeb8bcd4841610843301f86c54d4dfbc3fe414319&"
+                    alt="TonaIcon">
                 <h1>TONA</h1>
             </div>
             <p>Login</p>
@@ -39,8 +40,11 @@
                         <input asp-for="Password" type="password" placeholder="Password" required>
 
                     </div>
+                    <div class="wrong-submit" id="wrong">
+                        Incorrect email or password
+                    </div>
                     @* <div class="forgot-container">
-                        <a href="auth/login/forgot">Forgot Your password?</a>
+                    <a href="auth/login/forgot">Forgot Your password?</a>
                     </div> *@
                     <div class="sign-btn">
                         <button type="submit">Login</button>
@@ -56,3 +60,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    console.log("@ViewBag.errortxt");
+    if ("@ViewBag.errortxt" != "") {
+        wrong_message = document.getElementById("wrong");
+        wrong_message.style.display = "Flex";
+
+        }
+
+</script>

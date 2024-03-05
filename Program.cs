@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Options;
 using TonaWebApp.Config;
 using TonaWebApp.Repositories;
 
@@ -15,6 +16,15 @@ builder.Services.AddSingleton<AuthRepository>();
 
 builder.Services.AddSingleton<BoardRepository>();
 
+// Using Session
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>{
+    options.IdleTimeout =  TimeSpan.FromSeconds(10);
+    options.Cookie.HttpOnly = true ;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -23,10 +33,16 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+
+// Session Call after routing
+app.UseSession();
 
 app.UseAuthorization();
 
