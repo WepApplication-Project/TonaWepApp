@@ -1,21 +1,17 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TonaWebApp.Models;
+using TonaWebApp.Repositories;
 
 namespace TonaWebApp.Controllers;
 
-public class HomeController : Controller
+public class HomeController(ILogger<HomeController> logger) : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<HomeController> _logger = logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    public IActionResult Index(User user)
     {
-        _logger = logger;
-    }
-
-    public IActionResult Index()
-    {
-        return View();
+        return View(user);
     }
 
     public IActionResult Privacy()
