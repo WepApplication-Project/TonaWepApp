@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TonaWebApp.Models;
@@ -15,6 +16,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewBag.email = HttpContext.Session.GetString("email");
         return View();
     }
 

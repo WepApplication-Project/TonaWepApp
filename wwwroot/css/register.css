@@ -184,6 +184,15 @@
     opacity: 100%
 }
 
+.wrong-submit{
+    color: red;
+    font-size: 1.5rem;
+    display: none;
+    justify-content: flex-end;
+    width: 90%;
+    padding-top: 1rem;
+}
+
 
 @media screen and (max-width: 900px) {
     .name-container {
@@ -235,6 +244,10 @@
     #lastname input {
         font-size: 4vw;
         padding-left: 3.5rem;
+    }
+
+    .wrong-submit{
+        font-size: 4vw;
     }
 
     .input-box i {
