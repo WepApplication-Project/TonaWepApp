@@ -33,11 +33,11 @@
                 <form asp-controller="Auth" asp-action="Login">
                     <div class="input-box">
                         <i class='bx bx-envelope'></i>
-                        <input asp-for="Email" type="email" placeholder="Email" required>
+                        <input asp-for="Email" type="email" placeholder="Email" required onchange="clearMsg()">
                     </div>
                     <div class="input-box">
                         <i class='bx bx-lock-alt'></i>
-                        <input asp-for="Password" type="password" placeholder="Password" required>
+                        <input asp-for="Password" type="password" placeholder="Password" required onchange="clearMsg()">
 
                     </div>
                     <div class="wrong-submit" id="wrong">
@@ -62,11 +62,19 @@
 </div>
 
 <script>
-    console.log("@ViewBag.errortxt");
-    if ("@ViewBag.errortxt" != "") {
-        wrong_message = document.getElementById("wrong");
-        wrong_message.style.display = "Flex";
+    function clearMsg(id){
+        let wrong = document.getElementById("wrong");
+        wrong.style.display= "none";
+    };
 
-        }
+    let result = "@ViewBag.login";
+    let wrong = document.getElementById("wrong");
+    console.log(result);
+    if (result == "wrong"){
+        wrong.style.display = "flex";
+        wrong.value = "";
+        result = "";
+    }
+
 
 </script>

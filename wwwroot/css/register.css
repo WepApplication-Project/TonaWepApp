@@ -163,8 +163,12 @@
     font-family: "Kanit", sans-serif;
     font-size: x-large;
     background-color: rgba(180, 212, 255, 1);
+    transition:0.5s
 }
 
+.sign-btn button:hover{
+    background-color: rgb(101, 168, 255);
+}
 .sign-link {
     width: 80%;
     text-align: center;
@@ -190,7 +194,7 @@
     display: none;
     justify-content: flex-end;
     width: 90%;
-    padding-top: 1rem;
+    padding-top: 0;
 }
 
 

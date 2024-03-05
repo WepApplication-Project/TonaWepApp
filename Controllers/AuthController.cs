@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using TonaWebApp.Repositories;
 using TonaWebApp.Models;
+using Microsoft.VisualBasic;
+using System.Text;
+using MongoDB.Driver.Core.Authentication;
 
 namespace TonaWebApp.Controllers;
 
@@ -19,8 +22,12 @@ public class AuthController(AuthRepository authRepository) : Controller
     public async Task<IActionResult> Register([Bind("FirstName,LastName,Phone,Email,Password")] User user)
     {
         if (ModelState.IsValid)
-        {
-            await _authRepository.CreateUserAsync(user);
+        {   
+            string result = await _authRepository.CreateUserAsync(user);
+            if (result != null){
+                ViewBag.result = result;
+                return View(user); 
+            }
             return RedirectToAction("Login");
         }
         return View(user);
@@ -40,6 +47,9 @@ public class AuthController(AuthRepository authRepository) : Controller
         {
             HttpContext.Session.SetString("email", Email);
             return RedirectToAction("Index", "Home", userdb);
+        }
+        else{
+            ViewBag.login = "wrong";
         }
         return View();
     }

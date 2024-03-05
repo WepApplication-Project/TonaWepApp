@@ -30,19 +30,20 @@ public class AuthRepository(MongoDBContext context)
         return await _users.Find(filter).FirstOrDefaultAsync();
     }
 
-    public async Task CreateUserAsync(User user)
+    public async Task<string> CreateUserAsync(User user)
     {
         var existingEmailUser = await _users.Find(u => u.Email == user.Email).FirstOrDefaultAsync();
         if (existingEmailUser != null)
         {
-            throw new Exception("Email already exists.");
+            return "Email already exists.";
         }
 
         var existingPhoneUser = await _users.Find(u => u.Phone == user.Phone).FirstOrDefaultAsync();
         if (existingPhoneUser != null)
         {
-            throw new Exception("Phone already exists.");
+            return "Phone already exists.";
         }
         await _users.InsertOneAsync(user);
+        return null;
     }
 }
