@@ -39,19 +39,19 @@
                         <input asp-for="Password" type="password" placeholder="Password" required>
 
                     </div>
-                    <div class="forgot-container">
-                        <a href="/login/forgot">Forgot Your password?</a>
-                    </div>
-                    <div class="login-btn">
+                    @* <div class="forgot-container">
+                        <a href="auth/login/forgot">Forgot Your password?</a>
+                    </div> *@
+                    <div class="sign-btn">
                         <button type="submit">Login</button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="register-link">
+        <div class="sign-link">
             <hr>
             <p>don't have an account?
-                <a href="/register">register</a>
+                <a href="/auth/register">register</a>
             </p>
         </div>
     </div>

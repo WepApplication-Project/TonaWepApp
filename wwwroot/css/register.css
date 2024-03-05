@@ -9,7 +9,6 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-
     margin-top: 2rem;
 }
 
@@ -25,7 +24,8 @@
     font-weight: bolder;
     font-size: 5rem;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    width: 100%
 }
 
 .logo-container img {
@@ -79,12 +79,14 @@
 }
 
 .input-box input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid gray;
-    font-size: 16px;
+    width: 80%;
+    border-radius: 1rem;
+    border: 1px solid rgba(23, 107, 135, 1);
+    padding: 1rem;
+    padding-left: 4.5rem;
+    font-size:x-large;
+    text-wrap:wrap;
+    word-wrap: break-word;
 }
 
 .name-container {
@@ -130,13 +132,29 @@
     scale: 150%;
 }
 
+.forgot-container{
+    width: 80%;
+    display: flex;
+    margin-left:10% ;
+    justify-content: flex-end;
+    text-align: end;
+    margin-top: 0.5rem;
+    align-self: flex-end;
+    font-size: 1.5rem;
 
-.register-btn {
+}
+
+.forgot-container a{
+    text-decoration: none;
+}
+
+
+.sign-btn {
     text-align: center;
     margin-top: 1.5rem;
 }
 
-.register-btn button {
+.sign-btn button {
     width: 30%;
     min-width: fit-content;
     border: none;
@@ -147,7 +165,7 @@
     background-color: rgba(180, 212, 255, 1);
 }
 
-.login-link {
+.sign-link {
     width: 80%;
     text-align: center;
     font-size: xx-large;
@@ -156,11 +174,11 @@
 
 }
 
-.login-link a {
+.sign-link a {
     text-decoration: none;
 }
 
-.login-link hr {
+.sign-link hr {
     height: 0.25rem;
     color: rgba(23, 107, 135, 1);
     opacity: 100%
@@ -177,7 +195,7 @@
 }
 
 @media screen and (max-width: 520px) {
-    .login-link {
+    .sign-link {
         width: 80%;
         text-align: center;
         font-size: large;
@@ -193,6 +211,7 @@
         display: none;
     }
 
+    
     .wrapper {
         display: flex;
         flex-direction: column;
@@ -201,7 +220,7 @@
         width: 80%;
     }
 
-    .login-link {
+    .sign-link {
         width: 80%;
         text-align: center;
         font-size: medium;
@@ -209,6 +228,9 @@
         margin-bottom: 1rem;
     }
 
+    .forgot-container{
+        font-size: 4vw;
+    }
     .input-box input,
     #lastname input {
         font-size: 4vw;
@@ -218,8 +240,9 @@
     .input-box i {
         position: absolute;
         padding-top: 1rem;
-        padding-left: 1.2rem;
+        padding-left: 1rem;
         scale: 150%;
     }
 
+    
 }
