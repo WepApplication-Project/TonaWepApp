@@ -1,0 +1,37 @@
+@model Board
+
+<div>
+    <div class="detail-box">
+        <div class="board-header">
+            <div class="f-start">
+                <div class="board-title">
+                    <h3>@Model.Name</h3>
+                    <div class="board-tag">
+                        งานกลุ่ม
+                    </div>
+                </div>
+                <div class="board-status">
+                    เปิดรับ
+                </div>
+            </div>
+            <div class="board-tail">
+                <div class="avatar"><img src="https://hips.hearstapps.com/hmg-prod/images/beautiful-smooth-haired-red-cat-lies-on-the-sofa-royalty-free-image-1678488026.jpg?crop=1xw:0.84415xh;center,top" width="200"/></div>
+                <p><br>create by @Model.Auther</p>
+            </div>
+        </div>
+        <div class="horizontal-line"></div>
+        <div>
+            <p>@Model.Description</p>
+            <h4>ประกาศจะหมดอายุวันที่</h4>
+            <p>12 September 2026</p>
+            <h4>ข้อกำหนดเพิ่มเติม</h4>
+            <p></p>
+        </div>
+        <div class="f-between">
+            <p>จำนวนคนที่รับ 4/5</p>
+            <div class="button">
+                ลงชื่อในบอร์ด
+            </div>
+        </div>
+    </div>
+</div>

@@ -15,6 +15,13 @@ public class BoardController(BoardRepository boardRepository) : Controller
         return View(boardList);
     }
 
+    [HttpGet]
+    public async Task<IActionResult> Detail(string Id)
+    {
+        var board = await _boardRepository.GetBoardByIdAsync(Id);
+        return View(board);
+    }
+
     [HttpPost]
     public async Task<IActionResult> CreateBoard(Board board)
     {

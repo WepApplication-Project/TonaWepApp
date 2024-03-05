@@ -35,6 +35,10 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
+    name: "boardDetail",
+    pattern: "{controller=Board}/{action=Detail}/{id?}");
+
+app.MapControllerRoute(
     name: "user",
     pattern: "user",
     defaults: new { controller = "User", action = "Index" });

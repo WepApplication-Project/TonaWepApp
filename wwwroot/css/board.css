@@ -1,0 +1,68 @@
+.detail-box {
+    display: block;
+    margin: 100px;
+    background-color: #EEF5FF;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px gray;
+    padding: 30px;
+}
+
+.board-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.board-title {
+    display: flex;
+}
+
+.board-tag {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+
+.board-status {
+    background-color: green;
+    padding: 0.8rem;
+    border-radius: 10px;
+}
+
+.board-tail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.f-start {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.f-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.horizontal-line {
+    width: 100%;
+    border: 1px solid gray;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.button {
+    padding: 10px;
+    box-shadow: 2px 2px 4px gray;
+    border-radius: 10px;
+}
