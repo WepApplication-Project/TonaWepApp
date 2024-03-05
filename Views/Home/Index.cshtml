@@ -1,12 +1,9 @@
-﻿@model List<User>
+﻿@model User
 
 <ul>
     @if (Model != null)
     {
-        @foreach (var user in Model)
-        {
-            <li>@user?.FirstName - @user?.Email</li>
-        }
+            <li>@Model?.FirstName - @Model?.Email</li>
     }
     else
     {

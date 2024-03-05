@@ -38,7 +38,7 @@ public class AuthController(AuthRepository authRepository) : Controller
         var userdb = await _authRepository.GetUserByEmailAsync(Email);
         if(userdb.Password == Password) {
             HttpContext.Session.SetString("email", Email);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Home", userdb);
         }
         return View();
     }
