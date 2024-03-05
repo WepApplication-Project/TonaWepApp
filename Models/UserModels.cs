@@ -10,6 +10,8 @@ namespace TonaWebApp.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
+        public string? ImageUrl { get; set; }
+
         [Required(ErrorMessage = "First name is required.")]
         public string FirstName { get; set; } = null!;
 
