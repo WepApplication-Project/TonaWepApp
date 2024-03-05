@@ -6,14 +6,22 @@ using TonaWebApp.Repositories;
 
 namespace TonaWebApp.Controllers;
 
-public class HomeController(ILogger<HomeController> logger) : Controller
+public class HomeController(AuthRepository authRepository) : Controller
 {
-    private readonly ILogger<HomeController> _logger = logger;
+    private readonly AuthRepository _authRepository = authRepository;
 
-    public IActionResult Index(User user)
+    public async Task<IActionResult> Index()
     {
-        ViewBag.email = HttpContext.Session.GetString("email");
-        return View(user);
+        var email = HttpContext.Session.GetString("email");
+        if (!string.IsNullOrEmpty(email))
+        {
+            var user = await _authRepository.GetUserByEmailAsync(email);
+            if (user != null)
+            {
+                return View(user);
+            }
+        }
+        return RedirectToAction("Login", "Auth");
     }
 
     public IActionResult Privacy()

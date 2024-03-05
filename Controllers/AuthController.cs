@@ -36,12 +36,17 @@ public class AuthController(AuthRepository authRepository) : Controller
     public async Task<IActionResult> Login(string Email, string Password)
     {
         var userdb = await _authRepository.GetUserByEmailAsync(Email);
-        if(userdb.Password == Password) {
+        if (userdb.Password == Password)
+        {
             HttpContext.Session.SetString("email", Email);
             return RedirectToAction("Index", "Home", userdb);
         }
         return View();
     }
 
-
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Remove("email");
+        return RedirectToAction("Login", "Auth");
+    }
 }
