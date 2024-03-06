@@ -162,12 +162,12 @@
     border-radius: 1rem;
     font-family: "Kanit", sans-serif;
     font-size: x-large;
-    background-color: rgba(180, 212, 255, 1);
+    background: linear-gradient(90deg, #54e0ff 0%, #8f98ff 100%);
     transition:0.5s
 }
 
 .sign-btn button:hover{
-    background-color: rgb(101, 168, 255);
+    background: rgb(101, 168, 255);
 }
 .sign-link {
     width: 80%;
