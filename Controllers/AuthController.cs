@@ -28,7 +28,6 @@ public class AuthController(AuthRepository authRepository) : Controller
                 ViewBag.result = result;
                 return View(user); 
             }
-            TempData["RegistrationSuccessMessage"] = "Registration successful! You can now log in.";
             return RedirectToAction("Login");
         }
         return View(user);
