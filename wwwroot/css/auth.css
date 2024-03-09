@@ -69,6 +69,19 @@
     color: rgba(23, 107, 135, 1);
 }
 
+.register-success {
+    display: none;
+    align-items: center;
+    column-gap: 3rem;
+    padding: 0.4rem;
+    background-color: rgb(231,249,241);
+    border: rgb(37,189,89) solid 0.1rem;
+    width: 75%;
+    color:rgb(37,189,89);
+    font-size: x-large;
+}
+
+
 .form-container {
     width: 100%;
     text-align: center;
@@ -126,7 +139,7 @@
 }
 
 #lastname{
-    padding-right: 3vw;
+    padding-right: 3.3vw;
 }
 
 #firstname input{
@@ -143,7 +156,7 @@
 
 .input-box i {
     position: absolute;
-    padding-top: 1.5rem;
+    padding-top: 1.7rem;
     padding-left: 1.4rem;
     scale: 170%;
 }
@@ -184,6 +197,7 @@
 .sign-btn button:hover{
     background: linear-gradient(90deg, #8f98ff 0%, #54e0ff 100%);
     outline: #545fff 3px solid;
+    cursor: pointer;
     
 }
 .sign-link {
@@ -256,6 +270,12 @@
         font-size: 6vw;
         height: 15vw;
     }
+
+    .register-success {
+        font-size: 4vw;
+        column-gap: 2rem;
+    }
+
 
     .wrapper {
         display: flex;
