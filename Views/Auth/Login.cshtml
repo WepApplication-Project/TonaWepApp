@@ -10,10 +10,7 @@
     
 }
 
-@if (!string.IsNullOrEmpty(registrationSuccessMessage))
-{
-    <script>alert('@registrationSuccessMessage');</script>
-}
+
 
 <div class="main-container">
     <div class="img-container">
@@ -28,6 +25,10 @@
                 <h1>TONA</h1>
             </div>
             <p>Login</p>
+            <div class="register-success" id="success">
+                <i class='bx bxs-check-circle' style="color:#25bd59; padding-left:1.3rem; scale:180%"  ></i>
+                <p>@registrationSuccessMessage</p>
+            </div>
             <div class="form-container">
                 <form asp-controller="Auth" asp-action="Login">
                     <div class="input-box">
@@ -61,6 +62,11 @@
 </div>
 
 <script>
+    if("@registrationSuccessMessage" != ""){
+        let success = document.getElementById("success");
+        console.log(success);
+        success.style.display = "flex";
+    }
     function clearMsg(id){
         let wrong = document.getElementById("wrong");
         wrong.style.display= "none";
@@ -68,7 +74,7 @@
 
     let result = "@ViewBag.login";
     let wrong = document.getElementById("wrong");
-    console.log(result);
+    
     if (result == "wrong"){
         wrong.style.display = "flex";
         wrong.value = "";

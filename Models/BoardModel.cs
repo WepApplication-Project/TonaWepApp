@@ -28,6 +28,11 @@ namespace TonaWebApp.Models
 
         public string Tag { get; set; } = null!;
 
-        public List<User> MemberList { get; set; } = [];
+        public List<User> MemberList { get; set; } = null;
+
+        public void AddMember(User user)
+        {
+            MemberList.Add(user);
+        }
     }
 }
