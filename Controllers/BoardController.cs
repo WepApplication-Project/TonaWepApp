@@ -84,4 +84,24 @@ public class BoardController(BoardRepository boardRepository) : Controller
 
         return RedirectToAction("Index", "Home");
     }
+
+    [HttpPost]
+    public async Task<IActionResult> SignOutToBoard(User user, string id)
+    {
+        if(id == null || user == null)
+        {
+            return View();
+        }
+
+        var board = await _boardRepository.GetBoardByIdAsync(id);
+        if(board == null)
+        {
+            return NotFound();
+        }
+
+        await _boardRepository.DeleteUserInBoard(user, board);
+
+        return RedirectToAction("Index", "Home");
+    }
+    
 }

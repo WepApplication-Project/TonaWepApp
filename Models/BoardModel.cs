@@ -20,7 +20,7 @@ namespace TonaWebApp.Models
 
         public int AmountMember { get; set; } = 0;
 
-        public bool IsActive { get; set; } = false;
+        public bool IsActive { get; set; } = true;
 
         public DateTime StartTime { get; set; }
 
@@ -28,11 +28,16 @@ namespace TonaWebApp.Models
 
         public string Tag { get; set; } = null!;
 
-        public List<User> MemberList { get; set; } = null;
+        public List<User> MemberList { get; set; } = [];
 
         public void AddMember(User user)
         {
             MemberList.Add(user);
+        }
+
+        public void RemoveMember(User user)
+        {
+            MemberList.Remove(user);
         }
     }
 }

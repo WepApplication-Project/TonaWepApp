@@ -51,4 +51,22 @@ public class BoardRepository(MongoDBContext context)
         board.AddMember(user);
         await UpdateBoardAsync(board);
     }
+
+    public async Task DeleteUserInBoard(User user, Board board)
+    {
+        if (user == null || board == null)
+        {
+            return;
+        }
+
+        board.RemoveMember(user);
+
+        await UpdateBoardAsync(board);
+    }
+
+    public async Task CloseBoardStatus(Board board)
+    {
+        board.IsActive = false;
+        await UpdateBoardAsync(board);
+    }
 }
