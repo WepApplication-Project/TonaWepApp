@@ -66,7 +66,22 @@ public class BoardRepository(MongoDBContext context)
 
     public async Task CloseBoardStatus(Board board)
     {
+        if (board == null)
+        {
+            return;
+        }
+
         board.IsActive = false;
+
+        board.MemberList.Clear();
+
+        var tempUserList = board.MemberList.Take(board.MaxMember - 1).ToList();
+        foreach (var user in tempUserList)
+        {
+            board.MemberList.Add(user);
+        }
+
         await UpdateBoardAsync(board);
     }
+
 }
