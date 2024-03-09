@@ -45,4 +45,10 @@ public class BoardRepository(MongoDBContext context)
     {
         await _boards.DeleteOneAsync(board => board.Id == id);
     }
+
+    public async Task AddUserToBoard(User user, Board board)
+    {
+        board.AddMember(user);
+        await UpdateBoardAsync(board);
+    }
 }
