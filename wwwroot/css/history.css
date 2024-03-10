@@ -1,12 +1,14 @@
-*{
+/* *{
     margin: 5px;
     padding: 5px;
     box-sizing: border-box;
-}
+} */
 /* main */
 .main{
     background-color: #176B87 ;
     height: auto;
+    margin: 5px;
+    padding: 5px;
 }
 /* nav */
 nav{
@@ -19,13 +21,16 @@ nav{
     margin: auto;
     border-radius: 15px;
     box-shadow: 0 1px 4px 0px rgba(0,0,50,0.3);
-
 }
 /* nav : Upcoming + Completed */
 .menu{
     display: flex;
     list-style: none;
     padding:0 ;
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
 }
 .menu li{
     color :black;
@@ -56,21 +61,24 @@ nav{
     color : #176B87
 }
 /* nav : saerch */
+form{
+    margin: 5px;
+    padding: 5px;
+}
 form input[type="text"]{
     border: 1px solid #176B87;
     border-radius: 10px;
     outline: none;
     padding: 0.5rem;
-    height: 50px;
+    height: 40px;
     width: 150px;
-
 }
 form button{
-    margin-left :-6px;
+    margin-left :1px;
     border: none;
     padding: 0.5rem;
     height: 50px;
-    width: 750x;
+    width: 40px;
     background-color: rgb(160, 207, 248);
     border-radius: 10px;
     border: 1px solid #176B87;
@@ -99,6 +107,7 @@ form button:hover{
     width: 100px;
     transition-property: transform, color;
     transition-duration: 0.2s;
+    height: 40px;
 }
 .dropdown a{
     display: block;
@@ -130,7 +139,7 @@ form button:hover{
 /* --------------table---------------- */
 .table-box
 {
-    margin: 1.4rem auto;
+    margin: 1.4rem auto;    
 }
 .table-row{
     width: 80%;
@@ -166,6 +175,9 @@ form button:hover{
     width: fit-content;
     margin: auto;
     overflow-wrap: break-word;
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
 }
 .tablew1{
     width: 20%;
@@ -279,7 +291,7 @@ a{
     }
     form button{
         margin-left : 20px;
-        width: 80%;
+        width: 84%;
         padding-left: 8px;
     }
     .dropdown{
@@ -352,5 +364,9 @@ a{
     }
     .tableW3{
         width: 35%;
+    }
+    .first-cell{
+        text-align: left;
+        padding-left: 10px;
     }
 }
