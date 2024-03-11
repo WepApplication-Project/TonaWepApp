@@ -158,7 +158,7 @@ form button:hover{
     box-shadow: none;
     color : white;
     font-weight: 300;
-    font-size: 2.5vw;
+    font-size: 1.5rem;
 }
 .table-body{
     display:flex;
