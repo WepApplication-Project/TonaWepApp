@@ -22,7 +22,7 @@ public class AuthController(AuthRepository authRepository) : Controller
     {
         if (ModelState.IsValid)
         {   
-            string result = await _authRepository.CreateUserAsync(user);
+            string? result = await _authRepository.CreateUserAsync(user);
             if (result != null){
                 ViewBag.result = result;
                 return View(user); 
