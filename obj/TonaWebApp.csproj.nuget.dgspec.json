@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/hulu/TonaWebApp/TonaWebApp.csproj": {}
+    "C:\\Users\\Txxrz\\Documents\\GitHub\\TonaWepApp\\TonaWebApp.csproj": {}
   },
   "projects": {
-    "/Users/hulu/TonaWebApp/TonaWebApp.csproj": {
+    "C:\\Users\\Txxrz\\Documents\\GitHub\\TonaWepApp\\TonaWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/hulu/TonaWebApp/TonaWebApp.csproj",
+        "projectUniqueName": "C:\\Users\\Txxrz\\Documents\\GitHub\\TonaWepApp\\TonaWebApp.csproj",
         "projectName": "TonaWebApp",
-        "projectPath": "/Users/hulu/TonaWebApp/TonaWebApp.csproj",
-        "packagesPath": "/Users/hulu/.nuget/packages/",
-        "outputPath": "/Users/hulu/TonaWebApp/obj/",
+        "projectPath": "C:\\Users\\Txxrz\\Documents\\GitHub\\TonaWepApp\\TonaWebApp.csproj",
+        "packagesPath": "C:\\Users\\Txxrz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Txxrz\\Documents\\GitHub\\TonaWepApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/hulu/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Txxrz\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -70,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
