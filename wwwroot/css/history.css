@@ -292,7 +292,7 @@ nav a{
         flex-direction:row;
 
     }
-    form input[type="text"]{
+    .form-input{
         width: 80%;
         padding-left: 8px;
         margin-left : 20px;
