@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "zalaN4Z032yO5SxMAiVnrD5mjfdRoQO33axS5zjWGJ67xHua2sR56xKEVeUtRNM5dwpoQoqgsMW7pn2FEdpA8A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Txxrz\\Documents\\GitHub\\TonaWepApp\\TonaWebApp.csproj",
+  "projectFilePath": "/Users/hulu/TonaWebApp/TonaWebApp.csproj",
   "expectedPackageFiles": [
     "/Users/hulu/.nuget/packages/awssdk.core/3.7.100.14/awssdk.core.3.7.100.14.nupkg.sha512",
     "/Users/hulu/.nuget/packages/awssdk.securitytoken/3.7.100.14/awssdk.securitytoken.3.7.100.14.nupkg.sha512",
