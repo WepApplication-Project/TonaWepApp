@@ -6,12 +6,12 @@
 /* main */
 .main{
     background-color: #176B87 ;
-    height: 100vh;
+    min-height: 100vh;
     margin: 5px;
     padding: 5px;
 }
 /* nav */
-nav{
+.history-nav{
     display: flex;
     background-color: White;
     justify-content: space-between;
@@ -172,7 +172,6 @@ form button:hover{
     padding: 4px 0;
     vertical-align: middle;
     text-align: center;
-    border-right: none;
     width: fit-content;
     margin: auto;
     overflow-wrap: break-word;
@@ -198,11 +197,11 @@ form button:hover{
 .last-cell{
     
 }
-nav a{
+.history-nav a{
     text-decoration: none;
     color: black;
 }
-nav a{
+.history-nav a{
     text-decoration: none;
     color: black;
 }
@@ -273,7 +272,7 @@ nav a{
 }
 
 @media only screen and (max-width : 865px){
-    nav{
+    .history-nav{
         flex-direction: column;
         height : auto;
         padding: 2rem 0;
@@ -312,9 +311,10 @@ nav a{
     .navBoxU{
         border-bottom: 5px #176B87 solid;
     }
-    nav{
+    .history-nav{
         width: 80%
     }
+    
 }
 @media only screen and (max-width : 430px){
     .table-head div:nth-child(5), .table-body div:nth-child(5) {
@@ -325,57 +325,67 @@ nav a{
         scale: 0;
         display: none;
     }
-    .tableW1{
-        width: auto;
-    }
-    .tableW2{
-        width: auto;
-    }
-    .tableW3{
-        width: auto;
-    }
     .table-head{
         background: black;
         box-shadow: none;
         color : white;
         font-weight: 600;
+        display: none;
     }
     .table-cell{
         display: flex;
         padding: 10px;
         vertical-align: middle;
         text-align: left;
-        border-right: none;
     }
     .table-row.table-body{
         font-size: 15px;
         width: 100%;
         height: 15%;
         overflow-x: scroll;
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
     }
     .table-row{
-        font-size: 10px;
+        font-size: 15px;
         width: 100%;
         height: 15%;
     }
     .main{
-        background-color: white ;
-        height: 100vh;
+        background-color: rgb(228, 228, 228) ;
     }
-    nav{
+    .history-nav{
         width: 100%
     }
-    .tableW1{
-        width: 20%;
+    .date-cell{
+        order:3;
+        width: 50%;
     }
-    .tableW2{
-        width: 15%;
+    .tag-cell{
+        align-items: center;
+        order:4;
+        margin-right: 10px;
+        width: max-content;
+        height: 30px;
     }
-    .tableW3{
-        width: 35%;
+    .tag-cell p{
+        margin:0 ;
     }
-    .first-cell{
-        text-align: left;
-        padding-left: 10px;
+    .description-cell{
+        order:1;
+        width: 70%;
     }
+    .status-cell{
+        width: 30%;
+        order:2;
+        justify-content: end;
+    }
+
+
 }
+
+
+
+    
+    
