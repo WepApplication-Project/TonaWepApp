@@ -781,19 +781,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jetak\\.nuget\\packages\\": {}
+    "C:\\Users\\Txxrz\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jetak\\Desktop\\TonaWepApp\\TonaWebApp.csproj",
+      "projectUniqueName": "C:\\Users\\Txxrz\\Documents\\GitHub\\TonaWepApp\\TonaWebApp.csproj",
       "projectName": "TonaWebApp",
-      "projectPath": "C:\\Users\\jetak\\Desktop\\TonaWepApp\\TonaWebApp.csproj",
-      "packagesPath": "C:\\Users\\jetak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jetak\\Desktop\\TonaWepApp\\obj\\",
+      "projectPath": "C:\\Users\\Txxrz\\Documents\\GitHub\\TonaWepApp\\TonaWebApp.csproj",
+      "packagesPath": "C:\\Users\\Txxrz\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Txxrz\\Documents\\GitHub\\TonaWepApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jetak\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Txxrz\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -846,7 +846,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
