@@ -6,15 +6,7 @@
 
 @section CSS
 {
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    @* mail icon *@
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="~/css/register.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+
 }
 
 <div class="main-container">
@@ -33,44 +25,66 @@
                 <form asp-controller="Auth" asp-action="Register" method="post">
                     <div class="input-box">
                         <i class='bx bx-envelope'></i>
-                        <input asp-for="Email" type="email" placeholder="Email" required>
+                        <input asp-for="Email" type="email" placeholder="Email" required onchange="clearMsg('email')">
                     </div>
-
+                    <div class="wrong-submit" id="email">This email is already in used</div>
                     <div class="input-box">
                         <i class='bx bx-lock-alt'></i>
                         <input asp-for="Password" name="Password" type="password" placeholder="Password" required>
                     </div>
 
                     <div class="name-container">
-                        <div class="firstbox">
                             <div class="input-box" id="firstname">
                                 <i class='bx bx-user'></i>
-                                <input asp-for="FirstName" name="FirstName" type="text" placeholder="First Name" required>
+                                <input asp-for="FirstName" name="FirstName" type="text" placeholder="First Name"
+                                    required>
                             </div>
-                        </div>
-                        <div class="lastbox">
                             <div class="input-box" id="lastname">
                                 <input asp-for="LastName" name="LastName" type="text" placeholder="Last Name" required>
                             </div>
-                        </div>
+                        
                     </div>
 
 
                     <div class="input-box">
                         <i class='bx bx-phone'></i>
-                        <input asp-for="Phone" type="tel" placeholder="Phone Number" required>
+                        <input asp-for="Phone" type="tel" placeholder="Phone Number" required pattern="[0-9]{3}[0-9]{3}[0-9]{4}" onchange="clearMsg('phone')">
                     </div>
-                    <div class="register-btn">
+                    <div class="wrong-submit" id="phone">This phone number is already in used</div>
+                    <div class="sign-btn">
                         <button type="submit">Register</button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="login-link">
+        <div class="sign-link">
             <hr>
             <p>already have account?
-                <a href="/login">login</a>
+                <a href="/auth/login">login</a>
             </p>
         </div>
     </div>
 </div>
+
+<script>
+
+    function clearMsg(id){
+        let obj = document.getElementById(id)
+        obj.style.display= "none";
+    };
+
+    let result = "@ViewBag.result";
+    let email = document.getElementById("email");
+    let phone = document.getElementById("phone");
+    if (result == "Email already exists."){
+        email.style.display = "flex";
+        email.value = "";
+        result = "";
+    }
+    else if (result == "Phone already exists."){
+        phone.style.display = "flex";
+        phone.value = "";
+        result = "";
+    }
+    
+</script>

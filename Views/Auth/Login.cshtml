@@ -2,19 +2,15 @@
 
 @{
     ViewData["Title"] = "Login";
+    var registrationSuccessMessage = TempData["RegistrationSuccessMessage"] as string;
 }
 
 @section CSS
 {
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    @* mail icon *@
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+    
 }
+
+
 
 <div class="main-container">
     <div class="img-container">
@@ -24,35 +20,66 @@
     <div class="wrapper">
         <div class="section-container">
             <div class="logo-container">
-                <img src="https://cdn.discordapp.com/attachments/1212717114238967838/1212717153686655006/tuna.png?ex=65f2d9dc&is=65e064dc&hm=986fc5efbc87b07f09d041abeb8bcd4841610843301f86c54d4dfbc3fe414319&" alt="TonaIcon">
+                <img src="https://cdn.discordapp.com/attachments/1212717114238967838/1212717153686655006/tuna.png?ex=65f2d9dc&is=65e064dc&hm=986fc5efbc87b07f09d041abeb8bcd4841610843301f86c54d4dfbc3fe414319&"
+                    alt="TonaIcon">
                 <h1>TONA</h1>
             </div>
             <p>Login</p>
+            <div class="register-success" id="success">
+                <i class='bx bxs-check-circle' style="color:#25bd59; padding-left:1.3rem; scale:180%"  ></i>
+                <p>@registrationSuccessMessage</p>
+            </div>
             <div class="form-container">
                 <form asp-controller="Auth" asp-action="Login">
                     <div class="input-box">
                         <i class='bx bx-envelope'></i>
-                        <input asp-for="Email" type="email" placeholder="Email" required>
+                        <input asp-for="Email" type="email" placeholder="Email" required onchange="clearMsg()">
                     </div>
                     <div class="input-box">
                         <i class='bx bx-lock-alt'></i>
-                        <input asp-for="Password" type="password" placeholder="Password" required>
+                        <input asp-for="Password" type="password" placeholder="Password" required onchange="clearMsg()">
 
                     </div>
-                    <div class="forgot-container">
-                        <a href="/login/forgot">Forgot Your password?</a>
+                    <div class="wrong-submit" id="wrong">
+                        Incorrect email or password
                     </div>
-                    <div class="login-btn">
+                    @* <div class="forgot-container">
+                    <a href="auth/login/forgot">Forgot Your password?</a>
+                    </div> *@
+                    <div class="sign-btn">
                         <button type="submit">Login</button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="register-link">
+        <div class="sign-link">
             <hr>
             <p>don't have an account?
-                <a href="/register">register</a>
+                <a href="/auth/register">register</a>
             </p>
         </div>
     </div>
 </div>
+
+<script>
+    if("@registrationSuccessMessage" != ""){
+        let success = document.getElementById("success");
+        console.log(success);
+        success.style.display = "flex";
+    }
+    function clearMsg(id){
+        let wrong = document.getElementById("wrong");
+        wrong.style.display= "none";
+    };
+
+    let result = "@ViewBag.login";
+    let wrong = document.getElementById("wrong");
+    
+    if (result == "wrong"){
+        wrong.style.display = "flex";
+        wrong.value = "";
+        result = "";
+    }
+
+
+</script>

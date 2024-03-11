@@ -1,0 +1,92 @@
+@section CSS {
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+}
+<div class="main">
+    <nav class="history-nav">
+        <ul class="menu">
+            <li class = "navBoxU"><a href="http://localhost:5066/History/upcoming">Upcoming</a></li>
+            <li><a href="http://localhost:5066/History/completed">Completed</a></li>
+        </ul>
+        <form action="#">
+            <div class="dropdown">
+                <button >Filter</button>
+                <div class="content">
+                    <a class ="" href = "">Confirmed</a>
+                    <a class ="" href = "">Pending</a>
+                    <a class ="" href = "">Rejected</a>
+                </div>
+            </div>
+                <input class="form-input" type="text" placeholder="Search">
+            <button type="submit" class="fa fa-search"></button>
+        </form>
+    </nav>
+        <div class="table-box">
+            <div class="table-head table-row">
+                <div class="table-cell first-cell tablew1">
+                    <p>Date</p>
+                </div>
+                <div class="table-cell tablew2">
+                    <p>Tag</p>
+                </div>
+                <div class="table-cell tablew3">
+                    <p>Description</p>
+                </div>
+                <div class="table-cell tablew2">
+                    <p>Status</p>
+                </div>
+                <div class="table-cell last-cell tablew2">
+                    <p>Location</p>
+                </div>   
+            </div>
+            <div class="table-body table-row">
+                <div class="table-cell date-cell tablew1">
+                    <p>2024-02-29</p>
+                </div>
+                <div id = "tag" class="table-cell tablew2 tag-cell love">
+                    <p>Love</p>
+                </div>
+                <div class="table-cell tablew3 description-cell">
+                    <p>หาสมาชิก ไปดูดาว(ภาค)เหนือ</p>
+                </div>
+                <div id = "status" class="table-cell tablew2 completed status-cell">
+                    <p>Confirmed</p>
+                </div>
+                <div class="table-cell last-cell tablew2">
+                    <a href="#">ECC-811</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var element = document.getElementById("tag");
+    if (tag == "Love"){
+        element.classList.add("love");
+    }
+    else if (tag == "Sport") {
+        element.classList.add("sport");
+    }
+    else if (tag == "Food") {
+        element.classList.add("food");
+    }
+    else if (tag == "Traval") {
+        element.classList.add("traval");
+    }
+    else if (tag == "Study") {
+        element.classList.add("study");
+    }
+
+    var elementS = document.getElementById("status");
+    if (status == "Completed"){
+        elementS.classList.add("completed");
+    }
+    else if (status == "Pending") {
+        elementS.classList.add("pending");
+    }
+    else if (status == "Rejected") {
+        element.classList.add("rejected");
+    }
+</script>
+    
+    
