@@ -65,13 +65,13 @@ form{
     margin: 5px;
     padding: 5px;
 }
-form input[type="text"]{
-    border: 1px solid #176B87;
-    border-radius: 10px;
+.form-input{
     outline: none;
     padding: 0.5rem;
     height: 40px;
     width: 150px;
+    border: 1px solid #176B87;
+    border-radius: 10px;
 }
 form button{
     margin-left :1px;
@@ -198,7 +198,15 @@ form button:hover{
 .last-cell{
     border-right: none;
 }
-a{
+nav a{
+    text-decoration: none;
+    color: black;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+}
+.table-box a{
     text-decoration: none;
     color: black;
 }
@@ -333,7 +341,7 @@ a{
     }
     .table-cell{
         display: flex;
-        padding: 4px 0;
+        padding: 10px;
         vertical-align: middle;
         text-align: left;
         border-right: none;
