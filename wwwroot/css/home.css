@@ -97,9 +97,12 @@
 .mini-profile .mini-content .text h4{
     font-size: 18px;
     font-weight: 400;
-    margin: 3px 0;
     letter-spacing: .5px;
     white-space: nowrap;
+}
+
+.mini-content .text p{
+  margin-top: -25px;
 }
 
 .menu{
@@ -381,12 +384,16 @@ header .current-date{
 /* .custom-rect:hover {
   border-color: #176B87; 
 } */
+
+.board-container {
+  display: flex;
+  justify-content: center; /* Centers items horizontally */
+  flex-wrap: wrap; /* Allows items to wrap to the next row */
+}
 .board-card{
   display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.dashcard{
+  align-content: center;
+  justify-content: space-between;
   background-color: #fff;
   margin-top: 30px;
   width: 679px;
@@ -394,11 +401,12 @@ header .current-date{
   border-radius: 30px;
   border: 2px solid white; 
   transition: border-color 0.3s ease;
+  padding: 20px;
 }
 
-.dashcard:hover {
+.board-card:hover {
   border-color: #176B87;
-  box-shadow: #878787; 
+  box-shadow: #333; 
 }
 
 .dashcard h2{
@@ -410,7 +418,6 @@ header .current-date{
 
 .dashacrd .projectTop {
   position: relative;
-  width: 100%;
   height: 40px;
   display: flex;
   justify-content: space-between;
@@ -429,42 +436,37 @@ header .current-date{
 
 .dashcard .projectProgress {
   position: relative;
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.dashcard  .task {
-  position: relative;
-  width: 100%;
+.task {
+  /* position: relative; */
   display: flex;
-  justify-content: space-between;
+  align-items: flex-end;
+  justify-content: flex-end;
   flex-direction: column;
-  margin: 10px 0;
 }
-.dashcard .task h2 {
-  color: #999;
-  font-size: 1em;
+.task h2 {
+  color: #333;
+  font-size: 18px;
 }
-.dashcard .task h2 bold {
-  color: #000;
+.task h2 bold {
+  color: #0E4C62;
 }
 
-.dashcard .due {
+.due {
   position: relative;
-  /* width: 100%;
-  height: 100%; */
   display: flex;
-  /* justify-content: flex-start; */
-  align-items: center;
+  justify-content: flex-end;
 }
-.dashcard .due h2 {
+.due h2 {
   padding: 0px 10px;
-  border: 2px solid #f5b5f5;
+  border: 2px solid #176B87;
   border-radius: 5px;
   font-size: 1.1em;
-  color: #f5b5f5;
+  color: #176B87;
 }
 
 .create-board-btn {
@@ -528,7 +530,6 @@ header .current-date{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 395px;
     max-height: 210px;
   }
 
@@ -548,8 +549,9 @@ header .current-date{
 
   .b-centerboard{
     background-color: #fff;
-    align-items: center;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .custom-rect .l-board-card h2{
