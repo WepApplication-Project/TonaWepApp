@@ -20,7 +20,6 @@
 
 @section Scripts {
     <script src="~/js/home.js" asp-append-version="true"></script>
-
 }
 
 <div class='homepage'>
@@ -28,20 +27,13 @@
         <div class='logo'>
             <a href='#'>
                 <img src="https://cdn.discordapp.com/attachments/1212717114238967838/1212717153686655006/tuna.png?ex=65f2d9dc&is=65e064dc&hm=986fc5efbc87b07f09d041abeb8bcd4841610843301f86c54d4dfbc3fe414319&"/>
-                <span>Tuna</span>
+                <span>Tona</span>
             </a>
         </div>
         <div class="menubar">
             <div class="menu">
                 <ul class="menu-link">
-                    <li class="nav=link">
-                        <a href="#">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <span class="nav-text">Find Group</span>
-                            
-                        </a>
-                    </li>
-                    <li class="nav=link">
+                    <li class="navlink">
                         <a href="/History/Upcoming">
                             <i class="fa-solid fa-clock-rotate-left"></i>
                             <span class="nav-text">History</span>
@@ -76,28 +68,45 @@
                 </label>
             </div>
         </div>
+        <div class="tag-bar">
+                <div class="tag-group">
+                    <button i class="fa-solid fa-heart">
+                        <span>Love</span> </i></button>
+                    <button i class='bx bx-bowl-rice ' ><span>Food</span></i></button>
+                    <button i class='bx bxs-briefcase-alt-2'><span>Travel</span></i></button>
+                    <button i class="fa-solid fa-dumbbell"><span>Sport</span></i></button>
+                    <button i class="fa-solid fa-school"><span>Study</span></i></button>
+                    <button i class="fa-solid fa-gamepad"><span>Game</span></i></button>
+                </div>
+        </div>
         <div class="board-container">
-            <div class="board-card">
-                <div class="dashcard">
-                    <div class="projectTop">
-                        <h2>Project Name<br><span>CreateName</span></h2>
-                    </div>
-                    <div class="projectProgress">
-                        <div class="process">
-                            <h2>Active</h2>
+            @foreach(var board in @Model.Boards)
+            {
+                @{
+                    string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
+                }
+                <a href="/Board/Detail/@(board.Id)" class="board-card">
+                    <div class="dashcard">
+                        <div class="projectTop">
+                            <h2>@board.Name<br><span>@board.Auther.FirstName @board.Auther.LastName</span></h2>
+                        </div>
+                        <div class="projectProgress">
+                            <div class="process">
+                                <h2>@(board.IsActive ? "Active" : "Inactive")</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="cardtrail">
-                    <div class="task">
-                        <h2>Task Done: <bold>35</bold> / 50</h2>
-                        <span class="line"></span>
+                    <div class="cardtrail">
+                        <div class="task">
+                            <h2>Task Done: <bold>@board.MemberList.Count</bold> / @board.MaxMember</h2>
+                            <span class="line"></span>
+                        </div>
+                        <div class="due">
+                            <h2>@formattedDueDate</h2>
+                        </div>
                     </div>
-                    <div class="due">
-                        <h2>Due Date: 25 August</h2>
-                    </div>
-                </div>
-            </div> 
+                </a>
+            }
         </div>    
     </div>
     <div class="c">

@@ -17,17 +17,17 @@
         <div class="col-3">
             <div class="max-member">
                 <label for="max_member">Max Members:</label>
-                <input asp-for="MaxMember" type="number" id="max_member" name="max_member" min="1" placeholder="Enter Number >1" required><br>
+                <input asp-for="MaxMember" type="number" id="max_member" name="MaxMember" min="1" placeholder="Enter Number >1" required><br>
             </div>
 
             <div class="start">
                 <label for="start_time">Start Time:</label>
-                <input asp-for="StartTime" type="datetime-local" id="start_time" name="start_time" onchange="validateTime()" required><br>
+                <input asp-for="StartTime" type="datetime-local" id="start_time" name="StartTime" onchange="validateTime()" required><br>
             </div>
 
             <div class="end">
                 <label for="end_time">End Time:</label>
-                <input asp-for="EndTime" type="datetime-local" id="end_time" name="end_time" required onchange="validateTime()"><br>
+                <input asp-for="EndTime" type="datetime-local" id="end_time" name="EndTime" required onchange="validateTime()"><br>
             </div>
         </div>
 
