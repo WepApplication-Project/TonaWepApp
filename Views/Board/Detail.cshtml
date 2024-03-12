@@ -1,6 +1,9 @@
 @model BoardAndUserModel
 
 @{
+    Layout = "_LayoutNavBar";
+}
+@{
     string formattedDueDate = @Model.Board.EndTime.ToString("dd MMMM yyyy");
 }
 
