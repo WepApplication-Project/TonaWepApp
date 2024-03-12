@@ -50,8 +50,8 @@ public class AuthController(AuthRepository authRepository) : Controller
         }
         else{
             ViewBag.login = "wrong";
+            return NotFound();
         }
-        return View();
     }
 
     public IActionResult Logout()
