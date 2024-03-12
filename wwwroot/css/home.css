@@ -538,11 +538,12 @@ header .current-date{
   justify-content: flex-end;
 }
 .due h2 {
+  font-weight: 350;
   padding: 0px 10px;
-  border: 2px solid #176B87;
+  border: 2px solid #FF0000;
   border-radius: 5px;
   font-size: 1.1em;
-  color: #176B87;
+  color: #FF0000;
 }
 
 .create-board-btn {
