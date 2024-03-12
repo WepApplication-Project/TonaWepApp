@@ -3,8 +3,35 @@
     flex-direction: row;
     font-family: "Kanit", sans-serif;
     height: 100vh;
-    max-height: max-content;
+    max-height: 100vh;
+
 }
+
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #176B87; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #176B87; 
+}
+
 .main-navbar{
     display: flex;
     flex-direction: column;
@@ -381,6 +408,13 @@ header .current-date{
 .b-centerboard{
     background-color: rgb(238, 245, 255);
     width: 55%;
+    max-height: max-content;
+}
+
+.board-container{
+
+  height: 80%;
+  overflow-y: auto;
 }
 .c{
     display: flex;
@@ -611,6 +645,10 @@ header .current-date{
 }
 
 
+
+
+
+
 @media screen and (max-width: 430px){
   .main-navbar{
     display: none;
@@ -662,6 +700,8 @@ header .current-date{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
+
   }
 
   .custom-rect .l-board-card h2{
