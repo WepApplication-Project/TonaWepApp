@@ -1,8 +1,6 @@
-using TonaWebApp.Models;
-
 namespace TonaWebApp.Models
 {
-    public class BoardCreateViewModel
+    public class BoardAndUserModel
     {
         public User User { get; set; } = null!;
 
