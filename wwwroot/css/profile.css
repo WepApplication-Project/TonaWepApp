@@ -14,20 +14,7 @@
     text-align: center;
 }
 
-.page-navbar{
-    display: flex;
-    background-color: rgb(255, 255, 255);
-}
-.nav-link {
-    color: #fff;
-    text-decoration: none;
-    padding: 14px 16px;
-    display: inline-block;
-}
 
-.nav-link:hover {
-    background-color: #777;
-}
 
 .page-sections {
     display: flex;
