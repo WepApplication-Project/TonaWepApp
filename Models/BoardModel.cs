@@ -10,13 +10,13 @@ namespace TonaWebApp.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
-        public string? Auther { get; set; } = null!;
+        public User? Auther { get; set; } = null!;
 
         public string Name { get; set; } = null!;
 
         public string Description { get; set; } = null!;
 
-        public int MaxMember { get; set; } = 0;
+        public int MaxMember { get; set; }
 
         public bool IsActive { get; set; } = true;
 

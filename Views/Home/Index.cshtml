@@ -20,7 +20,6 @@
 
 @section Scripts {
     <script src="~/js/home.js" asp-append-version="true"></script>
-
 }
 
 <div class='homepage'>
@@ -81,27 +80,33 @@
                 </div>
         </div>
         <div class="board-container">
-            <div class="board-card">
-                <div class="dashcard">
-                    <div class="projectTop">
-                        <h2>Project Name<br><span>CreateName</span></h2>
-                    </div>
-                    <div class="projectProgress">
-                        <div class="process">
-                            <h2>Active</h2>
+            @foreach(var board in @Model.Boards)
+            {
+                @{
+                    string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
+                }
+                <a href="/Board/Detail/@(board.Id)" class="board-card">
+                    <div class="dashcard">
+                        <div class="projectTop">
+                            <h2>@board.Name<br><span>@board.Auther.FirstName @board.Auther.LastName</span></h2>
+                        </div>
+                        <div class="projectProgress">
+                            <div class="process">
+                                <h2>@(board.IsActive ? "Active" : "Inactive")</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="cardtrail">
-                    <div class="task">
-                        <h2>Task Done: <bold>35</bold> / 50</h2>
-                        <span class="line"></span>
+                    <div class="cardtrail">
+                        <div class="task">
+                            <h2>Task Done: <bold>@board.MemberList.Count</bold> / @board.MaxMember</h2>
+                            <span class="line"></span>
+                        </div>
+                        <div class="due">
+                            <h2>@formattedDueDate</h2>
+                        </div>
                     </div>
-                    <div class="due">
-                        <h2>Due Date: 25 August</h2>
-                    </div>
-                </div>
-            </div> 
+                </a>
+            }
         </div>    
     </div>
     <div class="c">

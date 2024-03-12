@@ -439,6 +439,7 @@ header .current-date{
   border: 2px solid white; 
   transition: border-color 0.3s ease;
   padding: 20px;
+  text-decoration: none;
 }
 
 .board-card:hover {

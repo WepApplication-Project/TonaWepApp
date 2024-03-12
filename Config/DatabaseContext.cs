@@ -42,7 +42,7 @@ public class MongoDBContext
         {
             var users = new List<Board>{
                 new() {
-                    Auther = "John Doe",
+                    Auther = new User { FirstName = "User1", LastName = "Example" , Email = "user1@example.com", Password = "" },
                     Name = "Project A",
                     Description = "Description for Project A",
                     MaxMember = 10,
@@ -57,7 +57,7 @@ public class MongoDBContext
                 },
                 new()
                 {
-                    Auther = "Jane Smith",
+                    Auther = new User { FirstName = "User1", LastName = "Example" , Email = "user1@example.com", Password = "" },
                     Name = "Project B",
                     Description = "Description for Project B",
                     MaxMember = 15,

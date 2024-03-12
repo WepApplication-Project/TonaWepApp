@@ -2,12 +2,15 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
+using TonaWebApp.Repositories;
 
 namespace TonaWebApp.Services;
 
-public class BoardCronJob(ILogger<BoardCronJob> logger) : BackgroundService
+public class BoardCronJob(ILogger<BoardCronJob> logger, BoardRepository boardRepository) : BackgroundService
 {
     private readonly ILogger<BoardCronJob> _logger = logger;
+
+    private readonly BoardRepository _boardRepository = boardRepository;
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
