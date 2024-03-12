@@ -77,27 +77,30 @@
             </div>
         </div>
         <div class="board-container">
-            <div class="board-card">
-                <div class="dashcard">
-                    <div class="projectTop">
-                        <h2>Project Name<br><span>CreateName</span></h2>
-                    </div>
-                    <div class="projectProgress">
-                        <div class="process">
-                            <h2>Active</h2>
+            @foreach(var board in @Model.Boards)
+            {
+                <div class="board-card">
+                    <div class="dashcard">
+                        <div class="projectTop">
+                            <h2>@board.Name<br><span>CreateName</span></h2>
+                        </div>
+                        <div class="projectProgress">
+                            <div class="process">
+                                <h2>@(board.IsActive ? "Active" : "Inactive")</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="cardtrail">
-                    <div class="task">
-                        <h2>Task Done: <bold>35</bold> / 50</h2>
-                        <span class="line"></span>
+                    <div class="cardtrail">
+                        <div class="task">
+                            <h2>Task Done: <bold>@board.MemberList.Count</bold> / @board.MaxMember</h2>
+                            <span class="line"></span>
+                        </div>
+                        <div class="due">
+                            <h2>Due Date: 25 August</h2>
+                        </div>
                     </div>
-                    <div class="due">
-                        <h2>Due Date: 25 August</h2>
-                    </div>
-                </div>
-            </div> 
+                </div> 
+            } 
         </div>    
     </div>
     <div class="c">

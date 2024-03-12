@@ -16,7 +16,7 @@ namespace TonaWebApp.Models
 
         public string Description { get; set; } = null!;
 
-        public int MaxMember { get; set; } = 0;
+        public int MaxMember { get; set; }
 
         public bool IsActive { get; set; } = true;
 
