@@ -17,17 +17,17 @@
         <div class="col-3">
             <div class="max-member">
                 <label for="max_member">Max Members:</label>
-                <input asp-for="MaxMember" type="number" id="max_member" name="max_member" min="1" placeholder="1" required><br>
+                <input asp-for="MaxMember" type="number" id="max_member" name="max_member" min="1" placeholder="Enter Number >1" required><br>
             </div>
 
             <div class="start">
                 <label for="start_time">Start Time:</label>
-                <input asp-for="StartTime" type="datetime-local" id="start_time" name="start_time" required><br>
+                <input asp-for="StartTime" type="datetime-local" id="start_time" name="start_time" onchange="validateTime()" required><br>
             </div>
 
             <div class="end">
                 <label for="end_time">End Time:</label>
-                <input asp-for="EndTime" type="datetime-local" id="end_time" name="end_time" required><br>
+                <input asp-for="EndTime" type="datetime-local" id="end_time" name="end_time" required onchange="validateTime()"><br>
             </div>
         </div>
 
@@ -48,3 +48,36 @@
         <button class="create-btn" type="submit">Create Post</button>
     </form>
 </div>
+
+<script>
+  function validateTime() {
+      const startTime = document.getElementById("start_time").value;
+      const endTime = document.getElementById("end_time").value;
+
+      // Get current time
+      const currentDate = new Date();
+
+      // Convert to Date objects for comparison
+      const startDate = new Date(startTime);
+      const endDate = new Date(endTime);
+
+      // Check if times are greater than current time
+      if (startDate <= currentDate || endDate <= currentDate) {
+        let errorMessage = "";
+        if (startDate <= currentDate) {
+          errorMessage += "Start Time must be after the current time. ";
+        }
+        if (endDate <= currentDate) {
+          errorMessage += "End Time must be after the current time.";
+        }
+        alert(errorMessage);
+        event.preventDefault();
+
+        // Optionally clear input values and set focus on start_time
+        document.getElementById("start_time").value = "";
+        document.getElementById("end_time").value = "";
+        document.getElementById("start_time").focus();
+      }
+    }
+</script>
+

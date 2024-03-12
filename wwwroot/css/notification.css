@@ -5,3 +5,16 @@
     width: 100%;
     
 }
+
+.noti-card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10;
+}
+
+.noti-title{
+    font-size: x-large;
+}
+.noti-subtitle{
+
+}
