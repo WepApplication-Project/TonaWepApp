@@ -1,3 +1,8 @@
+@model List<Board>
+@{
+    Layout = "_LayoutNavBar";
+}
+
 @section CSS {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,15 +44,19 @@
                     <p>Location</p>
                 </div>   
             </div>
-            <div class="table-body table-row">
+            @foreach(var board in @Model)
+            {
+                string formattedDueDate = board.EndTime.ToString("dd MMMM yyyy");
+
+                <div class="table-body table-row">
                 <div class="table-cell date-cell tablew1">
-                    <p>2024-02-29</p>
+                    <p>@formattedDueDate</p>
                 </div>
                 <div id = "tag" class="table-cell tablew2 tag-cell love">
-                    <p>Love</p>
+                    <p>@board.Tag</p>
                 </div>
                 <div class="table-cell tablew3 description-cell">
-                    <p>หาสมาชิก ไปดูดาว(ภาค)เหนือ</p>
+                    <p>@board.Name</p>
                 </div>
                 <div id = "status" class="table-cell tablew2 completed status-cell">
                     <p>Confirmed</p>
@@ -56,6 +65,7 @@
                     <a href="#">ECC-811</a>
                 </div>
             </div>
+            }
         </div>
     </div>
 </div>

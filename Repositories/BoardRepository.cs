@@ -30,6 +30,30 @@ public class BoardRepository(MongoDBContext context)
         return await _boards.Find(filter).FirstOrDefaultAsync();
     }
 
+    public async Task<List<Board>> GetBoardHistoryOpenAsync(User user)
+    {
+        var allBoards = await GetAllBoardAsync();
+
+        var filteredBoards = allBoards.Where(board =>
+            board.IsActive &&
+            board.MemberList.Any(member => member.Id == user.Id) // MemberList contains the user
+        ).ToList();
+
+        return filteredBoards;
+    }
+
+    public async Task<List<Board>> GetBoardHistoryCloseAsync(User user)
+    {
+        var allBoards = await GetAllBoardAsync();
+
+        var filteredBoards = allBoards.Where(board =>
+            !board.IsActive &&
+            board.MemberList.Any(member => member.Id == user.Id) // MemberList contains the user
+        ).ToList();
+
+        return filteredBoards;
+    }
+
     public async Task CreateBoardAsync(Board board)
     {
         await _boards.InsertOneAsync(board);
@@ -68,6 +92,18 @@ public class BoardRepository(MongoDBContext context)
         }
     }
 
+
+    public async Task OpenBoardStatus(Board board)
+    {
+        if (board == null)
+        {
+            return;
+        }
+
+        board.IsActive = true;
+
+        await UpdateBoardAsync(board);
+    }
 
     public async Task CloseBoardStatus(Board board)
     {

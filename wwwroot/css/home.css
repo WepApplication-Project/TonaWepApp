@@ -17,6 +17,19 @@
     flex-direction: column;  
 }
 
+.menu-link{
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  flex-direction: column;
+  
+}
+
+.menubar{
+  display: flex;
+  
+  
+}
 .navlink i{
   margin-right: 0.5rem;
 }
@@ -78,6 +91,11 @@
     font-size: 18px;
     margin-bottom: 20px;
     margin-left: 20px;
+    text-decoration: none;
+}
+
+.mini-profile:hover{
+  color: #176B87;
 }
 
 .mini-profile .photo img{
@@ -98,15 +116,26 @@
     width: calc(100%-100px);
 }
 
+.mini-content .text{
+  text-decoration: none;
+}
+
+
 .mini-profile .mini-content .text h4{
     font-size: 18px;
     font-weight: 400;
+    color: #333;
     letter-spacing: .5px;
     white-space: nowrap;
 }
 
+
+
 .mini-content .text p{
+  color: #176B87;
+  font-size: 18px;
   margin-top: -25px;
+  
 }
 
 .menu{
@@ -510,12 +539,14 @@ header .current-date{
   font-size: 0.8em;
 }
 
-.dashcard .projectProgress {
-  position: relative;
+.cardtrail .projectProgress {
+  /* position: relative; */
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  justify-content: flex-end;
+  margin-top: -15px;
 }
+
+
 
 .task {
   /* position: relative; */
@@ -523,12 +554,14 @@ header .current-date{
   align-items: flex-end;
   justify-content: flex-end;
   flex-direction: column;
+  margin-top: -20px;
 }
 .task h2 {
   color: #333;
   font-size: 18px;
 }
 .task h2 bold {
+  font-size: 22px;
   color: #0E4C62;
 }
 
@@ -556,7 +589,7 @@ header .current-date{
   border-radius: 5px;
   cursor: pointer;
   display: flex;
-  margin-left: 25%;
+  margin-left: -35px;
   margin-top: 20%;
   align-items: center;
   justify-content: center;

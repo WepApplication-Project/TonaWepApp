@@ -1,0 +1,139 @@
+﻿
+/* navbar */
+.main-nav {
+    background: white;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    padding: 5px;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0px rgba(0,0,50,0.3);
+
+}
+.main-nav a{
+    text-decoration: none;
+}
+.tona-logo{
+    display: flex;
+    align-items: center;
+    margin : 10px;
+}
+.nav-text-tona{
+    font-size: 50px;
+    color : #176B87
+}
+.logo{
+    height: 75px;
+    width : 75px;
+}
+.logo-menu {
+    /* border: 1px solid black; */
+    height: 50px;
+    width : 40px;
+    margin-top: 20px;
+}
+.box-container{
+    list-style: none;
+    margin: 5px;
+}
+.nav-text{
+    font-size: 20px;
+    color: #176B87;
+    margin:0 auto;
+    list-style: none;
+}
+.nav-box-inline{
+    display: inline;
+}
+
+.main-nav nav ul {
+    display: flex;
+}
+.main-nav nav ul li a {
+    display: inline-block;
+    padding: 5px 0;
+    margin: 0 10px;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    transition: 0.2s;
+    text-decoration: none;
+    list-style: none;
+}
+.main-nav nav ul li a:hover,
+.main-nav nav ul li a.active {
+    border-bottom-color: #176B87;
+    transform:translateY(10px)
+}
+.hamburger {
+    cursor: pointer;
+    display: none;
+}
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background: #000;
+}
+/* Notification */
+.countNum{
+    border-radius: 2px;
+    color: white;
+    background-color: red;
+    position: absolute;
+    padding: 1px;
+    top:10px;
+    right: -2px;
+    /* transform: ; */
+    font-size: 0.4rem;
+}
+@media only screen and (max-width: 920px) {
+    .main-nav {
+        padding: 5px 5px;
+    }
+    .box-container{
+        z-index: 3000;
+        background-color: white;
+        margin-bottom: 20px;
+        padding: 0;
+        font-family: "futura md bt";
+        text-decoration: none;
+        list-style: none;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    /* .box-container a {
+        padding-left: 20px;
+    } */
+    .hamburger {
+        display: block;
+    }
+    .main-nav nav {
+        position: absolute;
+        width: 80%;
+        left: -100%;
+        top: 100px;
+        width: 100%;
+        padding-left: 0px;
+        transition: 0.3s;
+    }
+    .main-nav #nav_check:checked ~ nav {
+        left: 0;
+    }
+    .main-nav nav ul {
+        display: block;
+    }
+    .main-nav nav ul li a {
+        margin: 5px 0;
+        padding-left: 5px;
+    }
+    .main-nav nav ul li a:hover,
+    .main-nav nav ul li a.active {
+    border-bottom-color: #176B87;
+    transform:translateX(10px)
+}
+}
