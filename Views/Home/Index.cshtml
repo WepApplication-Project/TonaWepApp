@@ -42,21 +42,18 @@
                 </ul>
             </div>
         </div>
-        <div class="mini-profile">
-            <div class="photo">
-                <a href="/User/Profile">
-                    <img src="https://www.ce.kmitl.ac.th/api/faculty/download/Charoen">
-                <span>Tuna</span>
-                </a>
-               
-            </div>
-            <div class="mini-content">
-                <div class="text">
-                    <h4>@Model.User.FirstName @Model.User.LastName</h4>
-                    <p>want party</p>
+            <a href="/User/Profile" class="mini-profile">
+                <div class="photo">
+                        <img src="https://www.ce.kmitl.ac.th/api/faculty/download/Charoen">
+                    <span>Tuna</span>                
                 </div>
-            </div>
-        </div>
+                <div class="mini-content">
+                    <div class="text">
+                        <h4>@Model.User.FirstName @Model.User.LastName</h4>
+                        <p>want party</p>
+                    </div>
+                </div>
+            </a>
 
     </div>
     <div class="b-centerboard">
@@ -127,6 +124,7 @@
                                 <label for="game">Game</label>
                             </div>
                         </div>
+
                     </div>
                 </div>
         </div>
@@ -134,20 +132,21 @@
             @foreach(var board in @Model.Boards)
             {
                 
-                string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
+                    string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
                 
                 <a href="/Board/Detail/@(board.Id)" class="board-card">
                     <div class="dashcard">
                         <div class="projectTop">
                             <h2>@board.Name<br><span>@board.Auther.FirstName @board.Auther.LastName</span></h2>
                         </div>
+                        
+                    </div>
+                    <div class="cardtrail">
                         <div class="projectProgress">
                             <div class="process">
                                 <h2>@(board.IsActive ? "Active" : "Inactive")</h2>
                             </div>
                         </div>
-                    </div>
-                    <div class="cardtrail">
                         <div class="task">
                             <h2>Task Done: <bold>@board.MemberList.Count</bold> / @board.MaxMember</h2>
                             <span class="line"></span>
