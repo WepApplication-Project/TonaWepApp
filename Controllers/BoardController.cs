@@ -28,6 +28,12 @@ public class BoardController(BoardRepository boardRepository) : Controller
         return View();
     }
 
+    [HttpGet]
+    public IActionResult Edit()
+    {
+        return View();
+    }
+
     [HttpPost]
     public async Task<IActionResult> CreateBoard(Board board)
     {
