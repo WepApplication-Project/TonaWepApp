@@ -59,10 +59,15 @@ public class BoardRepository(MongoDBContext context)
             return;
         }
 
-        board.RemoveMember(user);
+        int index = board.MemberList.FindIndex(u => u.Id == user.Id);
 
-        await UpdateBoardAsync(board);
+        if (index != -1)
+        {
+            board.MemberList.RemoveAt(index);
+            await UpdateBoardAsync(board);
+        }
     }
+
 
     public async Task CloseBoardStatus(Board board)
     {

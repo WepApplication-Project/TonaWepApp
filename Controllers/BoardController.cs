@@ -114,7 +114,7 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
         Console.WriteLine("board Id : " + id);
         if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(email))
         {
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Detail", "Board", new { Id = id });
         }
         var user = await _authRepository.GetUserByEmailAsync(email);
         var board = await _boardRepository.GetBoardByIdAsync(id);
@@ -124,35 +124,39 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
         }
         await _boardRepository.AddUserToBoard(user, board);
 
-        return RedirectToAction("Index", "Home");
+        return RedirectToAction("Detail", "Board", new { Id = id });
     }
 
     [HttpPost]
-    public async Task<IActionResult> SignOutToBoard(User user, string id)
+    public async Task<IActionResult> SignOutToBoard(string email, string id)
     {
-        if (id == null || user == null)
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(id))
         {
-            return View();
+            return RedirectToAction("Detail", "Board", new { Id = id });
         }
 
+        var user = await _authRepository.GetUserByEmailAsync(email);
         var board = await _boardRepository.GetBoardByIdAsync(id);
-        if (board == null)
+        if (board == null || user == null)
         {
             return NotFound();
         }
-
         await _boardRepository.DeleteUserInBoard(user, board);
 
         return RedirectToAction("Index", "Home");
     }
 
     [HttpPost]
-    public async Task<IActionResult> CloseBoard(Board board)
+    public async Task<IActionResult> CloseBoard(string id)
     {
-        if(board != null)
+        if(!string.IsNullOrEmpty(id))
         {
-            await _boardRepository.CloseBoardStatus(board);
+            var board = await _boardRepository.GetBoardByIdAsync(id);
+            if(board != null)
+            {
+                await _boardRepository.CloseBoardStatus(board);
+            }
         }
-        return RedirectToAction("Detail", "Board");
+        return RedirectToAction("Detail", "Board", new { Id = id });
     }
 }

@@ -45,18 +45,18 @@
             {
                 if (Model.Board.MemberList.Any(u => u.Email == Model.User.Email))
                 {
-                    <form asp-controller="Board" asp-action="SignOutToBoard" method="post" class="button-board">
+                    <form asp-controller="Board" asp-action="SignOutToBoard" method="post" >
                         <input type="hidden" name="email" value="@Model.User.Email" />
                         <input type="hidden" name="id" value="@Model.Board.Id" />
-                        <button type="submit">ลงชื่อออกจากบอร์ด</button>
+                        <button class="button-board" type="submit">ลงชื่อออกจากบอร์ด</button>
                     </form>
                 }
                 else
                 {
-                    <form asp-controller="Board" asp-action="SignInToBoard" method="post" class="button-board">
+                    <form asp-controller="Board" asp-action="SignInToBoard" method="post">
                         <input name="email" type="hidden" value="@Model.User.Email" />
                         <input name="id" type="hidden" value="@Model.Board.Id" />
-                        <button type="submit">ลงชื่อในบอร์ด</button>
+                        <button class="button-board" type="submit">ลงชื่อในบอร์ด</button>
                     </form>
                 }
             }
