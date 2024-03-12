@@ -13,10 +13,13 @@ $(document).ready(function() {
                 Password: password
             },
             success: function(response) {
-                window.location.href = '/Home/Index';
+                    console.log("pass");
+                    window.location.href = '/Home/Index';
             },
             error: function(xhr, status, error) {
-                $('#message').html('Login failed. Please try again.');
+                var wrong = document.getElementById("wrong");
+                wrong.style.display = 'flex';
+                $('#wrong').html('Login failed. Please try again.');
             }
         });
     });
