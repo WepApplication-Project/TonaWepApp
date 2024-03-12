@@ -23,7 +23,7 @@
     box-shadow: 0 1px 4px 0px rgba(0,0,50,0.3);
 }
 /* nav : Upcoming + Completed */
-.menu{
+.history-menu{
     display: flex;
     list-style: none;
     padding:0 ;
@@ -32,7 +32,7 @@
     padding: 5px;
     box-sizing: border-box;
 }
-.menu li{
+.history-menu li{
     color :black;
     font-size: 2rem;
     font-weight: 450;
@@ -41,7 +41,7 @@
     transition-property: transform, border-radius, border;
     transition-duration: 0.2s;
 }
-.menu li:hover{
+.history-menu li:hover{
     transform : scale(1.1,1.1);
     transform-origin: center top; 
     border: 1px #176B87 solid;
@@ -282,11 +282,11 @@ form button:hover{
         height : auto;
         padding: 2rem 0;
     }
-    .menu{
+    .history-menu{
         flex-direction: column;
         width: 100%;
     }
-    .menu li {
+    .history-menu li {
         margin: 1rem;
         margin-left: 20px;
     }
