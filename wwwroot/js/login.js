@@ -16,7 +16,9 @@ $(document).ready(function() {
                 window.location.href = '/Home/Index';
             },
             error: function(xhr, status, error) {
-                $('#message').html('Login failed. Please try again.');
+                let wrong = document.getElementById("wrong");
+                wrong.style.display = "flex";
+                $('#wrong').html('Incorrect email or password');
             }
         });
     });
