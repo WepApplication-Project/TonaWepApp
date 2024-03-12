@@ -1,37 +1,65 @@
-@model Board
+@model BoardAndUserModel
+
+@{
+    string formattedDueDate = @Model.Board.EndTime.ToString("dd MMMM yyyy");
+}
 
 <div>
     <div class="detail-box">
         <div class="board-header">
             <div class="f-start">
                 <div class="board-title">
-                    <h3>@Model.Name</h3>
+                    <h1>@Model.Board.Name</h1>
                     <div class="board-tag">
-                        งานกลุ่ม
+                        @Model.Board.Tag
                     </div>
                 </div>
                 <div class="board-status">
-                    เปิดรับ
+                    @(Model.Board.IsActive ? "เปิดรับ" : "ปิดรับ")
                 </div>
             </div>
             <div class="board-tail">
-                <div class="avatar"><img src="https://hips.hearstapps.com/hmg-prod/images/beautiful-smooth-haired-red-cat-lies-on-the-sofa-royalty-free-image-1678488026.jpg?crop=1xw:0.84415xh;center,top" width="200"/></div>
-                <p><br>create by @Model.Auther</p>
+                <div class="avatar"><img
+                        src="https://hips.hearstapps.com/hmg-prod/images/beautiful-smooth-haired-red-cat-lies-on-the-sofa-royalty-free-image-1678488026.jpg?crop=1xw:0.84415xh;center,top"
+                        width="200" /></div>
+                <p><br>create by @Model.Board.Auther!.FirstName @Model.Board.Auther.LastName</p>
             </div>
         </div>
         <div class="horizontal-line"></div>
-        <div>
-            <p>@Model.Description</p>
+        <div class="board-detail">
+            <p>@Model.Board.Description</p>
             <h4>ประกาศจะหมดอายุวันที่</h4>
-            <p>12 September 2026</p>
+            <p>@formattedDueDate</p>
             <h4>ข้อกำหนดเพิ่มเติม</h4>
             <p></p>
         </div>
-        <div class="f-between">
-            <p>จำนวนคนที่รับ 4/5</p>
-            <div class="button">
-                ลงชื่อในบอร์ด
-            </div>
+        <div class="f-between row-center">
+            <p>จำนวนคนที่รับ @Model.Board.MemberList.Count / @Model.Board.MaxMember</p>
+            @if (Model.Board.Auther.Email == Model.User.Email)
+            {
+                <form asp-controller="Board" asp-action="CloseBoard" method="post" class="button-board">
+                    ปิดประกาศ
+                </form>
+            }
+            else
+            {
+                if (Model.Board.MemberList.Any(u => u.Email == Model.User.Email))
+                {
+                    <form asp-controller="Board" asp-action="SignOutToBoard" method="post" class="button-board">
+                        <input type="hidden" name="email" value="@Model.User.Email" />
+                        <input type="hidden" name="id" value="@Model.Board.Id" />
+                        <button type="submit">ลงชื่อออกจากบอร์ด</button>
+                    </form>
+                }
+                else
+                {
+                    <form asp-controller="Board" asp-action="SignInToBoard" method="post" class="button-board">
+                        <input name="email" type="hidden" value="@Model.User.Email" />
+                        <input name="id" type="hidden" value="@Model.Board.Id" />
+                        <button type="submit">ลงชื่อในบอร์ด</button>
+                    </form>
+                }
+            }
         </div>
     </div>
 </div>

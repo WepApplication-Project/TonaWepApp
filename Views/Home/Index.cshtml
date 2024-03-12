@@ -78,9 +78,9 @@
         <div class="board-container">
             @foreach(var board in @Model.Boards)
             {
-                @{
-                    string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
-                }
+                
+                string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
+                
                 <a href="/Board/Detail/@(board.Id)" class="board-card">
                     <div class="dashcard">
                         <div class="projectTop">
