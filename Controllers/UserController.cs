@@ -12,6 +12,11 @@ public class UserController : Controller
         return View();
     }
 
+    public ActionResult EditProfile()
+    {
+        return View();
+    }
+
     public ActionResult Details(string id)
     {
         return View();

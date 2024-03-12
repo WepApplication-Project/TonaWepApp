@@ -1,0 +1,87 @@
+@model TonaWebApp.Models.User
+
+<div class="page-container">
+
+    <!-- Your existing navigation and header -->
+      <div class="page-navbar">
+        <div class='logo'>
+            <a href='/Home/Index'>
+                <img src="https://cdn.discordapp.com/attachments/1212717114238967838/1212717153686655006/tuna.png?ex=65f2d9dc&is=65e064dc&hm=986fc5efbc87b07f09d041abeb8bcd4841610843301f86c54d4dfbc3fe414319&"/>
+                <span>Tuna</span>
+            </a>
+        </div>
+        <div class="menubar">
+            <div class="menu">
+                <ul class="menu-link">
+                    <li class="nav=link">
+                        <a href="/History/Upcoming">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            <span class="nav-text">History</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mini-profile">
+            <div class="photo">
+                <a href='/User/Profile'>
+                    <img src="https://www.ce.kmitl.ac.th/api/faculty/download/Charoen">
+                <span>Tuna</span>
+                </a>
+               
+            </div>
+            <div class="mini-content">
+                <div class="text">
+                    <h4>Dr.Charoen</h4>
+                    <p>want party</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="page-sections">
+        <div class="profile-section">
+                    
+            <div class="edit-profile-container">
+    <div class="edit-profile-section">
+        <div class="edit-profile-card">
+            <h2>Edit Profile</h2>
+
+            <form asp-action="EditProfile" method="post">
+                <div class="edit-form-group">
+                    <label class="edit-label" for="FirstName">First Name</label>
+                    <input class="edit-input" type="text" id="FirstName" name="FirstName" value="John" required>
+                </div>
+
+                <div class="edit-form-group">
+                    <label class="edit-label" for="LastName">Last Name</label>
+                    <input class="edit-input" type="text" id="LastName" name="LastName" value="Doe" required>
+                </div>
+
+                <div class="edit-form-group">
+                    <label class="edit-label" for="Phone">Phone</label>
+                    <input class="edit-input" type="tel" id="Phone" name="Phone" value="123-456-7890" required>
+                </div>
+
+                <div class="edit-form-group">
+                    <label class="edit-label" for="Email">Email</label>
+                    <input class="edit-input" type="email" id="Email" name="Email" value="john.doe@example.com" required>
+                </div>
+
+                <!-- Add more fields as needed -->
+
+                <div class="edit-form-group">
+                    <button class="edit-button" type="submit">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+        </div>
+
+        <!-- The rest of your sections -->
+
+    </div>
+</div>
