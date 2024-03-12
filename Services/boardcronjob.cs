@@ -14,7 +14,7 @@ public class BoardCronJob(ILogger<BoardCronJob> logger) : BackgroundService
         while (!stoppingToken.IsCancellationRequested)
         {
             _logger.LogInformation("Cronjob executed at: {time}", DateTimeOffset.Now);
-            await Task.Delay(TimeSpan.FromHours(1), stoppingToken);
+            await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
         }
     }
 }
