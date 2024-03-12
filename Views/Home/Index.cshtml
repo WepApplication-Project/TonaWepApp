@@ -33,14 +33,7 @@
         <div class="menubar">
             <div class="menu">
                 <ul class="menu-link">
-                    <li class="nav=link">
-                        <a href="#">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <span class="nav-text">Find Group</span>
-                            
-                        </a>
-                    </li>
-                    <li class="nav=link">
+                    <li class="navlink">
                         <a href="/History/Upcoming">
                             <i class="fa-solid fa-clock-rotate-left"></i>
                             <span class="nav-text">History</span>
@@ -74,6 +67,17 @@
                     <i class="fa fa-search"></i>
                 </label>
             </div>
+        </div>
+        <div class="tag-bar">
+                <div class="tag-group">
+                    <button i class="fa-solid fa-heart">
+                        <span>Love</span> </i></button>
+                    <button i class='bx bx-bowl-rice' ><span>Food</span></i></button>
+                    <button i class='bx bxs-briefcase-alt-2'><span>Travel</span></i></button>
+                    <button i class="fa-solid fa-dumbbell"><span>Sport</span></i></button>
+                    <button i class="fa-solid fa-school"><span>Study</span></i></button>
+                    <button i class="fa-solid fa-gamepad"><span>Game</span></i></button>
+                </div>
         </div>
         <div class="board-container">
             @foreach(var board in @Model.Boards)

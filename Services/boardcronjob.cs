@@ -17,7 +17,6 @@ public class BoardCronJob(ILogger<BoardCronJob> logger, BoardRepository boardRep
         while (!stoppingToken.IsCancellationRequested)
         {
             _logger.LogInformation("Cronjob executed at: {time}", DateTimeOffset.Now);
-            // var boardList = await _boardRepository.GetAllBoardAsync();
             await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
         }
     }
