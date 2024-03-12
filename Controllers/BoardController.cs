@@ -147,6 +147,20 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
     }
 
     [HttpPost]
+    public async Task<IActionResult> OpenBoard(string id)
+    {
+        if(!string.IsNullOrEmpty(id))
+        {
+            var board = await _boardRepository.GetBoardByIdAsync(id);
+            if(board != null)
+            {
+                await _boardRepository.OpenBoardStatus(board);
+            }
+        }
+        return RedirectToAction("Detail", "Board", new { Id = id });
+    }
+
+    [HttpPost]
     public async Task<IActionResult> CloseBoard(string id)
     {
         if(!string.IsNullOrEmpty(id))

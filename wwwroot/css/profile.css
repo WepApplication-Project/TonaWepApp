@@ -182,6 +182,13 @@
     cursor: pointer;
 }
 
+
+.edit-help-text {
+    font-size: 14px;
+    color: #888;
+    margin-top: 5px;
+}
+
 .edit-button:hover {
     background-color: #0056b3;
 }
