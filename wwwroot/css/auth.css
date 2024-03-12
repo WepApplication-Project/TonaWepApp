@@ -6,7 +6,7 @@
 }
 
 
-.wrapper {
+.auth-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -277,7 +277,7 @@
     }
 
 
-    .wrapper {
+    .auth-wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
