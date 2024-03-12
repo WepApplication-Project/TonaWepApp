@@ -1,0 +1,395 @@
+.homepage{   
+    display: flex;
+    flex-direction: row;
+    font-family: "Kanit", sans-serif;
+    height: 100vh;
+    max-height: max-content;
+}
+.navbar{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 20%;
+}
+.menu{
+    display: flex;
+    flex-direction: column;  
+}
+/* .mainboard{
+    width: 55%;
+    background-color: rgb(238, 245, 255);
+    position: absolute;
+    left: 370px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+} */
+
+.rightmain{
+    background-color: #176B87;
+}
+
+.menu .i{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    background-color: #EEF5FF;
+    border-radius: 30px;
+    border: 2px solid #176B87;
+    width: 274px;
+    height: 118px;
+    font-size: 18px;
+}
+
+.profile .photo img{
+    width: 100%;
+}
+.profile .photo{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 5%;
+}
+
+.profile .content{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100%-100px);
+}
+
+.profile .content .text h4{
+    font-size: 18px;
+    font-weight: 400;
+    margin: 3px 0;
+    letter-spacing: .5px;
+    white-space: nowrap;
+}
+
+.menu{
+    display: flex;
+    align-items: flex-start;
+}
+.menubar li{  
+    height: 50px;
+    width: 200px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    
+}
+
+.menubar li a{
+    color: black;
+    font-size: 32px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.box{
+    margin-top: 10px;
+    margin-left: 150px;
+    max-width: 679px;
+    width: 100%;
+
+
+}
+
+.box .searchbox{
+    position: relative;
+    height: 55px;
+    max-width: 679px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbox input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    background-color: white;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    padding-left: 20px;
+    
+
+}
+
+.searchbox .icon{
+    position: absolute;
+    right: -10px;
+    top: 0;
+    width: 50px;
+    background: #176B87;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    line-height: 50px;
+    border-radius: 0 30px 30px 0;
+
+}
+
+.dropdownbar{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper{
+  width: 345px;
+  height: 415px;
+  background: #B4D4FF;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px #B4D4FF;
+
+}
+.wrapper header{
+  display: flex;
+  align-items: center;
+  padding: 20px 30px 30px;
+  justify-content: space-between;
+}
+header .icons{
+  display: flex;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+}
+header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+.calendar{
+  padding: 0px;
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+
+.calendar li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 10px;
+}
+.days li.inactive{
+  color: #aaa;
+}
+.days li.active{
+  color: #fff;
+}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active::before{
+  background: #176B87;
+}
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
+}
+
+.a{
+    /* background-color: #176B87; */
+    width: 25%;
+}
+.b{
+    background-color: rgb(238, 245, 255);
+    width: 55%;
+}
+.c{
+    display: flex;
+    margin-top: 120px;
+    justify-content: center;
+    background-color: white;
+    width: 30%;
+}
+
+.dropdownbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.dropmenubar {
+  position: absolute;
+  top: 10;
+  margin-left: 600px;
+}
+
+
+.text-dbar p{
+    margin-right: 120px;
+}
+
+.select-menu{
+  width: 380px;
+  margin: 140px auto;
+}
+.select-menu .select-btn{
+  display: flex;
+  height: 55px;
+  background: #fff;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 8px;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.select-btn i{
+  font-size: 25px;
+  transition: 0.3s;
+}
+.select-menu.active .select-btn i{
+  transform: rotate(-180deg);
+}
+.select-menu .options{
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 0 3px rgba(0,0,0,0.1);
+  display: none;
+}
+.select-menu.active .options{
+  display: block;
+}
+.options .option{
+  display: flex;
+  height: 55px;
+  cursor: pointer;
+  padding: 0 16px;
+  border-radius: 8px;
+  align-items: center;
+  background: #fff;
+}
+.options .option:hover{
+  background: #F2F2F2;
+}
+.option i{
+  font-size: 25px;
+  margin-right: 12px;
+}
+.option .option-text{
+  font-size: 18px;
+  color: #333;
+}
+
+.custom-rect {
+  width: 679px;
+  height: 153px;
+  background-color: white;
+  border-radius: 30px;
+  position: absolute;
+  left: 45.5%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  border: 2px solid white; /* Default border color */
+  transition: border-color 0.3s ease; /* Smooth transition for border color change */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  
+}
+
+.custom-rect:hover {
+  border-color: #176B87; /* Border color when hovered */
+}
+
+.custom-rect .l-board-card h2{
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.custom-rect .l-board-card p,
+.custom-rect .r-board-card p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 20px; /* Adjust this value as needed */
+  margin-bottom: -1px;
+}
+
+.small-type01 {
+  width: 61px;
+  height: 25px;
+  background-color: #A084E8;
+  border-radius: 10.5px;
+  border: 1px solid #6420AA;
+  opacity: 0.5; /* To match fill-opacity="0.5" */
+  color: #6420AA;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.custom-rect .r-board-card {
+  position: absolute;
+  left: 500px; /* Set x coordinate */
+  top: 83px; /* Set y coordinate */
+}
+
+.board-card{
+  margin-bottom: 20px;
+}
+
+.custom-rect > * {
+  margin-bottom: 10px; /* Add space between child elements */
+}
+
