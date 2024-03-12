@@ -1,36 +1,39 @@
+@model TonaWebApp.Models.Board
+
 <div class=create-container>
     <form id="createPostForm" asp-controller="Board" asp-action="CreateBoard">
         <div class="logo-container">
-                <img src="https://cdn.discordapp.com/attachments/1212717114238967838/1212717153686655006/tuna.png?ex=65f2d9dc&is=65e064dc&hm=986fc5efbc87b07f09d041abeb8bcd4841610843301f86c54d4dfbc3fe414319&"
-                    alt="TonaIcon">
-                <h1>TONA</h1>
-            </div>
+            <img src="https://cdn.discordapp.com/attachments/1212717114238967838/1212717153686655006/tuna.png?ex=65f2d9dc&is=65e064dc&hm=986fc5efbc87b07f09d041abeb8bcd4841610843301f86c54d4dfbc3fe414319&"
+                alt="TonaIcon">
+            <h1>TONA</h1>
+        </div>
         <h1 class="topic-header">Create Board</h1>
         <label for="name">Topic:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your meeting topic here" required><br>
+        <input asp-for="Name" type="text" id="name" name="name" placeholder="Enter your meeting topic here" required><br>
 
         <label for="description">Description:</label>
-        <textarea id="description" name="description" placeholder="Enter detail of the meeting here"required></textarea><br>
+        <textarea asp-for="Description" id="description" name="description" placeholder="Enter detail of the meeting here"
+            required></textarea><br>
         <div class="col-3">
             <div class="max-member">
-            <label for="max_member">Max Members:</label>
-            <input type="number" id="max_member" name="max_member" min="1" placeholder="1"required><br>
+                <label for="max_member">Max Members:</label>
+                <input asp-for="MaxMember" type="number" id="max_member" name="max_member" min="1" placeholder="1" required><br>
             </div>
 
             <div class="start">
-            <label for="start_time">Start Time:</label>
-            <input type="datetime-local" id="start_time" name="start_time" required><br>
+                <label for="start_time">Start Time:</label>
+                <input asp-for="StartTime" type="datetime-local" id="start_time" name="start_time" required><br>
             </div>
 
             <div class="end">
-            <label for="end_time">End Time:</label>
-            <input type="datetime-local" id="end_time" name="end_time" required><br>
+                <label for="end_time">End Time:</label>
+                <input asp-for="EndTime" type="datetime-local" id="end_time" name="end_time" required><br>
             </div>
         </div>
 
 
         <label for="tag">Tag:</label>
-        <select id="tag" name="tag" required>
+        <select asp-for="Tag" id="tag" name="tag" required>
             <option value="love">Love</option>
             <option value="food">Food</option>
             <option value="study">Study</option>
@@ -39,7 +42,8 @@
         </select><br>
 
         <label for="location">Location:</label>
-        <input type="text" id="location" name="location" placeholder="Enter the location you want to meet each other" required>
+        <input type="text" id="location" name="location" placeholder="Enter the location you want to meet each other"
+            required>
 
         <button class="create-btn" type="submit">Create Post</button>
     </form>
