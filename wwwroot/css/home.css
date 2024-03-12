@@ -271,7 +271,7 @@ header .current-date{
     /* background-color: #176B87; */
     width: 25%;
 }
-.b{
+.b-centerboard{
     background-color: rgb(238, 245, 255);
     width: 55%;
 }
@@ -360,7 +360,7 @@ header .current-date{
   color: #333;
 }
 
-.custom-rect {
+/* .custom-rect {
   width: 679px;
   height: 153px;
   background-color: white;
@@ -369,58 +369,102 @@ header .current-date{
   left: 45.5%;
   top: 20%;
   transform: translate(-50%, -50%);
-  border: 2px solid white; /* Default border color */
-  transition: border-color 0.3s ease; /* Smooth transition for border color change */
+  border: 2px solid white; /* 
+  transition: border-color 0.3s ease; /* 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 10px;
   
-}
+} */
 
-.custom-rect:hover {
-  border-color: #176B87; /* Border color when hovered */
-}
-
-.custom-rect .l-board-card h2{
-  font-size: 20px;
-  font-weight: 500;
-  margin-left: 20px;
-  margin-top: 20px;
-}
-
-.custom-rect .l-board-card p,
-.custom-rect .r-board-card p {
-  font-size: 14px;
-  font-weight: 400;
-  margin-left: 20px; /* Adjust this value as needed */
-  margin-bottom: -1px;
-}
-
-.small-type01 {
-  width: 61px;
-  height: 25px;
-  background-color: #A084E8;
-  border-radius: 10.5px;
-  border: 1px solid #6420AA;
-  opacity: 0.5; /* To match fill-opacity="0.5" */
-  color: #6420AA;
-  margin-left: 20px;
-  margin-bottom: 10px;
-}
-
-.custom-rect .r-board-card {
-  position: absolute;
-  left: 500px; /* Set x coordinate */
-  top: 83px; /* Set y coordinate */
-}
-
+/* .custom-rect:hover {
+  border-color: #176B87; 
+} */
 .board-card{
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.dashcard{
+  background-color: #fff;
+  margin-top: 30px;
+  width: 679px;
+  height: 153px;
+  border-radius: 30px;
+  border: 2px solid white; 
+  transition: border-color 0.3s ease;
 }
 
-.custom-rect > * {
-  margin-bottom: 10px; /* Add space between child elements */
+.dashcard:hover {
+  border-color: #176B87;
+  box-shadow: #878787; 
+}
+
+.dashcard h2{
+  display: block;
+  font-size: 20;
+  color: #176B87;
+  margin-left: 20px;
+}
+
+.dashacrd .projectTop {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dashcard .projectTop h2 {
+  color: #176B87;
+  font-size: 20px;
+  line-height: 18px;
+
+}
+.dashcard .projectTop h2 span {
+  color: #999;
+  font-size: 0.8em;
+}
+
+.dashcard .projectProgress {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashcard  .task {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 10px 0;
+}
+.dashcard .task h2 {
+  color: #999;
+  font-size: 1em;
+}
+.dashcard .task h2 bold {
+  color: #000;
+}
+
+.dashcard .due {
+  position: relative;
+  /* width: 100%;
+  height: 100%; */
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: center;
+}
+.dashcard .due h2 {
+  padding: 0px 10px;
+  border: 2px solid #f5b5f5;
+  border-radius: 5px;
+  font-size: 1.1em;
+  color: #f5b5f5;
 }
 
 .create-board-btn {
@@ -443,5 +487,87 @@ header .current-date{
 .create-board-btn:hover {
   background-color: #0E4C62;
 }
+
+.custom-rect .l-board-card .love{
+  justify-self: center;
+  align-items: center;
+
+  width: 50%;
+  margin-left: 20px;
+
+
+}
+
+
+@media screen and (max-width: 430px){
+  .main-navbar{
+    display: none;
+  }
+  .c{
+    display: none;
+  }
+
+  .box{
+    margin-top: 10px;
+    margin-left: 150px;
+    max-width: 279px;
+    width: 100%;
+  }
+
+  .box .searchbox{
+    position: relative;
+    height: 55px;
+    max-width: 279px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .board-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 395px;
+    max-height: 210px;
+  }
+
+  /* .custom-rect{ 
+    max-width: 395px;
+    max-height: 210px;
+    background-color: #B4D4FF;
+    border-radius: 31px;
+    transform: translate(-50%, -50%);
+    border: 2px solid white; 
+    transition: border-color 0.3s ease; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 20px; 
+  } */
+
+  .b-centerboard{
+    background-color: #fff;
+    align-items: center;
+    
+  }
+
+  .custom-rect .l-board-card h2{
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 20px;
+
+    max-width: 187px;
+  }
+  
+  .custom-rect .l-board-card p,
+  .custom-rect .r-board-card p {
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 20px; /* Adjust this value as needed */
+    margin-bottom: -1px;
+  }
+}
+
 
 
