@@ -65,12 +65,18 @@
                     <input class="edit-input" type="email" id="Email" name="Email" value="john.doe@example.com" required>
                 </div>
 
-                <!-- Add more fields as needed -->
+                <div class="edit-form-group">
+                    <label class="edit-label" for="ProfilePicture">Profile Picture</label>
+                    <input class="edit-input" type="file" id="ProfilePicture" name="ProfilePicture" accept="image/*">
+                    <p class="edit-help-text">Choose a new profile picture (optional)</p>
+                </div>
 
                 <div class="edit-form-group">
                     <button class="edit-button" type="button" onclick="goToUserProfile()">Save Changes</button>
                 </div>
             </form>
+            
+
         </div>
 
 
