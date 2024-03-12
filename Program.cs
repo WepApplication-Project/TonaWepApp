@@ -1,6 +1,9 @@
 using Microsoft.Extensions.Configuration;
 using TonaWebApp.Config;
 using TonaWebApp.Repositories;
+using TonaWebApp.Services;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,8 @@ builder.Services.AddSingleton<MongoDBContext>(provider =>
 builder.Services.AddSingleton<AuthRepository>();
 
 builder.Services.AddSingleton<BoardRepository>();
+
+builder.Services.AddHostedService<BoardCronJob>();
 
 // Using Session
 builder.Services.AddHttpContextAccessor();

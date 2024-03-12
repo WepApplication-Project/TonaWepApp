@@ -1,3 +1,5 @@
+using TonaWebApp.Models;
+
 namespace TonaWebApp.Models
 {
     public class HomeIndexViewModel
