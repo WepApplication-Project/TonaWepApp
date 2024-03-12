@@ -48,7 +48,7 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
                 var user = await _authRepository.GetUserByEmailAsync(email);
                 if (user != null)
                 {
-                    board.Auther = user.Id;
+                    board.Auther = user;
                     await _boardRepository.CreateBoardAsync(board);
                     return RedirectToAction("Index", "home");
                 }

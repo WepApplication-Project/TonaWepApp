@@ -65,7 +65,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "user",
     pattern: "user",
-    defaults: new { controller = "User", action = "Index" });
+    defaults: new { controller = "User", action = "Index"});
 
 var dbContext = app.Services.GetRequiredService<MongoDBContext>();
 dbContext.InitializeUserDataAsync().Wait();

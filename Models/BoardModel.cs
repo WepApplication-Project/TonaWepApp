@@ -10,7 +10,7 @@ namespace TonaWebApp.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
-        public string? Auther { get; set; } = null!;
+        public User? Auther { get; set; } = null!;
 
         public string Name { get; set; } = null!;
 
