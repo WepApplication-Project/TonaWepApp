@@ -25,13 +25,13 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
     }
 
     [HttpGet]
-    public IActionResult Create()
+    public IActionResult CreateBoard()
     {
         return View();
     }
 
     [HttpGet]
-    public IActionResult Edit()
+    public IActionResult EditBoard()
     {
         return View();
     }
