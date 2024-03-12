@@ -25,26 +25,39 @@
 
 .board-title {
     display: flex;
+    align-items: center;
 }
 
 .board-tag {
     background-color: red;
     color: white;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-left: 30px;
+    font-weight: bold;
+    font-size: large;
+    width: min-content;
+    height: min-content;
+    border: black solid 2px;
 }
 
 .board-status {
-    background-color: green;
+    background-color: #00FF19;
     padding: 0.8rem;
     border-radius: 10px;
+    color: black;
+    font-size: large;
+    font-weight: bold;
 }
 
 .board-tail {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+
+.board-detail {
+    font-size: larger;
 }
 
 .f-start {
@@ -65,10 +78,26 @@
     margin-bottom: 0.5rem;
 }
 
-.button {
+.button-board {
     padding: 10px;
-    box-shadow: 2px 2px 4px gray;
+    box-shadow: 5px 5px 10px 1px gray;
     border-radius: 10px;
+    color: #176B87;
+    background-color: #B4D4FF;
+    font-weight: bold;
+    height: min-content;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.button-board:hover {
+    background-color: #8ab6d6;
+    color: #0f4c66;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.row-center {
+    align-items: center;
 }
 
 

@@ -20,8 +20,20 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
     [HttpGet]
     public async Task<IActionResult> Detail(string Id)
     {
-        var board = await _boardRepository.GetBoardByIdAsync(Id);
-        return View(board);
+        var email = Request.Cookies["email"];
+        if (!string.IsNullOrEmpty(email))
+        {
+            var user = await _authRepository.GetUserByEmailAsync(email);
+            var board = await _boardRepository.GetBoardByIdAsync(Id);
+            var boardAndUser = new BoardAndUserModel
+            {
+                User = user,
+                Board = board
+            };
+
+            return View(boardAndUser);
+        }
+        return View();
     }
 
     [HttpGet]
@@ -96,40 +108,55 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
     }
 
     [HttpPost]
-    public async Task<IActionResult> SignInToBoard(User user, string id)
+    public async Task<IActionResult> SignInToBoard(string email, string id)
     {
-        if (id == null || user == null)
+        Console.WriteLine("user email : " + email);
+        Console.WriteLine("board Id : " + id);
+        if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(email))
         {
-            return View();
+            return RedirectToAction("Detail", "Board", new { Id = id });
         }
+        var user = await _authRepository.GetUserByEmailAsync(email);
         var board = await _boardRepository.GetBoardByIdAsync(id);
-        if (board == null)
+        if (board == null || user == null)
         {
             return NotFound();
         }
-
         await _boardRepository.AddUserToBoard(user, board);
 
-        return RedirectToAction("Index", "Home");
+        return RedirectToAction("Detail", "Board", new { Id = id });
     }
 
     [HttpPost]
-    public async Task<IActionResult> SignOutToBoard(User user, string id)
+    public async Task<IActionResult> SignOutToBoard(string email, string id)
     {
-        if (id == null || user == null)
+        if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(id))
         {
-            return View();
+            return RedirectToAction("Detail", "Board", new { Id = id });
         }
 
+        var user = await _authRepository.GetUserByEmailAsync(email);
         var board = await _boardRepository.GetBoardByIdAsync(id);
-        if (board == null)
+        if (board == null || user == null)
         {
             return NotFound();
         }
-
         await _boardRepository.DeleteUserInBoard(user, board);
 
         return RedirectToAction("Index", "Home");
     }
 
+    [HttpPost]
+    public async Task<IActionResult> CloseBoard(string id)
+    {
+        if(!string.IsNullOrEmpty(id))
+        {
+            var board = await _boardRepository.GetBoardByIdAsync(id);
+            if(board != null)
+            {
+                await _boardRepository.CloseBoardStatus(board);
+            }
+        }
+        return RedirectToAction("Detail", "Board", new { Id = id });
+    }
 }

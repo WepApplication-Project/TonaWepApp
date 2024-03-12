@@ -60,11 +60,6 @@
     border-bottom: 5px #176B87 solid;
     color : #176B87
 }
-/* nav : saerch */
-form{
-    margin: 5px;
-    padding: 5px;
-}
 .form-input{
     outline: none;
     padding: 0.5rem;
@@ -73,7 +68,7 @@ form{
     border: 1px solid #176B87;
     border-radius: 10px;
 }
-form button{
+form buttons{
     margin-left :1px;
     border: none;
     padding: 0.5rem;
@@ -85,7 +80,7 @@ form button{
     transition-property: transform, border-radius, border;
     transition-duration: 0.2s;
 }
-form button:hover{
+form buttons:hover{
     transform : scale(1.1,1.1);
     transform-origin: center top; 
     color: #176B87; 
@@ -308,7 +303,7 @@ form button:hover{
         padding-left: 8px;
         margin-left : 20px;
     }
-    form button{
+    form buttons{
         margin-left : 20px;
         width: 84%;
         margin-top: 5px;
