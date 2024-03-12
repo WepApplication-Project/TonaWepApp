@@ -1,23 +1,102 @@
 .noti-container{
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     width: 100%;
-    
+    margin-top: 4rem;
 }
 
 .noti-card{
-    background-color: aqua;
+    background: linear-gradient(90deg, #65e3ff 0%, #99a2ff 100%);
     display: flex;
-    width: 80%;
-    padding-left:10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 35%;
+    border-radius: 10px;
+    padding:2rem;
     flex-direction: column;
     border-radius: 10;
+    color: black;
+    margin-top: 2.5rem;
+    row-gap: 2rem;
+    transition: 0.3s;
+}
+
+.noti-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.noti-card a{ 
+    text-decoration: none;
+    color: black;
+}
+
+.noti-person{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.noti-time{
+    font-size: 1.5rem;
+    color: black;
+    margin-top: 1rem;
+}
+
+.noti-person i{
+    scale: 150%;
+}
+.noti-time i{
+    scale: 150%;
+}
+
+.noti-person span{
+    margin-left: 1rem;
+}
+.noti-time span{
+    margin-left: 1rem;
 }
 
 .noti-title{
-    font-size: x-large;
+    font-size: 2.6rem;
 }
 .noti-subtitle{
+    margin-top: 1rem;
+    font-weight: 300;
+    font-size: 2rem;
+    color: rgb(99, 99, 99);
+}
 
+
+@media only screen and (max-width:700px){
+    .noti-container{
+        flex-direction: column;
+        align-items: center ;
+    }
+    
+    .noti-card{
+        width: 80%;
+    }
+
+    .noti-title{
+        font-size: 1.5rem;
+    }
+    .noti-subtitle{
+        font-size: 1rem;
+    }
+
+    .noti-time,.noti-person{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width:450px){
+    .noti-title{
+        font-size: 1.5rem;
+    }
+    .noti-subtitle{
+        font-size: 1rem;
+    }
+
+    .noti-time,.noti-person{
+        font-size: 1rem;
+    }
 }
