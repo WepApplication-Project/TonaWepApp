@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
 using TonaWebApp.Config;
 using TonaWebApp.Repositories;
 

@@ -30,14 +30,14 @@
                 <p>@registrationSuccessMessage</p>
             </div>
             <div class="form-container">
-                <form asp-controller="Auth" asp-action="Login">
+                <form id="loginForm">
                     <div class="input-box">
                         <i class='bx bx-envelope'></i>
-                        <input asp-for="Email" type="email" placeholder="Email" required onchange="clearMsg()">
+                        <input id="emailInput" type="email" placeholder="Email" required onchange="clearMsg()">
                     </div>
                     <div class="input-box">
                         <i class='bx bx-lock-alt'></i>
-                        <input asp-for="Password" type="password" placeholder="Password" required onchange="clearMsg()">
+                        <input id="passwordInput" type="password" placeholder="Password" required onchange="clearMsg()">
 
                     </div>
                     <div class="wrong-submit" id="wrong">

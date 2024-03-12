@@ -1,3 +1,7 @@
+*{
+    font-family: "Kanit", sans-serif;
+}
+
 .detail-box {
     display: block;
     margin: 100px;
@@ -66,3 +70,74 @@
     box-shadow: 2px 2px 4px gray;
     border-radius: 10px;
 }
+
+
+
+/* Create Post CSS */
+.create-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#createPostForm{
+    width: 80%;
+    display: flex;
+    font-size: x-large;
+    flex-direction: column;
+}
+
+#createPostForm input,textarea,select{
+    margin-top: 0.8rem ;
+    min-height: 3rem;
+    font-size: x-large;
+    border-radius: 10px;
+    border: 1px solid rgba(23, 107, 135, 1);
+    
+}
+
+.topic-header{
+    text-align: center;
+    color: rgba(23, 107, 135, 1);
+}
+
+.col-3{
+    display: flex;
+    justify-content: space-between;
+}
+
+.max-member,.start,.end{
+    display: flex;
+    flex-direction: column;
+}
+
+.create-btn{
+    align-self: center;
+    margin-top: 3rem;
+    width: 30%;
+    min-width: fit-content;
+    border: none;
+    height: 5rem;
+    margin-left: 0;
+    border-radius: 1rem;
+    font-family: "Kanit", sans-serif;
+    font-size: xx-large;
+    background: linear-gradient(90deg, #54e0ff 0%, #8f98ff 100%);
+}
+
+.create-btn:hover{
+    background: linear-gradient(90deg, #8f98ff 0%, #54e0ff 100%);
+    outline: #545fff 3px solid;
+    cursor: pointer;
+    
+}
+
+@media only screen and (max-width: 1100px){
+    .col-3{
+        flex-direction: column;
+    }
+}
+
+/* #tag option{
+    width: 80%;
+} */

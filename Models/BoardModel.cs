@@ -18,8 +18,6 @@ namespace TonaWebApp.Models
 
         public int MaxMember { get; set; } = 0;
 
-        public int AmountMember { get; set; } = 0;
-
         public bool IsActive { get; set; } = true;
 
         public DateTime StartTime { get; set; }
