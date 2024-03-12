@@ -27,20 +27,13 @@
         <div class='logo'>
             <a href='#'>
                 <img src="https://cdn.discordapp.com/attachments/1212717114238967838/1212717153686655006/tuna.png?ex=65f2d9dc&is=65e064dc&hm=986fc5efbc87b07f09d041abeb8bcd4841610843301f86c54d4dfbc3fe414319&"/>
-                <span>Tuna</span>
+                <span>Tona</span>
             </a>
         </div>
         <div class="menubar">
             <div class="menu">
                 <ul class="menu-link">
-                    <li class="nav=link">
-                        <a href="#">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <span class="nav-text">Find Group</span>
-                            
-                        </a>
-                    </li>
-                    <li class="nav=link">
+                    <li class="navlink">
                         <a href="/History/Upcoming">
                             <i class="fa-solid fa-clock-rotate-left"></i>
                             <span class="nav-text">History</span>
@@ -74,6 +67,69 @@
                     <i class="fa fa-search"></i>
                 </label>
             </div>
+        </div>
+        <div class="tag-bar">
+                <div class="tag-group-radio">
+                    <div class="radio-tile-group">
+
+                        <div class="input-container">
+                            <input id="all" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <i class="fa-solid fa-grip"></i>
+                                <label for="all">All</label>
+                            </div>
+                        </div>
+
+                        <div class="input-container">
+                            <input id="love" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <i class="fa-solid fa-heart"></i>
+                                <label for="love">Love</label>
+                            </div>
+                        </div>
+
+                        <div class="input-container">
+                            <input id="food" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <i class='bx bx-bowl-rice '></i>
+                                <label for="food">Food</label>
+                            </div>
+                        </div>
+
+                        <div class="input-container">
+                            <input id="tarvel" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <i class='bx bxs-briefcase-alt-2'></i>
+                                <label for="travel">Travel</label>
+                            </div>
+                        </div>
+
+                        <div class="input-container">
+                            <input id="sport" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <i class="fa-solid fa-dumbbell"></i>
+                                <label for="sport">Sport</label>
+                            </div>
+                        </div>
+
+                        <div class="input-container">
+                            <input id="sport" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <i class="fa-solid fa-school"></i>
+                                <label for="study">Study</label>
+                            </div>
+                        </div>
+
+                        <div class="input-container">
+                            <input id="sport" type="radio" name="radio">
+                            <div class="radio-tile">
+                                <i class="fa-solid fa-gamepad"></i>
+                                <label for="game">Game</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
         </div>
         <div class="board-container">
             @foreach(var board in @Model.Boards)
