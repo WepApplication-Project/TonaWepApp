@@ -97,9 +97,12 @@
 .mini-profile .mini-content .text h4{
     font-size: 18px;
     font-weight: 400;
-    margin: 3px 0;
     letter-spacing: .5px;
     white-space: nowrap;
+}
+
+.mini-content .text p{
+  margin-top: -25px;
 }
 
 .menu{
