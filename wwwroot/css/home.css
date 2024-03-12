@@ -37,7 +37,7 @@
     justify-content: flex-start;
 }
 
-.profile{
+.mini-profile{
     display: flex;
     align-items: center;
     background-color: #EEF5FF;
@@ -48,10 +48,10 @@
     font-size: 18px;
 }
 
-.profile .photo img{
+.mini-profile .photo img{
     width: 100%;
 }
-.profile .photo{
+.mini-profile .photo{
     width: 64px;
     height: 64px;
     border-radius: 50%;
@@ -59,14 +59,14 @@
     margin-left: 5%;
 }
 
-.profile .content{
+.mini-profile .mini-content{
     padding: 10px;
     display: flex;
     justify-content: space-between;
     width: calc(100%-100px);
 }
 
-.profile .content .text h4{
+.mini-profile .mini-content .text h4{
     font-size: 18px;
     font-weight: 400;
     margin: 3px 0;
