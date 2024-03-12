@@ -122,10 +122,13 @@
     font-size: x-large;
     border-radius: 10px;
     border: 1px solid rgba(23, 107, 135, 1);
+    padding-left: 1rem;
     
 }
 
 .topic-header{
+    margin-top: 3rem;
+    font-size: 4rem;
     text-align: center;
     color: rgba(23, 107, 135, 1);
 }

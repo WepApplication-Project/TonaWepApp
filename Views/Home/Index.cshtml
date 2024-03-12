@@ -33,7 +33,13 @@
         <div class="menubar">
             <div class="menu">
                 <ul class="menu-link">
-                    <li class="navlink">
+                    <li class="navlink">     
+                        <a href="/Board/CreateBoard">
+                            <i class="fa-regular fa-square-plus"></i>
+                            <span class="nav-text">CreateBoard</span>
+                        </a>
+                    </li>
+                    <li class="navlink">     
                         <a href="/History/Upcoming">
                             <i class="fa-solid fa-clock-rotate-left"></i>
                             <span class="nav-text">History</span>
@@ -48,6 +54,7 @@
                     <img src="https://www.ce.kmitl.ac.th/api/faculty/download/Charoen">
                 <span>Tuna</span>
                 </a>
+               
             </div>
             <div class="mini-content">
                 <div class="text">
@@ -72,7 +79,7 @@
                     <div class="radio-tile-group">
 
                         <div class="input-container">
-                            <input id="all" type="radio" name="radio">
+                            <input id="all" type="radio" name="radio" checked>
                             <div class="radio-tile">
                                 <i class="fa-solid fa-grip"></i>
                                 <label for="all">All</label>
@@ -126,6 +133,7 @@
                                 <label for="game">Game</label>
                             </div>
                         </div>
+
                     </div>
                 </div>
         </div>
@@ -133,13 +141,16 @@
             @foreach(var board in @Model.Boards)
             {
                 
-                string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
+                    string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
                 
                 <a href="/Board/Detail/@(board.Id)" class="board-card">
                     <div class="dashcard">
                         <div class="projectTop">
                             <h2>@board.Name<br><span>@board.Auther.FirstName @board.Auther.LastName</span></h2>
                         </div>
+                        
+                    </div>
+                    <div class="cardtrail">
                         <div class="projectProgress">
                             <div class="process">
                                 <h2 style="color: @(!board.IsActive ? "red" : "#176B87")">
@@ -147,8 +158,6 @@
                                 </h2>
                             </div>
                         </div>
-                    </div>
-                    <div class="cardtrail">
                         <div class="task">
                             <h2>Task Done: <bold>@board.MemberList.Count</bold> / @board.MaxMember</h2>
                             <span class="line"></span>
@@ -185,6 +194,7 @@
             </div>
         </div>
         <a class="create-board-btn" href="/Board/CreateBoard">Create Board</a>
+
     </div>
 </div>
 
