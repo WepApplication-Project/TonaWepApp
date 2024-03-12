@@ -186,9 +186,10 @@
   justify-content: space-around;
 }
 .tag-group button {
-  background-color: #04AA6D; /* Green */
+  background-color: #EEF5FF;
   border: none;
-  color: white;
+  border-radius: 30px;
+  color: #0E4C62;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
@@ -199,6 +200,12 @@
   cursor: pointer;
   margin-top: 20px;
 }
+
+.tag-group button:hover {
+  background-color: #176B87;
+  color: white;
+}
+
 .tag-group button i{
   font-size: 30px;
   font-weight: 400;
