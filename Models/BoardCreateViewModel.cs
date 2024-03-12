@@ -2,10 +2,10 @@ using TonaWebApp.Models;
 
 namespace TonaWebApp.Models
 {
-    public class HomeIndexViewModel
+    public class BoardCreateViewModel
     {
         public User User { get; set; } = null!;
 
-        public List<Board> Boards { get; set; } = [];
+        public Board Board { get; set; } = null!;
     }
 }

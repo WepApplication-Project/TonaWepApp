@@ -14,7 +14,7 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
     public async Task<IActionResult> Index()
     {
         var boardList = await _boardRepository.GetAllBoardAsync();
-        var email = HttpContext.Session.GetString("email");
+        var email = Request.Cookies["email"];
         if (!string.IsNullOrEmpty(email))
         {
             var user = await _authRepository.GetUserByEmailAsync(email);

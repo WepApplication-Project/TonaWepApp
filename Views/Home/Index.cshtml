@@ -52,11 +52,15 @@
         </div>
         <div class="mini-profile">
             <div class="photo">
-                <img src="https://www.ce.kmitl.ac.th/api/faculty/download/Charoen">
+                <a href="/User/Profile">
+                    <img src="https://www.ce.kmitl.ac.th/api/faculty/download/Charoen">
+                <span>Tuna</span>
+                </a>
+               
             </div>
             <div class="mini-content">
                 <div class="text">
-                    <h4>Dr.Charoen</h4>
+                    <h4>@Model.User.FirstName @Model.User.LastName</h4>
                     <p>want party</p>
                 </div>
             </div>
@@ -118,7 +122,7 @@
                 <ul class="days"></ul>
             </div>
         </div>
-        <a href="/Board/CreateBoard" class="create-board-btn">Create Board</a>
+        <a class="create-board-btn" href="/Board/Create">Create Board</a>
 
     </div>
 </div>
