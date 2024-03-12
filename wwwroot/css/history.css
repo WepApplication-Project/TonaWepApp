@@ -122,6 +122,11 @@ form button:hover{
     min-width: 100px;
     box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.8);
 }
+
+.dropdown:hover{
+    height: 60px;
+}
+
 .dropdown:hover .content{
     display: block;
     text-align: left;
