@@ -269,6 +269,7 @@
         width: calc(50% + 4px);
         font-size: 6vw;
         height: 15vw;
+        margin-left: 0px;
     }
 
     .register-success {

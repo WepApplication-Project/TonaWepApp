@@ -19,7 +19,7 @@ $(document).ready(function() {
             error: function(xhr, status, error) {
                 var wrong = document.getElementById("wrong");
                 wrong.style.display = 'flex';
-                $('#wrong').html('Login failed. Please try again.');
+                $('#wrong').html('Incorrect email or password');
             }
         });
     });
