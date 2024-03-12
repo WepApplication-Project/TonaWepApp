@@ -82,9 +82,9 @@
         <div class="board-container">
             @foreach(var board in @Model.Boards)
             {
-                @{
+                @* @{
                     string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
-                }
+                } *@
                 <a href="/Board/Detail/@(board.Id)" class="board-card">
                     <div class="dashcard">
                         <div class="projectTop">
@@ -102,7 +102,7 @@
                             <span class="line"></span>
                         </div>
                         <div class="due">
-                            <h2>@formattedDueDate</h2>
+                            @* <h2>@formattedDueDate</h2> *@
                         </div>
                     </div>
                 </a>
