@@ -101,7 +101,6 @@
     display: flex;
     justify-content: space-between;
     width: calc(100%-100px);
-    color: #176B87;
 }
 
 .mini-content .text{
@@ -112,6 +111,7 @@
 .mini-profile .mini-content .text h4{
     font-size: 18px;
     font-weight: 400;
+    color: #333;
     letter-spacing: .5px;
     white-space: nowrap;
 }
@@ -119,6 +119,8 @@
 
 
 .mini-content .text p{
+  color: #176B87;
+  font-size: 18px;
   margin-top: -25px;
   
 }
