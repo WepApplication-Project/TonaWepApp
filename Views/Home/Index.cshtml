@@ -48,7 +48,6 @@
                     <img src="https://www.ce.kmitl.ac.th/api/faculty/download/Charoen">
                 <span>Tuna</span>
                 </a>
-               
             </div>
             <div class="mini-content">
                 <div class="text">
@@ -143,7 +142,9 @@
                         </div>
                         <div class="projectProgress">
                             <div class="process">
-                                <h2>@(board.IsActive ? "Active" : "Inactive")</h2>
+                                <h2 style="color: @(!board.IsActive ? "red" : "#176B87")">
+                                    @(board.IsActive ? "Active" : "Inactive")
+                                </h2>
                             </div>
                         </div>
                     </div>
@@ -184,7 +185,6 @@
             </div>
         </div>
         <a class="create-board-btn" href="/Board/CreateBoard">Create Board</a>
-
     </div>
 </div>
 

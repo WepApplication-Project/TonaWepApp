@@ -72,7 +72,13 @@ public class BoardRepository(MongoDBContext context)
 
     public async Task AddUserToBoard(User user, Board board)
     {
+        if (board.MemberList.Any(m => m.Id == user.Id))
+        {
+            throw new InvalidOperationException("User is already a member of the board.");
+        }
+
         board.AddMember(user);
+
         await UpdateBoardAsync(board);
     }
 

@@ -2,11 +2,7 @@ using Microsoft.Extensions.Configuration;
 using TonaWebApp.Config;
 using TonaWebApp.Repositories;
 using TonaWebApp.Services;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-
-
-
+using TonaWebApp.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +20,7 @@ builder.Services.AddSingleton<BoardRepository>();
 
 builder.Services.AddHostedService<BoardCronJob>();
 
+builder.Services.AddScoped<IEmailService, EmailService>();
 // Using Session
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();

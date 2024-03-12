@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="CloudinaryDotNet" Version="1.26.0" />
     <PackageReference Include="FireSharp" Version="2.0.4" />
+    <PackageReference Include="MailKit" Version="4.4.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.24.0" />
   </ItemGroup>
 

@@ -464,6 +464,8 @@ header .current-date{
   display: flex;
   justify-content: center; /* Centers items horizontally */
   flex-wrap: wrap; /* Allows items to wrap to the next row */
+  overflow-y: auto;
+  height: 80%;
 }
 .board-card{
   display: flex;

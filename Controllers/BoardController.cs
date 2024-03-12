@@ -1,14 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
+using TonaWebApp.Interface;
 using TonaWebApp.Models;
 using TonaWebApp.Repositories;
 
 namespace TonaWebApp.Controllers;
 
-public class BoardController(BoardRepository boardRepository, AuthRepository authRepository) : Controller
+public class BoardController(BoardRepository boardRepository, AuthRepository authRepository, IEmailService emailService) : Controller
 {
     private readonly BoardRepository _boardRepository = boardRepository;
 
     private readonly AuthRepository _authRepository = authRepository;
+
+    private readonly IEmailService _emailService = emailService;
 
     [HttpGet]
     public async Task<IActionResult> Index()
@@ -123,7 +126,7 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
             return NotFound();
         }
         await _boardRepository.AddUserToBoard(user, board);
-
+        // await _emailService.SendEmailAsync(board.Auther!.Email, board.Name, board.Description);
         return RedirectToAction("Detail", "Board", new { Id = id });
     }
 
