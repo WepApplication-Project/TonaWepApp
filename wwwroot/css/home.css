@@ -5,7 +5,7 @@
     height: 100vh;
     max-height: max-content;
 }
-.navbar{
+.main-navbar{
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 255, 255);
