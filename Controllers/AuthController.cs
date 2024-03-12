@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TonaWebApp.Repositories;
 using TonaWebApp.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.VisualBasic;
 using System.Text;
 
@@ -45,7 +46,8 @@ public class AuthController(AuthRepository authRepository) : Controller
         var userdb = await _authRepository.GetUserByEmailAsync(Email);
         if (userdb.Password == Password)
         {
-            HttpContext.Session.SetString("email", Email);
+            var cookieOptions = new CookieOptions{};
+            Response.Cookies.Append("email", Email, cookieOptions);
             return RedirectToAction("Index", "Home", userdb);
         }
         else{
@@ -56,7 +58,7 @@ public class AuthController(AuthRepository authRepository) : Controller
 
     public IActionResult Logout()
     {
-        HttpContext.Session.Remove("email");
+        Response.Cookies.Delete("email");
         return RedirectToAction("Login", "Auth");
     }
 }

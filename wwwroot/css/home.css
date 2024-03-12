@@ -434,6 +434,7 @@ header .current-date{
   display: flex;
   margin-left: 30%;
   margin-top: 20%;
+  text-decoration: none;
 }
 
 .create-board-btn:hover {
