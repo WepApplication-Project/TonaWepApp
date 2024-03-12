@@ -1,3 +1,5 @@
+@model List<Board>
+
 @section CSS {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,48 +37,25 @@
                     <p>Status</p>
                 </div>  
             </div>
-            <div class="table-body table-row">
-                <div class="table-cell first-cell tablew1 date-cell">
-                    <p>2024-02-29</p>
+            @foreach(var board in @Model)
+            {
+                string formattedDueDate = board.EndTime.ToString("dd MMMM yyyy");
+
+                <div class="table-body table-row">
+                    <div class="table-cell first-cell tablew1 date-cell">
+                        <p>@formattedDueDate</p>
+                    </div>
+                    <div id = "tag" class="table-cell tablew2 love tag-cell">
+                        <p>@board.Tag</p>
+                    </div>
+                    <div class="table-cell description-cell tablew3">
+                        <p>@board.Name</p>
+                    </div>
+                    <div id = "status" class="table-cell last-cell tablew2 incompleted status-cell">
+                        <p>Incompleted</p>
+                    </div>
                 </div>
-                <div id = "tag" class="table-cell tablew2 love tag-cell">
-                    <p>Love</p>
-                </div>
-                <div class="table-cell description-cell tablew3">
-                    <p>หาสมาชิก ไปดูดาว(ภาค)เหนือ</p>
-                </div>
-                <div id = "status" class="table-cell last-cell tablew2 incompleted status-cell">
-                    <p>Incompleted</p>
-                </div>
-            </div>
-            <div class="table-body table-row">
-                <div class="table-cell date-cell tablew1">
-                    <p>2024-02-29</p>
-                </div>
-                <div id = "tag" class="table-cell tablew2 love tag-cell">
-                    <p>Love</p>
-                </div>
-                <div class="table-cell tablew3">
-                    <p>หาสมาชิก ไปดูดาว(ภาค)เหนือ</p>
-                </div>
-                <div id = "status" class="table-cell tablew2 status-cell completed">
-                    <p>Completed</p>
-                </div>
-            </div>
-            <div class="table-body table-row">
-                <div class="table-cell date-cell tablew1">
-                    <p>2024-02-29</p>
-                </div>
-                <div id = "tag" class="table-cell tablew2 game tag-cell">
-                    <p>game</p>
-                </div>
-                <div class="table-cell tablew3">
-                    <p>หาสมาชิก ไปดูดาว(ภาค)เหนือ</p>
-                </div>
-                <div id = "status" class="table-cell tablew2 status-cell completed">
-                    <p>Completed</p>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>

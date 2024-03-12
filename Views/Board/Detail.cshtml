@@ -37,15 +37,26 @@
             <p>จำนวนคนที่รับ @Model.Board.MemberList.Count / @Model.Board.MaxMember</p>
             @if (Model.Board.Auther.Email == Model.User.Email)
             {
-                <form asp-controller="Board" asp-action="CloseBoard" method="post" class="button-board">
-                    ปิดประกาศ
-                </form>
+                if (Model.Board.IsActive)
+                {
+                    <form asp-controller="Board" asp-action="CloseBoard" method="post">
+                        <input type="hidden" name="id" value="@Model.Board.Id" />
+                        <button class="button-board" type="submit">ปิดประกาศ</button>
+                    </form>
+                }
+                else
+                {
+                    <form asp-controller="Board" asp-action="OpenBoard" method="post">
+                        <input type="hidden" name="id" value="@Model.Board.Id" />
+                        <button class="button-board" type="submit">เปิดประกาศ</button>
+                    </form>
+                }
             }
             else
             {
                 if (Model.Board.MemberList.Any(u => u.Email == Model.User.Email))
                 {
-                    <form asp-controller="Board" asp-action="SignOutToBoard" method="post" >
+                    <form asp-controller="Board" asp-action="SignOutToBoard" method="post">
                         <input type="hidden" name="email" value="@Model.User.Email" />
                         <input type="hidden" name="id" value="@Model.Board.Id" />
                         <button class="button-board" type="submit">ลงชื่อออกจากบอร์ด</button>
