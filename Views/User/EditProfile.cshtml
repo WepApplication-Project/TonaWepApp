@@ -40,10 +40,6 @@
 
     </div>
 
-    <div class="page-sections">
-        <div class="profile-section">
-                    
-            <div class="edit-profile-container">
     <div class="edit-profile-section">
         <div class="edit-profile-card">
             <h2>Edit Profile</h2>
@@ -72,16 +68,18 @@
                 <!-- Add more fields as needed -->
 
                 <div class="edit-form-group">
-                    <button class="edit-button" type="submit">Save Changes</button>
+                    <button class="edit-button" type="button" onclick="goToUserProfile()">Save Changes</button>
                 </div>
             </form>
         </div>
-    </div>
-</div>
 
-        </div>
 
-        <!-- The rest of your sections -->
 
     </div>
 </div>
+
+<script>
+  function goToUserProfile() {
+    window.location.href = '/User/Profile';
+  }
+</script>
