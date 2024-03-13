@@ -9,7 +9,7 @@
     justify-content: space-between;
     /* border: 1px black solid; */
     margin: auto;
-    padding: auto;
+    padding-right: 10px;
     box-sizing: border-box;
     border-radius: 2px;
     box-shadow: 0 2px 5px 0px rgba(0,0,50,0.3);
@@ -43,6 +43,7 @@
 .box-container{
     list-style: none;
     margin: 0px;
+    padding-right: 10px
 }
 .nav-text{
     font-size: 20px;
