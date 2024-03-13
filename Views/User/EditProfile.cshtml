@@ -2,10 +2,20 @@
 
 @await Component.InvokeAsync("Navbar", Model.Id)
 
-<div class="page-container">
+<div class="edit-profile-container">
     <div class="edit-profile-section">
         <div class="edit-profile-card">
-            <h2>Edit Profile</h2>
+            <h1>Edit Profile</h1>
+            <div class="avatar-container">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <img src="@Model.ImageUrl" alt="Profile Image" class="avatar">
+                }
+                else
+                {
+                    <img src="https://p7.hiclipart.com/preview/782/114/405/5bbc3519d674c.jpg" alt="Mockup Image" class="avatar">
+                }
+            </div>
             <form asp-asp-controller="User" asp-action="UpdateProfile" method="post" enctype="multipart/form-data">
                 <div class="edit-form-group">
                     <label class="edit-label" for="FirstName">First Name</label>
