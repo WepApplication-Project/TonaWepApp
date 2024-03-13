@@ -26,17 +26,15 @@ public class CloudinaryController : Controller
       return null;
     }
 
-    using (var stream = file.OpenReadStream())
+    using var stream = file.OpenReadStream();
+    var uploadParams = new ImageUploadParams
     {
-      var uploadParams = new ImageUploadParams
-      {
-        File = new FileDescription(file.FileName, stream),
-      };
+      File = new FileDescription(file.FileName, stream),
+    };
 
-      var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+    var uploadResult = await _cloudinary.UploadAsync(uploadParams);
 
-      return uploadResult.SecureUrl.AbsoluteUri;
-    }
+    return uploadResult.SecureUrl.AbsoluteUri;
   }
 
   public async Task<string?> DeleteImageAsync(string publicUrl)

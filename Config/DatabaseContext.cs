@@ -26,8 +26,8 @@ public class MongoDBContext
         {
             var users = new List<User>
                 {
-                    new() { FirstName = "User1", LastName = "Example" , Email = "user1@example.com", Password = "" },
-                    new() { FirstName = "User2", LastName = "Example", Email = "user2@example.com", Password = "" }
+                    new() { ImageUrl = "", FirstName = "Dev", LastName = "Ohm" , Email = "devohm@example.com", Phone = "0987654321", Password = "1234", Description = "dev"},
+                    new() { ImageUrl = "", FirstName = "Dev", LastName = "Test", Email = "devtest@example.com", Phone = "0998765432", Password = "1234" , Description = "dev"}
                 };
 
             await usersCollection.InsertManyAsync(users);

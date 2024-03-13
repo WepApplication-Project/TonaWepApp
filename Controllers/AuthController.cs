@@ -16,7 +16,6 @@ public class AuthController(AuthRepository authRepository) : Controller
     public IActionResult Register()
     {
         var email = Request.Cookies["email"];
-        Console.WriteLine(email);
         if (!string.IsNullOrEmpty(email))
         {
             return RedirectToAction("Index","Home");
@@ -44,7 +43,6 @@ public class AuthController(AuthRepository authRepository) : Controller
     public IActionResult Login()
     {
         var email = Request.Cookies["email"];
-        Console.WriteLine(email);
         if (!string.IsNullOrEmpty(email))
         {
             return RedirectToAction("Index","Home");

@@ -28,5 +28,7 @@ namespace TonaWebApp.Models
         [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
         public string Password { get; set; } = null!;
+
+        public string? Description { get; set; }
     }
 }

@@ -44,4 +44,31 @@ public class AuthRepository(MongoDBContext context)
         await _users.InsertOneAsync(user);
         return null;
     }
+
+    public async Task<User?> UpdateUserAsync(User updatedUser)
+    {
+        try
+        {
+            var filter = Builders<User>.Filter.Eq(u => u.Id, updatedUser.Id);
+            var update = Builders<User>.Update
+                .Set(u => u.FirstName, updatedUser.FirstName)
+                .Set(u => u.LastName, updatedUser.LastName)
+                .Set(u => u.Email, updatedUser.Email)
+                .Set(u => u.Phone, updatedUser.Phone)
+                .Set(u => u.ImageUrl, updatedUser.ImageUrl);
+
+            var result = await _users.FindOneAndUpdateAsync(filter, update, new FindOneAndUpdateOptions<User>
+            {
+                ReturnDocument = ReturnDocument.After
+            });
+
+            return result;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred while updating user: {ex}");
+            return null;
+        }
+    }
+
 }

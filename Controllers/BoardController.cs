@@ -124,8 +124,6 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
     [HttpPost]
     public async Task<IActionResult> SignInToBoard(string email, string id)
     {
-        Console.WriteLine("user email : " + email);
-        Console.WriteLine("board Id : " + id);
         if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(email))
         {
             return RedirectToAction("Detail", "Board", new { Id = id });
