@@ -4,9 +4,6 @@
     ViewData["Title"] = "Homepage";
 }
 
-@{
-    Layout = "_LayoutNavBar";
-}
 @section CSS
 {
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +22,11 @@
     <script src="~/js/home.js" asp-append-version="true"></script>
 }
 
+@await Component.InvokeAsync("Navbar", Model.User.Id)
+
 <div class='homepage'>
+    
+
     <!-- <div class="main-navbar">
         <div class='logo'>
             <a href='#'>

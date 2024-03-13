@@ -6,10 +6,12 @@ using TonaWebApp.Repositories;
 
 namespace TonaWebApp.Controllers;
 
-public class HomeController(AuthRepository authRepository, BoardRepository boardRepository) : Controller
+public class HomeController(AuthRepository authRepository, BoardRepository boardRepository, NotificationRepository notificationRepository) : Controller
 {
     private readonly AuthRepository _authRepository = authRepository;
     private readonly BoardRepository _boardRepository = boardRepository;
+
+    private readonly NotificationRepository _notificationRepository = notificationRepository;
 
     [HttpGet]
     public async Task<IActionResult> Index(string tag="all")
@@ -20,7 +22,7 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
         if (!string.IsNullOrEmpty(email))
         {
             var user = await _authRepository.GetUserByEmailAsync(email);
-            if (user != null)
+            if (user != null && user.Id != null)
             {
                 var homeIndexViewModel = new HomeIndexViewModel
                 {

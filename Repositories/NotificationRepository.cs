@@ -51,5 +51,24 @@ namespace TonaWebApp.Repositories
             var result = await _notifications.DeleteOneAsync(n => n.Id == id);
             return result.IsAcknowledged && result.DeletedCount > 0;
         }
+
+        public async Task<List<Notification>> GetNotificationsByUserIdAsync(string id)
+        {
+            var filter = Builders<Notification>.Filter.Eq(n => n.User.Id, id);
+            var notifications = await _notifications.Find(filter).ToListAsync();
+            return notifications;
+        }
+
+        public async Task<List<Notification>> GetUnreadNotificationsByUserIdAsync(string id)
+        {
+            var filter = Builders<Notification>.Filter.And(
+                Builders<Notification>.Filter.Eq(n => n.User.Id, id),
+                Builders<Notification>.Filter.Eq(n => n.IsReaded, false)
+            );
+
+            var unreadNotifications = await _notifications.Find(filter).ToListAsync();
+            return unreadNotifications;
+        }
+
     }
 }

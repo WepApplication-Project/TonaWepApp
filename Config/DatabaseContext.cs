@@ -50,7 +50,8 @@ public class MongoDBContext
                     MaxMember = 10,
                     IsActive = true,
                     StartTime = DateTime.UtcNow,
-                    EndTime = DateTime.UtcNow.AddDays(30),
+                    EndTime = DateTime.UtcNow.AddDays(10),
+                    MeetingTime = DateTime.UtcNow.AddDays(15),
                     Tag = "Tag1",
                     MemberList =
                     {
@@ -67,6 +68,7 @@ public class MongoDBContext
                     IsActive = true,
                     StartTime = DateTime.UtcNow.AddDays(5),
                     EndTime = DateTime.UtcNow.AddDays(35),
+                    MeetingTime = DateTime.UtcNow.AddDays(15),
                     Tag = "Tag2",
                     MemberList =
                     {
@@ -94,19 +96,7 @@ public class MongoDBContext
             {
                 Title = "Notification 1 Title",
                 SubTitle = "Notification 1 SubTitle",
-                BoardData = new Board
-                {
-                    Auther = new User { FirstName = "User1", LastName = "Example" , Email = "user1@example.com", Password = "" },
-                    Name = "Project A",
-                    Description = "Description for Project A",
-                    MaxMember = 10,
-                    IsActive = true,
-                    StartTime = DateTime.UtcNow,
-                    EndTime = DateTime.UtcNow.AddDays(30),
-                    Tag = "Tag1",
-                    MemberList = {},
-                    Place = "ECC"
-                },
+                BoardId = "",
                 User = new User { FirstName = "User2", LastName = "Example" , Email = "user2@example.com", Password = "" },
                 IsReaded = false
             },
@@ -114,19 +104,7 @@ public class MongoDBContext
             {
                 Title = "Notification 2 Title",
                 SubTitle = "Notification 2 SubTitle",
-                BoardData = new Board
-                {
-                    Auther = new User { FirstName = "User1", LastName = "Example" , Email = "user1@example.com", Password = "" },
-                    Name = "Project B",
-                    Description = "Description for Project B",
-                    MaxMember = 15,
-                    IsActive = true,
-                    StartTime = DateTime.UtcNow.AddDays(5),
-                    EndTime = DateTime.UtcNow.AddDays(35),
-                    Tag = "Tag2",
-                    MemberList = {},
-                    Place = "HCRL"
-                },
+                BoardId = "",
                 User = new User { FirstName = "User1", LastName = "Example" , Email = "user1@example.com", Password = "" },
                 IsReaded = false
             }

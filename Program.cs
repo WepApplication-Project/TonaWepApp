@@ -2,6 +2,7 @@ using TonaWebApp.Config;
 using TonaWebApp.Repositories;
 using TonaWebApp.Services;
 using TonaWebApp.Interface;
+using TonaWebApp.ViewComponents;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,11 @@ builder.Services.AddSingleton<AuthRepository>();
 
 builder.Services.AddSingleton<BoardRepository>();
 
+builder.Services.AddSingleton<NotificationRepository>();
+
 builder.Services.AddHostedService<BoardCronJob>();
+
+builder.Services.AddScoped<NavbarViewComponent>();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
 // Using Session
@@ -66,5 +71,6 @@ app.MapControllerRoute(
 var dbContext = app.Services.GetRequiredService<MongoDBContext>();
 dbContext.InitializeUserDataAsync().Wait();
 dbContext.InitializeBoardDataAsync().Wait();
+dbContext.InitializeNotificationDataAsync().Wait();
 
 app.Run();
