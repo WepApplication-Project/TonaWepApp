@@ -8,9 +8,11 @@
 }
 
 /* width */
+
 ::-webkit-scrollbar {
-  width: 20px;
+  width: 0.5px;
 }
+
 
 /* Track */
 ::-webkit-scrollbar-track {
@@ -27,6 +29,8 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #176B87; 
 }
+
+
 
 .main-navbar{
     display: flex;
@@ -543,8 +547,8 @@ header .current-date{
 
 .board-container {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: center;
   align-items: center; /* Centers items horizontally */
   flex-wrap: wrap; /* Allows items to wrap to the next row */
   overflow-y: auto;
