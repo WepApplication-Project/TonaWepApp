@@ -76,7 +76,7 @@
                     <div class="radio-tile-group">
 
                         <div class="input-container">
-                            <input id="all" type="radio" name="radio" checked>
+                            <input id="all" type="radio" name="radio" value="all">
                             <div class="radio-tile">
                                 <i class="fa-solid fa-grip"></i>
                                 <label for="all">All</label>
@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="input-container">
-                            <input id="love" type="radio" name="radio">
+                            <input id="love" type="radio" name="radio" value="love">
                             <div class="radio-tile">
                                 <i class="fa-solid fa-heart"></i>
                                 <label for="love">Love</label>
@@ -92,7 +92,7 @@
                         </div>
 
                         <div class="input-container">
-                            <input id="food" type="radio" name="radio">
+                            <input id="food" type="radio" name="radio" value="food">
                             <div class="radio-tile">
                                 <i class='bx bx-bowl-rice '></i>
                                 <label for="food">Food</label>
@@ -100,7 +100,7 @@
                         </div>
 
                         <div class="input-container">
-                            <input id="tarvel" type="radio" name="radio">
+                            <input id="tarvel" type="radio" name="radio" value="travel">
                             <div class="radio-tile">
                                 <i class='bx bxs-briefcase-alt-2'></i>
                                 <label for="travel">Travel</label>
@@ -108,7 +108,7 @@
                         </div>
 
                         <div class="input-container">
-                            <input id="sport" type="radio" name="radio">
+                            <input id="sport" type="radio" name="radio" value="sport">
                             <div class="radio-tile">
                                 <i class="fa-solid fa-dumbbell"></i>
                                 <label for="sport">Sport</label>
@@ -116,7 +116,7 @@
                         </div>
 
                         <div class="input-container">
-                            <input id="sport" type="radio" name="radio">
+                            <input id="study" type="radio" name="radio" value="study">
                             <div class="radio-tile">
                                 <i class="fa-solid fa-school"></i>
                                 <label for="study">Study</label>
@@ -124,7 +124,7 @@
                         </div>
 
                         <div class="input-container">
-                            <input id="sport" type="radio" name="radio">
+                            <input id="game" type="radio" name="radio" value="game">
                             <div class="radio-tile">
                                 <i class="fa-solid fa-gamepad"></i>
                                 <label for="game">Game</label>
@@ -137,7 +137,6 @@
         <div class="board-container">
             @foreach(var board in @Model.Boards)
             {
-                
                     string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
                 
                 <a href="/Board/Detail/@(board.Id)" class="board-card">
