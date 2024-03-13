@@ -28,6 +28,7 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    margin-left: 20px;
     width: 90vh;
     height: auto;
 }
@@ -70,7 +71,7 @@
 
 .contact-text{
     margin: 2%;
-    font-size: 100%;
+    font-size: 1.5vw;
 }
 
 
@@ -120,7 +121,7 @@
 
 
 .edit-help-text {
-    font-size: 14px;
+    font-size: 1vw;
     color: #888;
     margin-top: 5px;
 }
@@ -161,6 +162,9 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
         height: auto;
+    }
+    .contact-text{
+        font-size: 16px;
     }
 
 }
