@@ -4,17 +4,23 @@
 
 <div class="page-container">
     <div class="profile-section">
+
         <div class="profile-img">
-            <img src="https://www.ce.kmitl.ac.th/api/faculty/download/Charoen" alt="Profile Image">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" alt="Profile Image">
+            }
+            else
+            {
+                <img src="https://p7.hiclipart.com/preview/782/114/405/5bbc3519d674c.jpg" alt="Default Profile Image">
+            }
         </div>
 
         <div class="profile-card">
             <div class="contact-card">
                 <div class='contact-text'>
                     <h2>@Model.FirstName @Model.LastName</h2>
-                    <p>Web Developer</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at urna vel lorem tincidunt
-                        tristique.</p>
+                     <p>@Model.Description</p>
                 </div>
             </div>
 
