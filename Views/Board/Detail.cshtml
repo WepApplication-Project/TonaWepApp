@@ -1,7 +1,7 @@
 @model BoardAndUserModel
 
 @{
-    string formattedDueDate = @Model.Board.EndTime.ToString("dd MMMM yyyy");
+    string formattedDueDate = @Model.Board.EndTime.ToLocalTime().ToString("dd MMMM yyyy");
 }
 @await Component.InvokeAsync("Navbar", Model.User.Id)
 
