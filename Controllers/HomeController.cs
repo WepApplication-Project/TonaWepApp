@@ -15,6 +15,7 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
     public async Task<IActionResult> Index(string tag)
     {
         var boardList = await _boardRepository.GetAllBoardAsync();
+        ViewBag.tag = tag;
         var email = Request.Cookies["email"];
         if (!string.IsNullOrEmpty(email))
         {

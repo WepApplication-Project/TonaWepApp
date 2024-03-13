@@ -69,14 +69,15 @@
     border-radius: 10px;
 }
 form buttons{
-    margin-left :1px;
+    margin-right :2px;
     border: none;
     padding: 0.5rem;
-    height: 50px;
-    width: 40px;
+    height: 20px;
+    width: 15px;
     background-color: rgb(160, 207, 248);
     border-radius: 10px;
     border: 1px solid #176B87;
+    text-align: center;
     transition-property: transform, border-radius, border;
     transition-duration: 0.2s;
 }
@@ -305,7 +306,7 @@ form buttons:hover{
     }
     form buttons{
         margin-left : 20px;
-        width: 84%;
+        width: 80%;
         margin-top: 5px;
         padding-left: 8px;
     }
