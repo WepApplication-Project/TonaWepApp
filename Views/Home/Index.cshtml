@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="input-container">
-                            <input id="MyBoard" type="radio" name="radio" value="MyBoard">
+                            <input id="MyBoard" type="radio" name="radio" value="user">
                             <div class="radio-tile">
                                 <i class="fa-solid fa-user-group"></i>
                                 <label for="all">MyBoard</label>
@@ -155,7 +155,7 @@
         <div class="board-container">
             @foreach(var board in @Model.Boards)
             {   
-                @if(ViewBag.tag =="all" || board.Tag == ViewBag.tag){
+                @if(ViewBag.tag =="all" || ViewBag.tag =="user" || board.Tag == ViewBag.tag){
                     string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
                 
                 <a href="/Board/Detail/@(board.Id)" class="board-card">
