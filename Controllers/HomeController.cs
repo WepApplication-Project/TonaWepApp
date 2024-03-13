@@ -17,13 +17,14 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
     {
         var boardList = await _boardRepository.GetAllBoardAsync();
         ViewBag.tag = tag;
+        Console.WriteLine(tag);
         var email = Request.Cookies["email"];
         if (!string.IsNullOrEmpty(email))
         {
             var user = await _authRepository.GetUserByEmailAsync(email);
             if (user != null && user.Id != null)
             {
-                if(tag == "user"){
+                if(tag == "MyBoard"){
                     var homeIndexViewModel = new HomeIndexViewModel
                     {
                     User = user,
