@@ -46,8 +46,12 @@
     padding: 0.8rem;
     border-radius: 10px;
     color: black;
-    font-size: large;
+    font-size: 22px;
     font-weight: bold;
+    width: 5rem;
+    height: 2rem;
+    text-align: center;
+
 }
 
 .board-tail {
@@ -164,6 +168,28 @@
     outline: #545fff 3px solid;
     cursor: pointer;
     
+}
+
+.bl-nita{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.bl-nita .location-text{
+    margin-left: 2rem;
+}
+
+.bl-nita .location-text i{
+    font-size: 30px;
+    margin-left: 0.5rem;
+    color: #548CFF;
+}
+
+
+.bl-nita .location-text h2{
+    color: #548CFF;
+    margin-left: 0.5rem;
 }
 
 @media only screen and (max-width: 1650px){

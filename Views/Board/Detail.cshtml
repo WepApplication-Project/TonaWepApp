@@ -1,7 +1,7 @@
 @model BoardAndUserModel
 
 @{
-    string formattedDueDate = @Model.Board.EndTime.ToString("dd MMMM yyyy");
+    string formattedDueDate = @Model.Board.EndTime.ToLocalTime().ToString("dd MMMM yyyy");
 }
 @await Component.InvokeAsync("Navbar", Model.User.Id)
 
@@ -15,8 +15,14 @@
                         @Model.Board.Tag
                     </div>
                 </div>
-                <div class="board-status">
-                    @(Model.Board.IsActive ? "Active" : "Inactive")
+                <div class="bl-nita">
+                    <div class="board-status">
+                        @(Model.Board.IsActive ? "Active" : "Inactive")
+                    </div>
+                    <div class="location-text">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h2>@Model.Board.Place</h2>         
+                    </div> 
                 </div>
             </div>
             <div class="board-tail">
