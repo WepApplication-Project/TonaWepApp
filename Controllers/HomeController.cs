@@ -28,7 +28,7 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
                     var homeIndexViewModel = new HomeIndexViewModel
                     {
                     User = user,
-                    Boards = boardList.Where(b => b.Auther.Id == user.Id).ToList(),
+                    Boards = boardList.Where(b => b.Auther!.Id == user.Id).ToList(),
                     SelectedTag = tag,
                     TagsList = ["love", "food", "study", "travel", "sport", "game"]
                     };
