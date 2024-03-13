@@ -152,10 +152,10 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
     [HttpPost]
     public async Task<IActionResult> OpenBoard(string id)
     {
-        if(!string.IsNullOrEmpty(id))
+        if (!string.IsNullOrEmpty(id))
         {
             var board = await _boardRepository.GetBoardByIdAsync(id);
-            if(board != null)
+            if (board != null)
             {
                 await _boardRepository.OpenBoardStatus(board);
             }
@@ -166,10 +166,10 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
     [HttpPost]
     public async Task<IActionResult> CloseBoard(string id)
     {
-        if(!string.IsNullOrEmpty(id))
+        if (!string.IsNullOrEmpty(id))
         {
             var board = await _boardRepository.GetBoardByIdAsync(id);
-            if(board != null)
+            if (board != null)
             {
                 await _boardRepository.CloseBoardStatus(board);
             }

@@ -24,6 +24,22 @@ public class BoardRepository(MongoDBContext context)
         }
     }
 
+    public async Task<List<Board>> GetBoardsByTagAsync(string tag)
+{
+    try
+    {
+        var filter = Builders<Board>.Filter.Eq(b => b.Tag, tag);
+        var boardList = await _boards.Find(filter).ToListAsync();
+        return boardList;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"An error occurred while fetching boards by tag: {ex}");
+        return [];
+    }
+}
+
+
     public async Task<Board> GetBoardByIdAsync(string Id)
     {
         var filter = Builders<Board>.Filter.Eq(u => u.Id, Id);

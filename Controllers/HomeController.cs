@@ -11,7 +11,8 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
     private readonly AuthRepository _authRepository = authRepository;
     private readonly BoardRepository _boardRepository = boardRepository;
 
-    public async Task<IActionResult> Index()
+    [HttpGet]
+    public async Task<IActionResult> Index(string tag)
     {
         var boardList = await _boardRepository.GetAllBoardAsync();
         var email = Request.Cookies["email"];
@@ -21,16 +22,19 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
             if (user != null)
             {
                 var homeIndexViewModel = new HomeIndexViewModel
-                    {
-                        User = user,
-                        Boards = boardList,
-                    };
-                
+                {
+                    User = user,
+                    Boards = string.IsNullOrEmpty(tag) ? boardList : boardList.Where(b => b.Tag == tag).ToList(),
+                    SelectedTag = tag,
+                    TagsList = ["love", "food", "study", "travel", "sport", "game"]
+                };
+
                 return View(homeIndexViewModel);
             }
         }
         return RedirectToAction("Login", "Auth");
     }
+
 
     public IActionResult Privacy()
     {

@@ -28,6 +28,8 @@ namespace TonaWebApp.Models
 
         public List<User> MemberList { get; set; } = [];
 
+        public string Place { get; set; } = null!;
+
         public void AddMember(User user)
         {
             MemberList.Add(user);

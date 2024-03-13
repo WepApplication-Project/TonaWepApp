@@ -14,7 +14,9 @@ namespace TonaWebApp.Models
 
         public string SubTitle {get; set; } = null!;
 
-        public string UserId { get; set; } = null!;
+        public Board BoardData { get; set; } = null!;
+
+        public User User { get; set; } = null!;
 
         public bool IsReaded { get; set; } = false;
     }

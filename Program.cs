@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Configuration;
 using TonaWebApp.Config;
 using TonaWebApp.Repositories;
 using TonaWebApp.Services;
@@ -53,7 +52,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}");
 
 app.MapControllerRoute(
     name: "boardDetail",

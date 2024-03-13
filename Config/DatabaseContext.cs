@@ -15,6 +15,7 @@ public class MongoDBContext
 
     public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
     public IMongoCollection<Board> Boards => _database.GetCollection<Board>("Boards");
+    public IMongoCollection<Notification> Notifications => _database.GetCollection<Notification>("Notifications");
 
     public async Task InitializeUserDataAsync()
     {
@@ -36,12 +37,13 @@ public class MongoDBContext
     public async Task InitializeBoardDataAsync()
     {
         var boardCollection = _database.GetCollection<Board>("Boards");
-        var existingUsersCount = await boardCollection.CountDocumentsAsync(_ => true);
+        var existingBoardsCount = await boardCollection.CountDocumentsAsync(_ => true);
 
-        if (existingUsersCount == 0)
+        if (existingBoardsCount == 0)
         {
             var users = new List<Board>{
-                new() {
+                new()
+                {
                     Auther = new User { FirstName = "User1", LastName = "Example" , Email = "user1@example.com", Password = "" },
                     Name = "Project A",
                     Description = "Description for Project A",
@@ -53,7 +55,8 @@ public class MongoDBContext
                     MemberList =
                     {
 
-                    }
+                    },
+                    Place = "ECC"
                 },
                 new()
                 {
@@ -68,7 +71,8 @@ public class MongoDBContext
                     MemberList =
                     {
 
-                    }
+                    },
+                    Place = "HCRL"
                 }
             };
 
@@ -77,4 +81,59 @@ public class MongoDBContext
         }
 
     }
+
+    public async Task InitializeNotificationDataAsync()
+    {
+        var notificationCollection = _database.GetCollection<Notification>("Notifications");
+        var existingNotificationsCount = await notificationCollection.CountDocumentsAsync(_ => true);
+
+        if (existingNotificationsCount == 0)
+        {
+            var notifications = new List<Notification>{
+            new()
+            {
+                Title = "Notification 1 Title",
+                SubTitle = "Notification 1 SubTitle",
+                BoardData = new Board
+                {
+                    Auther = new User { FirstName = "User1", LastName = "Example" , Email = "user1@example.com", Password = "" },
+                    Name = "Project A",
+                    Description = "Description for Project A",
+                    MaxMember = 10,
+                    IsActive = true,
+                    StartTime = DateTime.UtcNow,
+                    EndTime = DateTime.UtcNow.AddDays(30),
+                    Tag = "Tag1",
+                    MemberList = {},
+                    Place = "ECC"
+                },
+                User = new User { FirstName = "User2", LastName = "Example" , Email = "user2@example.com", Password = "" },
+                IsReaded = false
+            },
+            new()
+            {
+                Title = "Notification 2 Title",
+                SubTitle = "Notification 2 SubTitle",
+                BoardData = new Board
+                {
+                    Auther = new User { FirstName = "User1", LastName = "Example" , Email = "user1@example.com", Password = "" },
+                    Name = "Project B",
+                    Description = "Description for Project B",
+                    MaxMember = 15,
+                    IsActive = true,
+                    StartTime = DateTime.UtcNow.AddDays(5),
+                    EndTime = DateTime.UtcNow.AddDays(35),
+                    Tag = "Tag2",
+                    MemberList = {},
+                    Place = "HCRL"
+                },
+                User = new User { FirstName = "User1", LastName = "Example" , Email = "user1@example.com", Password = "" },
+                IsReaded = false
+            }
+        };
+
+            await notificationCollection.InsertManyAsync(notifications);
+        }
+    }
+
 }

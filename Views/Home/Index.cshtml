@@ -77,63 +77,18 @@
         <div class="tag-bar">
                 <div class="tag-group-radio">
                     <div class="radio-tile-group">
-
-                        <div class="input-container">
-                            <input id="all" type="radio" name="radio" checked>
-                            <div class="radio-tile">
-                                <i class="fa-solid fa-grip"></i>
-                                <label for="all">All</label>
+                        <form asp-action="Index" asp-controller="Home" method="get">
+                            <label>Filter by Tag:</label>
+                            <div>
+                                <label><input type="radio" name="tag" value="" @(string.IsNullOrEmpty(Model.SelectedTag) ? "checked" : "")> All</label>
+                                
+                                @foreach (var tag in @Model.TagsList)
+                                {
+                                    <label><input type="radio" name="tag" value="@tag" @(tag == Model.SelectedTag ? "checked" : "")> @tag</label>
+                                }
                             </div>
-                        </div>
-
-                        <div class="input-container">
-                            <input id="love" type="radio" name="radio">
-                            <div class="radio-tile">
-                                <i class="fa-solid fa-heart"></i>
-                                <label for="love">Love</label>
-                            </div>
-                        </div>
-
-                        <div class="input-container">
-                            <input id="food" type="radio" name="radio">
-                            <div class="radio-tile">
-                                <i class='bx bx-bowl-rice '></i>
-                                <label for="food">Food</label>
-                            </div>
-                        </div>
-
-                        <div class="input-container">
-                            <input id="tarvel" type="radio" name="radio">
-                            <div class="radio-tile">
-                                <i class='bx bxs-briefcase-alt-2'></i>
-                                <label for="travel">Travel</label>
-                            </div>
-                        </div>
-
-                        <div class="input-container">
-                            <input id="sport" type="radio" name="radio">
-                            <div class="radio-tile">
-                                <i class="fa-solid fa-dumbbell"></i>
-                                <label for="sport">Sport</label>
-                            </div>
-                        </div>
-
-                        <div class="input-container">
-                            <input id="sport" type="radio" name="radio">
-                            <div class="radio-tile">
-                                <i class="fa-solid fa-school"></i>
-                                <label for="study">Study</label>
-                            </div>
-                        </div>
-
-                        <div class="input-container">
-                            <input id="sport" type="radio" name="radio">
-                            <div class="radio-tile">
-                                <i class="fa-solid fa-gamepad"></i>
-                                <label for="game">Game</label>
-                            </div>
-                        </div>
-
+                            <button type="submit">Filter</button>
+                        </form>
                     </div>
                 </div>
         </div>
