@@ -645,6 +645,30 @@ header .current-date{
 
 
 }
+.logout-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-top: 90%;
+}
+.logout-btn i,
+.logout-btn span{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  color: #fff;
+  max-width: fit-content;
+  height: 30px;
+  padding: 24px;
+  background-color: #B80000;
+  border-radius: 30px;
+
+
+}
+
 
 
 
