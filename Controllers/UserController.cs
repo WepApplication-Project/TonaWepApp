@@ -16,11 +16,6 @@ public class UserController : Controller
     {
         return View();
     }
-
-    public ActionResult Details(string id)
-    {
-        return View();
-    }
 }
 
 

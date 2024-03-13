@@ -695,7 +695,7 @@ header .current-date{
     position: relative;
     height: 55px;
     max-width: 279px;
-    /* margin: auto; */
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -745,10 +745,6 @@ header .current-date{
     font-weight: 400;
     margin-left: 20px; /* Adjust this value as needed */
     margin-bottom: -1px;
-  }
-
-  .tag-bar{
-    display: none;
   }
 }
 
