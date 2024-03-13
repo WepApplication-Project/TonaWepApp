@@ -1,14 +1,10 @@
 .homepage{   
     display: flex;
-    flex-direction: row;
+    flex-direction: ro;
     font-family: "Kanit", sans-serif;
     height: 100vh;
     max-height: 100vh;
 
-}
-
-body {
-  /* overflow: hidden; Hide scrollbars */
 }
 
 /* width */
@@ -189,8 +185,8 @@ body {
 }
 
 .box{
+    align-items: center;
     margin-top: 10px;
-    margin-left: 150px;
     max-width: 679px;
     width: 100%;
 
@@ -406,8 +402,11 @@ header .current-date{
     width: 25%;
 }
 .b-centerboard{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     background-color: rgb(238, 245, 255);
-    width: 55%;
+    width: 70%;
     max-height: max-content;
 }
 
@@ -525,7 +524,9 @@ header .current-date{
 
 .board-container {
   display: flex;
-  justify-content: center; /* Centers items horizontally */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; /* Centers items horizontally */
   flex-wrap: wrap; /* Allows items to wrap to the next row */
   overflow-y: auto;
   height: 80%;
