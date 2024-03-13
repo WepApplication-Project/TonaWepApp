@@ -1,9 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TonaWebApp.Repositories;
 using TonaWebApp.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.VisualBasic;
-using System.Text;
 
 namespace TonaWebApp.Controllers;
 
@@ -27,7 +24,7 @@ public class AuthController(AuthRepository authRepository) : Controller
     public async Task<IActionResult> Register([Bind("FirstName,LastName,Phone,Email,Password")] User user)
     {
         if (ModelState.IsValid)
-        {   
+        {
             string? result = await _authRepository.CreateUserAsync(user);
             if (result != null){
                 ViewBag.result = result;
