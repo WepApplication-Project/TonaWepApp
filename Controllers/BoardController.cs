@@ -73,7 +73,7 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
                 return Unauthorized();
             }
         }
-        return RedirectToAction("Create", "Board");
+        return RedirectToAction("CreateBoard", "Board");
     }
 
     [HttpPost]

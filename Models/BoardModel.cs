@@ -53,6 +53,8 @@ namespace TonaWebApp.Models
 
         public DateTime MeetingTime { get; set; }
 
+        public DateTime MeetingTime {get; set;}
+
         public string Tag { get; set; } = null!;
 
         public List<User> MemberList { get; set; } = [];
