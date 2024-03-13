@@ -69,3 +69,4 @@ options.forEach(option =>{
         optionMenu.classList.remove("active");
     });
 });
+
