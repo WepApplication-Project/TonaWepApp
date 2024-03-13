@@ -23,15 +23,27 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
             var user = await _authRepository.GetUserByEmailAsync(email);
             if (user != null && user.Id != null)
             {
-                var homeIndexViewModel = new HomeIndexViewModel
-                {
+                if(tag == "user"){
+                    var homeIndexViewModel = new HomeIndexViewModel
+                    {
+                    User = user,
+                    Boards = boardList.Where(b => b.Auther == user).ToList(),
+                    SelectedTag = tag,
+                    TagsList = ["love", "food", "study", "travel", "sport", "game"]
+                    };
+                    return View(homeIndexViewModel);
+                }
+                else{
+                    var homeIndexViewModel = new HomeIndexViewModel
+                    {
                     User = user,
                     Boards = (tag == "all") ? boardList : boardList.Where(b => b.Tag == tag).ToList(),
                     SelectedTag = tag,
-                    TagsList = ["love", "food", "study", "travel", "sport", "game"],
-                };
-
-                return View(homeIndexViewModel);
+                    TagsList = ["love", "food", "study", "travel", "sport", "game"]
+                    };
+                    return View(homeIndexViewModel);
+                }
+                
             }
         }
         return RedirectToAction("Login", "Auth");
