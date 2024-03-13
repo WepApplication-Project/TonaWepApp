@@ -552,6 +552,7 @@ header .current-date{
   box-shadow:0 2px 5px 0 #176B87; 
 }
 
+
 .dashcard h2{
   display: block;
   font-size: 20;
@@ -714,7 +715,7 @@ header .current-date{
 
 
 
-@media screen and (max-width: 430px){
+@media screen and (max-width: 1200px){
 
   .body{
     background-color: #EEF5FF;
