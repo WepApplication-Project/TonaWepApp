@@ -13,6 +13,9 @@
     box-sizing: border-box;
     border-radius: 2px;
     box-shadow: 0 2px 5px 0px rgba(0,0,50,0.3);
+    position: fixed;
+    z-index: 3000;
+    top:0;
 
 }
 .main-nav a{
@@ -39,7 +42,7 @@
 }
 .box-container{
     list-style: none;
-    margin: 5px;
+    margin: 0px;
 }
 .nav-text{
     font-size: 20px;
