@@ -548,7 +548,8 @@ header .current-date{
 .board-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /*Centers items horizontally */
+  align-items: center; /* Centers items horizontally */
+  
 }
 .board-card{
   display: flex;
