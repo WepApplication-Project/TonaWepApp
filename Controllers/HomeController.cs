@@ -12,7 +12,7 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
     private readonly BoardRepository _boardRepository = boardRepository;
 
     [HttpGet]
-    public async Task<IActionResult> Index(string tag)
+    public async Task<IActionResult> Index(string tag="all")
     {
         var boardList = await _boardRepository.GetAllBoardAsync();
         ViewBag.tag = tag;
@@ -25,7 +25,7 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
                 var homeIndexViewModel = new HomeIndexViewModel
                 {
                     User = user,
-                    Boards = string.IsNullOrEmpty(tag) ? boardList : boardList.Where(b => b.Tag == tag).ToList(),
+                    Boards = (tag == "all") ? boardList : boardList.Where(b => b.Tag == tag).ToList(),
                     SelectedTag = tag,
                     TagsList = ["love", "food", "study", "travel", "sport", "game"]
                 };
