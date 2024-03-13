@@ -29,16 +29,16 @@
 }
 
 .board-tag {
-    background-color: red;
+    background-color: #176B87;
     color: white;
     padding: 10px;
     border-radius: 20px;
     margin-left: 30px;
     font-weight: bold;
-    font-size: large;
+    font-size: larger;
     width: min-content;
     height: min-content;
-    border: black solid 2px;
+    border: #8ab6d6 solid 2px;
 }
 
 .board-status {
@@ -84,6 +84,7 @@
     border-radius: 10px;
     color: #176B87;
     background-color: #B4D4FF;
+    font-size: 20px;
     font-weight: bold;
     height: min-content;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
@@ -182,6 +183,16 @@
     .max-member,.start,.end,.meet{
         width: 100%;
     }
+}
+
+@media screen and (max-width: 430px){
+
+    .detail-box{
+        margin: 34px;
+    }
+
+
+    
 }
 
 /* #tag option{
