@@ -1,4 +1,4 @@
-﻿@model HomeIndexViewModel
+﻿@model TonaWebApp.Models.HomeIndexViewModel
 
 @{
     ViewData["Title"] = "Homepage";
@@ -73,13 +73,13 @@
 
     </div> -->
     <div class="b-centerboard">
-        <div class="box">
-            <div class="searchbox">
+        <div class="searchbox">
+            <form action="/action_page.php">
                 <input type="text" placeholder="Search here...">
-                <label for="" class="icon">
-                    <i class="fa fa-search"></i>
-                </label>
-            </div>
+                <button type="submit" class="icon">
+                     <i class="fa fa-search"></i>
+                </button>
+            </form>
         </div>
         <div class="tag-bar">
                 <div class="tag-group-radio">
@@ -94,7 +94,7 @@
                         </div>
 
                         <div class="input-container">
-                            <input id="MyBoard" type="radio" name="radio" value="user">
+                            <input id="MyBoard" type="radio" name="radio" value="MyBoard">
                             <div class="radio-tile">
                                 <i class="fa-solid fa-user-group"></i>
                                 <label for="all">MyBoard</label>
@@ -155,7 +155,7 @@
         <div class="board-container">
             @foreach(var board in @Model.Boards)
             {   
-                @if(ViewBag.tag =="all" || ViewBag.tag =="user" || board.Tag == ViewBag.tag){
+                @if(ViewBag.tag =="all" || board.Tag == ViewBag.tag){
                     string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
                 
                 <a href="/Board/Detail/@(board.Id)" class="board-card">
