@@ -567,6 +567,7 @@ header .current-date{
   box-shadow:0 2px 5px 0 #176B87; 
 }
 
+
 .dashcard h2{
   display: block;
   font-size: 20;
@@ -688,20 +689,20 @@ header .current-date{
 
 .create-btn-nita {
   position: fixed;
-  bottom: 1.5%;
-  right: 1.5%;
+  bottom: 3rem;
+  right: 4rem;
   width: 64px;
   height: 64px;
   border-radius: 50%;
   border: none;
-  font-size: larger;
-  font-weight: 700;
+  font-size: xx-large;
+  font-weight: 400;
   color: #333;
   cursor: pointer;
-  background-color: #E0AED0;
+  background: linear-gradient(90deg, #54e0ff 0%, #1cf8db 100%);
   transition: all 0.2s ease;
   justify-content: flex-end;
-
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   display: flex;
   text-align: center;
   align-items: center;
@@ -724,12 +725,12 @@ header .current-date{
 }
 
 .create-btn-nita:hover{
-  box-shadow: 3px 3px 3px 0 #c3c3c3;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 
 
-@media screen and (max-width: 430px){
+@media screen and (max-width: 1220px){
 
   .body{
     background-color: #EEF5FF;
@@ -755,9 +756,9 @@ header .current-date{
     margin-top: -20%;
   }
 
-  .radio-tile-group {
+  /* .radio-tile-group {
     display: none;
-  }
+  } */
 
   .board-card{
     width: 85.5%;
