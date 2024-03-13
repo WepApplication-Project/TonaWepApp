@@ -17,6 +17,8 @@
     display: flex;    
     align-items: center; /* Center items horizontally */
     justify-content: center; /* Center items vertically */
+    width: 100%;
+    height: 100%;
 }
 
 .profile-card {
@@ -26,24 +28,15 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    
-    
+    width: 90vh;
+    height: auto;
 }
-
-.background-block {
-    background-color: #eaeaea; /* Set your desired background color */
-    padding: 15px; /* Adjust padding as needed */
-    border-radius: 8px; /* Add rounded corners if desired */
-    margin-bottom: 15px; /* Add margin as needed */
-}
-
 
 .profile-img {
-    width: 250px;
-    height: 250px;
+    width: 40vh;
+    height: 40vh;
     border-radius: 50%;
     overflow: hidden;
-   
     margin: auto;
 }
 
@@ -72,10 +65,12 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    height: auto;
 }
 
 .contact-text{
     margin: 2%;
+    font-size: 100%;
 }
 
 
@@ -140,6 +135,12 @@
         flex-direction: column;
     }
 
+    .profile-card {
+        width: auto;
+        height: auto;
+    }
+    
+
     .profile-section {
         max-width: 100%;
         box-sizing: border-box; /* Ensure padding and border are included in the width */
@@ -159,6 +160,7 @@
         padding: 20px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin-bottom: 20px;
+        height: auto;
     }
 
 }
