@@ -1,7 +1,7 @@
 @model BoardAndUserModel
 
 @{
-    string formattedDueDate = @Model.Board.EndTime.ToLocalTime().ToString("dd MMMM yyyy");
+    string formattedDueDate = @Model.Board.EndTime.ToLocalTime().ToString("dd MMMM yyyy h:mm tt");
 }
 @await Component.InvokeAsync("Navbar", Model.User.Id)
 
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="bl-nita">
-                    <div class="board-status">
+                    <div class="board-status" id="board-status">
                         @(Model.Board.IsActive ? "Active" : "Inactive")
                     </div>
                     <div class="location-text">
@@ -27,7 +27,7 @@
             </div>
             <div class="board-tail">
                 <div class="avatar"><img
-                        src="https://hips.hearstapps.com/hmg-prod/images/beautiful-smooth-haired-red-cat-lies-on-the-sofa-royalty-free-image-1678488026.jpg?crop=1xw:0.84415xh;center,top"
+                        src="@Model.User.ImageUrl"
                         width="200" /></div>
                 <p><br>create by @Model.Board.Auther!.FirstName @Model.Board.Auther.LastName</p>
             </div>
