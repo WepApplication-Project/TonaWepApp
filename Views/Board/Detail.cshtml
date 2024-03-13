@@ -1,11 +1,9 @@
 @model BoardAndUserModel
 
 @{
-    Layout = "_LayoutNavBar";
-}
-@{
     string formattedDueDate = @Model.Board.EndTime.ToString("dd MMMM yyyy");
 }
+@await Component.InvokeAsync("Navbar", Model.User.Id)
 
 <div>
     <div class="detail-box">

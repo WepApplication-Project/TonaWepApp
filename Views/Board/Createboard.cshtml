@@ -1,20 +1,19 @@
-@model TonaWebApp.Models.Board
+@model BoardAndUserModel
 
-@{
-    Layout = "_LayoutNavBar";
-}
+@await Component.InvokeAsync("Navbar", Model.User.Id)
+
 <div class=create-container>
     <form id="createPostForm" asp-controller="Board" asp-action="CreateBoard">
         <h1 class="topic-header">Create Board</h1>
         <label for="name">Topic:</label>
-        <input asp-for="Name" type="text" id="name" name="name" placeholder="Enter your meeting topic here" required><br>
+        <input asp-for="Board.Name" type="text" id="name" name="name" placeholder="Enter your meeting topic here" required><br>
 
         <label for="description">Description:</label>
-        <textarea asp-for="Description" id="description" name="description" placeholder="Enter detail of the meeting here"
+        <textarea asp-for="Board.Description" id="description" name="description" placeholder="Enter detail of the meeting here"
             required></textarea><br>
 
         <label for="tag">Tag:</label>
-        <select asp-for="Tag" id="tag" name="tag" required>
+        <select asp-for="Board.Tag" id="tag" name="tag" required>
             <option value="love">Love</option>
             <option value="food">Food</option>
             <option value="study">Study</option>
@@ -24,29 +23,29 @@
         </select><br>
 
         <label for="location">Location:</label>
-        <input asp-for="Place" type="text" id="location" name="Place" placeholder="Enter the location you want to meet each other"
+        <input asp-for="Board.Place" type="text" id="location" name="Place" placeholder="Enter the location you want to meet each other"
             required>
         <br>
 
         <div class="col-2">
             <div class="max-member">
                 <label for="max_member">Max Members:</label>
-                <input asp-for="MaxMember" type="number" id="max_member" name="MaxMember" min="1" placeholder="Enter Number > 1" required><br>
+                <input asp-for="Board.MaxMember" type="number" id="max_member" name="MaxMember" min="1" placeholder="Enter Number > 1" required><br>
             </div>
 
             <div class="start">
                 <label for="start_time">Board Open Time:</label>
-                <input asp-for="StartTime" type="datetime-local" id="start_time" name="StartTime" onchange="validateTime()" required><br>
+                <input asp-for="Board.StartTime" type="datetime-local" id="start_time" name="StartTime" onchange="validateTime()" required><br>
             </div>
 
             <div class="end">
                 <label for="end_time">Board Closed Time:</label>
-                <input asp-for="EndTime" type="datetime-local" id="end_time" name="EndTime" required onchange="validateTime()"><br>
+                <input asp-for="Board.EndTime" type="datetime-local" id="end_time" name="EndTime" required onchange="validateTime()"><br>
             </div>
 
             <div class="meet">
                 <label for="end_time">Meeting Date:</label>
-                <input asp-for="MeetingTime" type="datetime-local" id="meeting_time" name="MeetingTime" required onchange="validateTime()"><br>
+                <input asp-for="Board.MeetingTime" type="datetime-local" id="meeting_time" name="MeetingTime" required onchange="validateTime()"><br>
             </div>
         </div>
 

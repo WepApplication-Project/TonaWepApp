@@ -40,9 +40,20 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
     }
 
     [HttpGet]
-    public IActionResult CreateBoard()
+    public async Task<IActionResult> CreateBoard()
     {
-        return View();
+        var email = Request.Cookies["email"];
+        if (!string.IsNullOrEmpty(email))
+        {
+            var user = await _authRepository.GetUserByEmailAsync(email);
+            var boardAndUser = new BoardAndUserModel
+            {
+                User = user,
+            };
+
+            return View(boardAndUser);
+        }
+        return Unauthorized();
     }
 
     [HttpGet]

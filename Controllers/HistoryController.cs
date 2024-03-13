@@ -1,6 +1,7 @@
 // using WebApplication1.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using TonaWebApp.Models;
 using TonaWebApp.Repositories;
 
 namespace WebApplication1.Controllers
@@ -20,7 +21,14 @@ namespace WebApplication1.Controllers
                 if (user != null)
                 {
                     var boardList = await _boardRepository.GetBoardHistoryOpenAsync(user);
-                    return View(boardList);
+                    var homeIndexViewModel = new HomeIndexViewModel
+                    {
+                        User = user,
+                        Boards = boardList,
+                        SelectedTag = "",
+                        TagsList = []
+                    };
+                    return View(homeIndexViewModel);
                 }
             }
             return View();
@@ -34,7 +42,14 @@ namespace WebApplication1.Controllers
                 if (user != null)
                 {
                     var boardList = await _boardRepository.GetBoardHistoryCloseAsync(user);
-                    return View(boardList);
+                    var homeIndexViewModel = new HomeIndexViewModel
+                    {
+                        User = user,
+                        Boards = boardList,
+                        SelectedTag = "",
+                        TagsList = []
+                    };
+                    return View(homeIndexViewModel);
                 }
             }
             return View();

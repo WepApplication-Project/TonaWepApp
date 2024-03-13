@@ -1,7 +1,6 @@
 @model TonaWebApp.Models.User
-@{
-    Layout = "_LayoutNavBar";
-}
+
+@await Component.InvokeAsync("Navbar", Model.Id)
 
 <div class="page-container">
 

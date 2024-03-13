@@ -1,6 +1,5 @@
-@{
-    Layout = "_LayoutNavBar";
-}
+@await Component.InvokeAsync("Navbar", Model.User.Id)
+
 <div class=create-container>
     <form id="createPostForm" asp-controller="Board" asp-action="CreateBoard">
         <div class="logo-container">

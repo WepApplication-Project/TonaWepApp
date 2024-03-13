@@ -1,12 +1,12 @@
-@model List<Board>
-@{
-    Layout = "_LayoutNavBar";
-}
+@model HomeIndexViewModel
 
 @section CSS {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 }
+
+@await Component.InvokeAsync("Navbar", Model.User.Id)
+
 <div class="main">
     <nav class="history-nav">
         <ul class="history-menu">
@@ -44,7 +44,7 @@
                     <p>Location</p>
                 </div>   
             </div>
-            @foreach(var board in @Model)
+            @foreach(var board in @Model.Boards)
             {
                 string formattedDueDate = board.EndTime.ToString("dd MMMM yyyy");
 

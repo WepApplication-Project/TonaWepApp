@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TonaWebApp.Models;
@@ -29,7 +28,7 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
                     User = user,
                     Boards = (tag == "all") ? boardList : boardList.Where(b => b.Tag == tag).ToList(),
                     SelectedTag = tag,
-                    TagsList = ["love", "food", "study", "travel", "sport", "game"]
+                    TagsList = ["love", "food", "study", "travel", "sport", "game"],
                 };
 
                 return View(homeIndexViewModel);

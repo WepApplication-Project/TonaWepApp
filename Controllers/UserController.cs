@@ -4,51 +4,26 @@ using Microsoft.AspNetCore.Mvc;
 using TonaWebApp.Models;
 using TonaWebApp.Repositories;
 
+namespace TonaWebApp.Controllers;
 
-public class UserController : Controller
+public class UserController(AuthRepository authRepository) : Controller
 {
-    public ActionResult Profile()
+    private readonly AuthRepository _authRepository = authRepository;
+
+    public async Task<IActionResult> Profile()
     {
-        return View();
+        var email = Request.Cookies["email"];
+        if (!string.IsNullOrEmpty(email))
+        {
+            var user = await _authRepository.GetUserByEmailAsync(email);
+
+            return View(user);
+        }
+        return Unauthorized();
     }
 
-    public ActionResult EditProfile()
+    public IActionResult EditProfile()
     {
         return View();
     }
 }
-
-
-
-
-
-// public class UserController : Controller
-// {
-//     // private readonly IMongoCollection<User> _usersCollection;
-
-//     // public UsersController(IMongoDatabase database)
-//     // {
-//     //     // Replace "YourDatabaseName" with the actual name of your MongoDB database
-//     //     _usersCollection = database.GetCollection<User>("Users");
-//     // }
-
-//     // GET: Users
-//     public ActionResult Profile()
-//     {
-//         // var users = _usersCollection.Find(user => true).ToList();
-//         return View();
-//     }
-
-//     // GET: Users/Details/{userId}
-//     public ActionResult Details(string id)
-//     {
-//         // var user = _usersCollection.Find(u => u.Id == id).FirstOrDefault();
-//         // if (user == null)
-//         // {
-//         //     return NotFound();
-//         // }
-
-//         return View();
-//     }
-// }
-
