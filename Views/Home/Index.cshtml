@@ -136,7 +136,8 @@
         </div>
         <div class="board-container">
             @foreach(var board in @Model.Boards)
-            {
+            {   
+                @if(ViewBag.tag =="all" || board.Tag == ViewBag.tag){
                     string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
                 
                 <a href="/Board/Detail/@(board.Id)" class="board-card">
@@ -163,6 +164,7 @@
                         </div>
                     </div>
                 </a>
+                }
             }
         </div>    
     </div>
@@ -193,4 +195,20 @@
     </div>
 </div>
 
+<script>
+    function selectTag(value){
+   console.log("Click :"+value);
+   window.location.href =`/home?tag=${value}`;
+    }
+    let radiolist = document.getElementsByName("radio");
 
+    radiolist.forEach((radio) =>{
+        console.log(radio.value);
+        if(radio.value == "@ViewBag.tag"){
+            radio.setAttribute("checked","");
+        }
+        radio.addEventListener("click",()=>{selectTag(radio.value)})
+        })
+        
+
+    </script>

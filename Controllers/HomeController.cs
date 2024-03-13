@@ -11,9 +11,10 @@ public class HomeController(AuthRepository authRepository, BoardRepository board
     private readonly AuthRepository _authRepository = authRepository;
     private readonly BoardRepository _boardRepository = boardRepository;
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string tag="all")
     {
         var boardList = await _boardRepository.GetAllBoardAsync();
+        ViewBag.tag = tag;
         var email = Request.Cookies["email"];
         if (!string.IsNullOrEmpty(email))
         {
