@@ -71,25 +71,27 @@
       if (startDate < currentDate || endDate <= currentDate || meetingDate < currentDate) {
         let errorMessage = "";
         if (startDate < currentDate) {
-          errorMessage += "Start Time must be after the current time. ";
+          errorMessage += "Board Opened Time must be after the current time. ";
+          document.getElementById("start_time").value = "";
         }
         if (endDate <= currentDate) {
-          errorMessage += "End Time must be after the current time.";
+          errorMessage += "Board Closed Time must be after the current time.";
+          document.getElementById("end_time").value = "";
         }
         if (meetingDate <= currentDate) {
           errorMessage += "Meeting Time must be after the current time.";
+            document.getElementById("meeting_time").value = "";
+        }
+        if (meetingDate <= endDate) {
+          errorMessage += "Meeting Time must be after Board Closed Time.";
+            document.getElementById("meeting_time").value = "";
         }
         if (endDate <= startDate){
             errorMessage += "Board Closed Time must more than Board Opened Time.";
+            document.getElementById("end_time").value = "";
         }
         alert(errorMessage);
         event.preventDefault();
-
-        // Optionally clear input values and set focus on start_time
-        document.getElementById("start_time").value = "";
-        document.getElementById("end_time").value = "";
-        document.getElementById("meeting_time").value = "";
-        document.getElementById("start_time").focus();
       }
     }
 </script>
