@@ -18,6 +18,8 @@ namespace TonaWebApp.Models
         [Required(ErrorMessage = "Last name is required.")]
         public string LastName { get; set; } = null!;
 
+        public string Description { get; set; } = "No description available.";
+
         [Required(ErrorMessage = "Phone number is required.")]
         public string Phone { get; set; } = null!;
 
@@ -28,5 +30,6 @@ namespace TonaWebApp.Models
         [Required(ErrorMessage = "Password is required.")]
         [DataType(DataType.Password)]
         public string Password { get; set; } = null!;
+        
     }
 }
