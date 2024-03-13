@@ -155,7 +155,7 @@
         <div class="board-container">
             @foreach(var board in @Model.Boards)
             {   
-                @if(ViewBag.tag =="all" || board.Tag == ViewBag.tag){
+                @if(ViewBag.tag =="all" || ViewBag.tag == "MyBoard"|| board.Tag == ViewBag.tag){
                     string formattedDueDate = "Due Date: " + board.EndTime.ToString("dd MMMM yyyy");
                 
                 <a href="/Board/Detail/@(board.Id)" class="board-card">

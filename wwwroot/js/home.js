@@ -99,6 +99,8 @@ function attachDateListeners() {
 
 
 
+
+
 prevNextIcon.forEach(icon => {
     icon.addEventListener("click", () => {
         // If clicked icon is previous icon, decrement current month by 1; otherwise, increment it by 1
