@@ -547,12 +547,9 @@ header .current-date{
 
 .board-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
   align-items: center; /* Centers items horizontally */
-  flex-wrap: wrap; /* Allows items to wrap to the next row */
-  overflow-y: auto;
-  height: 80%;
+  
 }
 .board-card{
   display: flex;
