@@ -671,9 +671,46 @@ header .current-date{
 
 }
 
+.create-btn-nita {
+  position: fixed;
+  bottom: 1.5%;
+  right: 1.5%;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  font-size: larger;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  background-color: #E0AED0;
+  transition: all 0.2s ease;
+  justify-content: flex-end;
 
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.create-btn-nita:active {
+  transform: scale(0.96);
+}
+.create-btn-nita:before,
+.create-btn-nita:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
 
-
+.create-btn-nita:hover{
+  box-shadow: 3px 3px 3px 0 #c3c3c3;
+}
 
 
 
