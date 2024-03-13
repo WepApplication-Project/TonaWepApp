@@ -133,12 +133,12 @@
     color: rgba(23, 107, 135, 1);
 }
 
-.col-3{
+.col-2{
     display: flex;
     justify-content: space-between;
 }
 
-.max-member,.start,.end{
+.max-member,.start,.end,.meet{
     display: flex;
     flex-direction: column;
 }
