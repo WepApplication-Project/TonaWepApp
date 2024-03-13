@@ -12,6 +12,22 @@
         <label for="description">Description:</label>
         <textarea asp-for="Description" id="description" name="description" placeholder="Enter detail of the meeting here"
             required></textarea><br>
+
+        <label for="tag">Tag:</label>
+        <select asp-for="Tag" id="tag" name="tag" required>
+            <option value="love">Love</option>
+            <option value="food">Food</option>
+            <option value="study">Study</option>
+            <option value="travel">Travel</option>
+            <option value="sport">Sport</option>
+            <option value="game">Game</option>
+        </select><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" placeholder="Enter the location you want to meet each other"
+            required>
+        <br>
+
         <div class="col-2">
             <div class="max-member">
                 <label for="max_member">Max Members:</label>
@@ -35,20 +51,7 @@
         </div>
 
 
-        <label for="tag">Tag:</label>
-        <select asp-for="Tag" id="tag" name="tag" required>
-            <option value="love">Love</option>
-            <option value="food">Food</option>
-            <option value="study">Study</option>
-            <option value="travel">Travel</option>
-            <option value="sport">Sport</option>
-            <option value="game">Game</option>
-        </select><br>
-
-        <label for="location">Location:</label>
-        <input type="text" id="location" name="location" placeholder="Enter the location you want to meet each other"
-            required>
-
+        
         <button class="create-btn" type="submit">Create Post</button>
     </form>
 </div>
