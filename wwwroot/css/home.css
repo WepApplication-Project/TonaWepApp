@@ -387,7 +387,10 @@ header .current-date{
 
 
 .days li.selected {
-  background-color: #66ccff; /* Replace with your preferred background color */
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #FF3EA5; /* Replace with your preferred background color */
   
   /* Add any other styles you want for the selected date */
 }
