@@ -9,7 +9,7 @@
     @foreach(var notification in @Model.Notifications)
     {
         <div class="noti-card">
-            <a href="">
+            <a href="/Board/Detail/@(notification.BoardId)">
             <div class="noti-title">@notification.Title</div>
             <div class="noti-time"><i class='bx bx-time-five' ></i><span>12/03/2566 22.12</span></div>
             <div class="noti-person"><i class='bx bx-user' ></i> <span>Takdanai</span></div>
