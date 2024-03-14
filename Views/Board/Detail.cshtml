@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="bl-nita">
-                    <div class="board-status" id="board-status">
+                    <div class="board-status" id="board-status" style="background-color: @(!Model.Board.IsActive ? "red" : "green")" >
                         @(Model.Board.IsActive ? "Active" : "Inactive")
                     </div>
                     <div class="location-text">
