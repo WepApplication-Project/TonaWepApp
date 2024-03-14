@@ -48,13 +48,13 @@ public class AuthController(AuthRepository authRepository) : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Login(string Email, string Password)
+    public async Task<IActionResult> Login([FromBody] LoginRequestModel loginRequestModel)
     {
-        var userdb = await _authRepository.GetUserByEmailAsync(Email);
-        if (userdb.Password == Password)
+        var userdb = await _authRepository.GetUserByEmailAsync(loginRequestModel.Email);
+        if (userdb.Password == loginRequestModel.Password)
         {
             var cookieOptions = new CookieOptions{};
-            Response.Cookies.Append("email", Email, cookieOptions);
+            Response.Cookies.Append("email", loginRequestModel.Email, cookieOptions);
             return RedirectToAction("Index", "Home", userdb);
         }
         else{

@@ -1,9 +1,9 @@
-.homepage{   
-    display: flex;
-    flex-direction: ro;
-    font-family: "Kanit", sans-serif;
-    height: 100vh;
-    max-height: 100vh;
+.homepage {
+  display: flex;
+  flex-direction: ro;
+  font-family: "Kanit", sans-serif;
+  height: 100vh;
+  max-height: 100vh;
 
 }
 
@@ -18,48 +18,51 @@
 ::-webkit-scrollbar-track {
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #176B87; 
+  background: #176B87;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #176B87; 
+  background: #176B87;
 }
 
 
 
-.main-navbar{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgb(255, 255, 255);
-    width: 20%;
-}
-.menu{
-    display: flex;
-    flex-direction: column;  
+.main-navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  width: 20%;
 }
 
-.menu-link{
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-link {
   display: flex;
   align-items: center;
   margin-left: 50px;
   flex-direction: column;
-  
+
 }
 
-.menubar{
+.menubar {
   display: flex;
-  
-  
+
+
 }
-.navlink i{
+
+.navlink i {
   margin-right: 0.5rem;
 }
+
 /* .mainboard{
     width: 55%;
     background-color: rgb(238, 245, 255);
@@ -83,146 +86,151 @@
 }
 
 .logo a {
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
+  /* Remove underline */
   display: flex;
   align-items: center;
 }
 
 .logo a:visited {
-  color: #176B87; /* Change the color of the text after it's clicked */
+  color: #176B87;
+  /* Change the color of the text after it's clicked */
 }
 
 .logo img {
   width: 64px;
   height: 64px;
-  margin-right: 15px; /* Adjust the spacing between image and text */
+  margin-right: 15px;
+  /* Adjust the spacing between image and text */
 }
 
-.rightmain{
-    background-color: #176B87;
+.rightmain {
+  background-color: #176B87;
 }
 
-.menu .i{
-    display: flex;
-    justify-content: flex-start;
+.menu .i {
+  display: flex;
+  justify-content: flex-start;
 }
 
-.mini-profile{
-    display: flex;
-    align-items: center;
-    background-color: #EEF5FF;
-    border-radius: 30px;
-    border: 2px solid #176B87;
-    width: 274px;
-    height: 118px;
-    font-size: 18px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    text-decoration: none;
+.mini-profile {
+  display: flex;
+  align-items: center;
+  background-color: #EEF5FF;
+  border-radius: 30px;
+  border: 2px solid #176B87;
+  width: 274px;
+  height: 118px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  text-decoration: none;
 }
 
-.mini-profile:hover{
+.mini-profile:hover {
   color: #176B87;
 }
 
-.mini-profile .photo img{
-    width: 100%;
-}
-.mini-profile .photo{
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-left: 5%;
+.mini-profile .photo img {
+  width: 100%;
 }
 
-.mini-profile .mini-content{
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    width: calc(100%-100px);
+.mini-profile .photo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 5%;
 }
 
-.mini-content .text{
+.mini-profile .mini-content {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100%-100px);
+}
+
+.mini-content .text {
   text-decoration: none;
 }
 
 
-.mini-profile .mini-content .text h4{
-    font-size: 18px;
-    font-weight: 400;
-    color: #333;
-    letter-spacing: .5px;
-    white-space: nowrap;
+.mini-profile .mini-content .text h4 {
+  font-size: 18px;
+  font-weight: 400;
+  color: #333;
+  letter-spacing: .5px;
+  white-space: nowrap;
 }
 
 
 
-.mini-content .text p{
+.mini-content .text p {
   color: #176B87;
   font-size: 18px;
   margin-top: -25px;
-  
-}
-
-.menu{
-    display: flex;
-    align-items: flex-start;
-}
-.menubar li{  
-    height: 50px;
-    width: 200px;
-    margin-top: 10px;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    
-}
-
-.menubar li a{
-    color: black;
-    font-size: 32px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.searchbox{
-    position: relative;
-    height: 55px;
-    width: 60%;
-    margin: auto;
-    display: flex;
-}
-
-.searchbox input{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border-radius: 30px;
-    background-color: white;
-    outline: none;
-    border: none;
-    font-size: 18px;
-    padding-left: 20px;
-    
 
 }
 
-.searchbox .icon{
-    position: absolute;
-    right: -22px;
-    top: 0;
-    width: 50px;
-    background: #176B87;
-    height: 100%;
-    text-align: center;
-    color: white;
-    font-size: 25px;
-    line-height: 50px;
-    border: none;
-    border-radius: 0 30px 30px 0;
+.menu {
+  display: flex;
+  align-items: flex-start;
+}
+
+.menubar li {
+  height: 50px;
+  width: 200px;
+  margin-top: 10px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+}
+
+.menubar li a {
+  color: black;
+  font-size: 32px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.searchbox {
+  position: relative;
+  height: 55px;
+  width: 60%;
+  margin: auto;
+  display: flex;
+}
+
+.searchbox input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 30px;
+  background-color: white;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  padding-left: 20px;
+
+
+}
+
+.searchbox .icon {
+  position: absolute;
+  right: -22px;
+  top: 0;
+  width: 50px;
+  background: #176B87;
+  height: 100%;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  line-height: 50px;
+  border: none;
+  border-radius: 0 30px 30px 0;
 
 }
 
@@ -240,8 +248,8 @@
   width: 7rem;
   margin: 0.5rem;
   margin-top: 1.5rem;
-  
-  
+
+
 }
 
 .input-container input {
@@ -298,13 +306,13 @@ input:checked+.radio-tile label {
 
 
 
-.dropdownbar{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.dropdownbar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.wrapper{
+.wrapper {
   width: 345px;
   height: 415px;
   background: #B4D4FF;
@@ -312,16 +320,19 @@ input:checked+.radio-tile label {
   box-shadow: 0 15px 40px #B4D4FF;
 
 }
-.wrapper header{
+
+.wrapper header {
   display: flex;
   align-items: center;
   padding: 20px 30px 30px;
   justify-content: space-between;
 }
-header .icons{
+
+header .icons {
   display: flex;
 }
-header .icons span{
+
+header .icons span {
   height: 38px;
   width: 38px;
   margin: 0 1px;
@@ -333,48 +344,58 @@ header .icons span{
   user-select: none;
   border-radius: 50%;
 }
-.icons span:last-child{
+
+.icons span:last-child {
   margin-right: -10px;
 }
-header .icons span:hover{
+
+header .icons span:hover {
   background: #f2f2f2;
 }
-header .current-date{
+
+header .current-date {
   font-size: 1.45rem;
   font-weight: 500;
 }
-.calendar{
+
+.calendar {
   padding: 0px;
 }
-.calendar ul{
+
+.calendar ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   text-align: center;
 }
 
-.calendar li{
+.calendar li {
   color: #333;
   width: calc(100% / 7);
   font-size: 1.07rem;
 }
-.calendar .weeks li{
+
+.calendar .weeks li {
   font-weight: 500;
   cursor: default;
 }
-.calendar .days li{
+
+.calendar .days li {
   z-index: 1;
   cursor: pointer;
   position: relative;
   margin-top: 10px;
 }
-.days li.inactive{
+
+.days li.inactive {
   color: #aaa;
 }
-.days li.active{
+
+.days li.active {
   color: #fff;
 }
-.days li.normal{
+
+.days li.normal {
   color: black;
 }
 
@@ -384,13 +405,14 @@ header .current-date{
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  background-color: #FF3EA5; /* Replace with your preferred background color */
-  
+  background-color: #FF3EA5;
+  /* Replace with your preferred background color */
+
   /* Add any other styles you want for the selected date */
 }
 
 
-.days li::before{
+.days li::before {
   position: absolute;
   content: "";
   left: 50%;
@@ -402,45 +424,47 @@ header .current-date{
   transform: translate(-50%, -50%);
 }
 
-.days li.active::before{
+.days li.active::before {
   background: #176B87;
 }
-.days li:not(.active):hover::before{
+
+.days li:not(.active):hover::before {
   background: #f2f2f2;
   z-index: -9;
 }
 
-.a{
-    /* background-color: #176B87; */
-    width: 25%;
-}
-.b-centerboard{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgb(238, 245, 255);
-    width: 70%;
-    max-height: max-content;
+.a {
+  /* background-color: #176B87; */
+  width: 25%;
 }
 
-.board-container{
+.b-centerboard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(238, 245, 255);
+  width: 70%;
+}
+
+.board-container {
   width: 100%;
   height: 80%;
   overflow-y: auto;
 }
-.c{
-    display: flex;
-    margin-top: 120px;
-    justify-content: center;
-    background-color: white;
-    width: 30%;
+
+.c {
+  display: flex;
+  margin-top: 120px;
+  justify-content: center;
+  background-color: white;
+  width: 30%;
 }
 
-.dropdownbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
+.dropdownbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
 .dropmenubar {
@@ -450,15 +474,16 @@ header .current-date{
 }
 
 
-.text-dbar p{
-    margin-right: 120px;
+.text-dbar p {
+  margin-right: 120px;
 }
 
-.select-menu{
+.select-menu {
   width: 380px;
   margin: 140px auto;
 }
-.select-menu .select-btn{
+
+.select-menu .select-btn {
   display: flex;
   height: 55px;
   background: #fff;
@@ -469,30 +494,34 @@ header .current-date{
   align-items: center;
   cursor: pointer;
   justify-content: space-between;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
-.select-btn i{
+
+.select-btn i {
   font-size: 25px;
   transition: 0.3s;
 }
-.select-menu.active .select-btn i{
+
+.select-menu.active .select-btn i {
   transform: rotate(-180deg);
 }
-.select-menu .options{
+
+.select-menu .options {
   position: relative;
   padding: 20px;
   margin-top: 10px;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   display: none;
 }
-.select-menu.active .options{
+
+.select-menu.active .options {
   display: block;
 }
 
 
-.options .option{
+.options .option {
   display: flex;
   height: 55px;
   cursor: pointer;
@@ -501,14 +530,17 @@ header .current-date{
   align-items: center;
   background: #fff;
 }
-.options .option:hover{
+
+.options .option:hover {
   background: #F2F2F2;
 }
-.option i{
+
+.option i {
   font-size: 25px;
   margin-right: 12px;
 }
-.option .option-text{
+
+.option .option-text {
   font-size: 18px;
   color: #333;
 }
@@ -538,10 +570,12 @@ header .current-date{
 .board-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers items horizontally */
-  
+  align-items: center;
+  /* Centers items horizontally */
+
 }
-.board-card{
+
+.board-card {
   display: flex;
   align-content: center;
   justify-content: space-between;
@@ -550,19 +584,28 @@ header .current-date{
   width: 679px;
   height: 153px;
   border-radius: 30px;
-  border: 2px solid white; 
+  border: 2px solid white;
   transition: border-color 0.3s ease;
   padding: 20px;
   text-decoration: none;
+  opacity: 0;
+  transform: rotateX(180deg);
+  transition: opacity 1.5s ease;
+}
+
+.board-card.animate {
+  opacity: 1;
+  transform: rotateX(0deg);
+  transition: transform 0.5s ease;
 }
 
 .board-card:hover {
   border-color: #176B87;
-  box-shadow:0 2px 5px 0 #176B87; 
+  box-shadow: 0 2px 5px 0 #176B87;
 }
 
 
-.dashcard h2{
+.dashcard h2 {
   display: block;
   font-size: 24px;
   color: #176B87;
@@ -576,12 +619,14 @@ header .current-date{
   justify-content: space-between;
   align-items: center;
 }
+
 .dashcard .projectTop h2 {
   color: #176B87;
   font-size: 20px;
   line-height: 18px;
 
 }
+
 .dashcard .projectTop h2 span {
   color: #999;
   font-size: 0.8em;
@@ -604,10 +649,12 @@ header .current-date{
   flex-direction: column;
   margin-top: -20px;
 }
+
 .task h2 {
   color: #333;
   font-size: 18px;
 }
+
 .task h2 bold {
   font-size: 22px;
   color: #0E4C62;
@@ -619,6 +666,7 @@ header .current-date{
   justify-content: flex-end;
   width: max-content;
 }
+
 .due h2 {
   font-weight: 350;
   padding: 0px 10px;
@@ -642,14 +690,15 @@ header .current-date{
   margin-top: 20%;
   align-items: center;
   justify-content: center;
-  text-decoration: none; /* Remove underline */
+  text-decoration: none;
+  /* Remove underline */
 }
 
 .create-board-btn:hover {
   background-color: #0E4C62;
 }
 
-.custom-rect .l-board-card .love{
+.custom-rect .l-board-card .love {
   justify-self: center;
   align-items: center;
 
@@ -658,15 +707,17 @@ header .current-date{
 
 
 }
-.logout-btn{
+
+.logout-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   margin-top: 90%;
 }
+
 .logout-btn i,
-.logout-btn span{
+.logout-btn span {
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -704,9 +755,11 @@ header .current-date{
   justify-content: center;
   text-decoration: none;
 }
+
 .create-btn-nita:active {
   transform: scale(0.96);
 }
+
 .create-btn-nita:before,
 .create-btn-nita:after {
   position: absolute;
@@ -719,11 +772,11 @@ header .current-date{
   background-repeat: no-repeat;
 }
 
-.create-btn-nita:hover{
+.create-btn-nita:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-.location-text{
+.location-text {
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -731,35 +784,35 @@ header .current-date{
   color: #00FFC6;
 }
 
-.location-text h2{
+.location-text h2 {
   color: #8843F2;
 }
 
 
 
-@media screen and (max-width: 1220px){
+@media screen and (max-width: 1220px) {
 
-  .body{
+  .body {
     background-color: #EEF5FF;
   }
-  .main-navbar{
+
+  .main-navbar {
     display: none;
   }
-  .c{
+
+  .c {
     display: none;
   }
 
 
-  .b-centerboard{
+  .b-centerboard {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%
-    
-
   }
 
-  .box{
+  .box {
     margin-top: -20%;
   }
 
@@ -767,10 +820,7 @@ header .current-date{
     display: none;
   } */
 
-  .board-card{
+  .board-card {
     width: 85.5%;
   }
 }
-
-
-

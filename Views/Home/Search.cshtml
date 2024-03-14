@@ -1,0 +1,129 @@
+@model TonaWebApp.Models.HomeIndexViewModel
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+@section CSS
+{
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @* mail icon *@
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+}
+
+@section Scripts {
+    <script src="~/js/home.js" asp-append-version="true"></script>
+}
+
+@await Component.InvokeAsync("Navbar", Model.User.Id)
+
+<div class='homepage'>
+    <div class="b-centerboard">
+        <div class="searchbox">
+            <form asp-controller="Home" asp-action="Search" method="get">
+                <input name="keyword" type="text" placeholder="Search here...">
+                <button type="submit" class="icon">
+                     <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+        <div class="board-container">
+            @foreach(var board in @Model.Boards)
+            {   
+                string formattedDueDate = "Due Date: " + board.EndTime.ToLocalTime().ToString("dd MMMM yyyy h:mm tt");
+                
+                <a href="/Board/Detail/@(board.Id)" class="board-card">
+                    <div class="dashcard">
+                        <div class="projectTop">
+                            <h2>@board.Name<br><span>@board.Auther.FirstName @board.Auther.LastName</span></h2>
+                        </div>
+                        <div class="location-text">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <h2>@board.Place</h2>
+                            
+                        </div>           
+                    </div>
+                    <div class="cardtrail">
+                        <div class="projectProgress">
+                            <div class="process">
+                                <h2 style="color: @(!board.IsActive ? "red" : "#176B87")">
+                                    @(board.IsActive ? "Active" : "Inactive")
+                                </h2>
+                            </div>
+                        </div>
+                        
+                        <div class="task">
+                            <h2>Members : <bold>@board.MemberList.Count</bold> / @board.MaxMember</h2>
+                            <span class="line"></span>
+                        </div>
+                        <div class="due">
+                            <h2>@formattedDueDate</h2>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+    <div class="c">
+        <div class="c-wrapper">
+            <div class='wrapper'>
+                <header>
+                <p class="current-date"></p>
+                <div class="icons">
+                <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                <span id="next" class="material-symbols-rounded">chevron_right</span>
+                </div>
+                </header>
+            <div class="calendar">
+                <ul class="weeks">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+                </ul>
+                <ul class="days"></ul>
+            </div>
+        </div>
+            
+
+    </div>
+</div>
+<a href="/Board/CreateBoard" class="create-btn-nita"><i class="fa-solid fa-plus"></i></a> 
+
+<script>
+    function animateBoardCards() {
+        const boardCards = document.querySelectorAll('.board-card');
+        boardCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('animate');
+            }, index * 300);
+        });
+    }
+
+    window.addEventListener('load', animateBoardCards);
+    function selectTag(value){
+    console.log("Click :"+value);
+    window.location.href =`/home?tag=${value}`;
+        }
+        let radiolist = document.getElementsByName("radio");
+
+        radiolist.forEach((radio) =>{
+            console.log(radio.value);
+            if(radio.value == "@ViewBag.tag"){
+                radio.setAttribute("checked","");
+            }
+            radio.addEventListener("click",()=>{selectTag(radio.value)})
+            })
+            
+
+</script>

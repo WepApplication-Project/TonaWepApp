@@ -52,8 +52,6 @@ public async Task<IActionResult> UpdateProfile(string FirstName, string LastName
             user.FirstName = FirstName;
             user.LastName = LastName;
             user.Email = Email;
-            Console.WriteLine("updating...");
-            Console.WriteLine("check : " + profilePicture);
             if (profilePicture != null && profilePicture.Length > 0)
             {
                 Console.WriteLine("profile : " + profilePicture);

@@ -1,7 +1,5 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
-using System.Collections.Generic;
 
 namespace TonaWebApp.Models
 {
@@ -19,37 +17,11 @@ namespace TonaWebApp.Models
 
         public int MaxMember { get; set; }
 
-        private bool _isActive;
+        public bool IsActive { get; set; } = true;
 
-        public bool IsActive
-        {
-            get { return _isActive; }
-            set { _isActive = value; }
-        }
+        public DateTime StartTime { get; set; }
 
-        private DateTime _startTime;
-
-        public DateTime StartTime
-        {
-            get { return _startTime; }
-            set
-            {
-                _startTime = value;
-                IsActive = DateTime.Now >= value;
-            }
-        }
-
-        private DateTime _endTime;
-
-        public DateTime EndTime
-        {
-            get { return _endTime; }
-            set
-            {
-                _endTime = value;
-                IsActive = DateTime.Now < value;
-            }
-        }
+        public DateTime EndTime { get; set; }
 
         public DateTime MeetingTime { get; set; }
 

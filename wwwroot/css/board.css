@@ -64,6 +64,18 @@
     font-size: larger;
 }
 
+.user-title {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-top: 1px solid #000;
+    padding-top: 30px;
+}
+
+.user-subtitle {
+    margin-left: 2rem;
+}
+
 .f-start {
     display: flex;
     flex-direction: column;
@@ -104,8 +116,6 @@
 .row-center {
     align-items: center;
 }
-
-
 
 /* Create Post CSS */
 .create-container{

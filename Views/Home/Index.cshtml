@@ -25,57 +25,10 @@
 @await Component.InvokeAsync("Navbar", Model.User.Id)
 
 <div class='homepage'>
-    
-
-    <!-- <div class="main-navbar">
-        <div class='logo'>
-            <a href='#'>
-                <img src="https://cdn.discordapp.com/attachments/1212717114238967838/1212717153686655006/tuna.png?ex=65f2d9dc&is=65e064dc&hm=986fc5efbc87b07f09d041abeb8bcd4841610843301f86c54d4dfbc3fe414319&"/>
-                <span>Tona</span>
-            </a>
-        </div> -->
-        <!-- <div class="menubar">
-            <div class="menu">
-                <ul class="menu-link">
-                    <li class="navlink">     
-                        <a href="/Board/CreateBoard">
-                            <i class="fa-regular fa-square-plus"></i>
-                            <span class="nav-text">CreateBoard</span>
-                        </a>
-                    </li>
-                    <li class="navlink">     
-                        <a href="/History/Upcoming">
-                            <i class="fa-solid fa-clock-rotate-left"></i>
-                            <span class="nav-text">History</span>
-                        </a>
-                    </li>
-                    <li class="navlink">     
-                        <a href="/Notification/Index">
-                            <i class="fa-regular fa-bell"></i>
-                            <span class="nav-text">Nontification</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <a href="/User/Profile" class="mini-profile">
-            <div class="photo">
-                <img src="https://www.ce.kmitl.ac.th/api/faculty/download/Charoen">
-                <span>Tuna</span>
-            </div>
-            <div class="mini-content">
-                <div class="text">
-                    <h4>@Model.User.FirstName @Model.User.LastName</h4>
-                    <p>want party</p>
-                </div>
-            </div>
-        </a>
-
-    </div> -->
     <div class="b-centerboard">
         <div class="searchbox">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Search here...">
+            <form asp-controller="Home" asp-action="Search" method="get">
+                <input name="keyword" type="text" placeholder="Search here...">
                 <button type="submit" class="icon">
                      <i class="fa fa-search"></i>
                 </button>
@@ -222,19 +175,30 @@
 <a href="/Board/CreateBoard" class="create-btn-nita"><i class="fa-solid fa-plus"></i></a> 
 
 <script>
-    function selectTag(value){
-   console.log("Click :"+value);
-   window.location.href =`/home?tag=${value}`;
+    function animateBoardCards() {
+        const boardCards = document.querySelectorAll('.board-card');
+        boardCards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('animate');
+            }, index * 300);
+        });
     }
-    let radiolist = document.getElementsByName("radio");
 
-    radiolist.forEach((radio) =>{
-        console.log(radio.value);
-        if(radio.value == "@ViewBag.tag"){
-            radio.setAttribute("checked","");
+    window.addEventListener('load', animateBoardCards);
+
+    function selectTag(value){
+    console.log("Click :"+value);
+    window.location.href =`/home?tag=${value}`;
         }
-        radio.addEventListener("click",()=>{selectTag(radio.value)})
-        })
-        
+        let radiolist = document.getElementsByName("radio");
+
+        radiolist.forEach((radio) =>{
+            console.log(radio.value);
+            if(radio.value == "@ViewBag.tag"){
+                radio.setAttribute("checked","");
+            }
+            radio.addEventListener("click",()=>{selectTag(radio.value)})
+            })
+            
 
     </script>

@@ -22,7 +22,7 @@
                     <div class="location-text">
                         <i class="fa-solid fa-location-dot"></i>
                         <h2>@Model.Board.Place</h2>         
-                    </div> 
+                    </div>
                 </div>
             </div>
             <div class="board-tail">
@@ -39,7 +39,6 @@
                 <p><br>create by @Model.Board.Auther!.FirstName @Model.Board.Auther.LastName</p>
             </div>
         </div>
-        <div class="horizontal-line"></div>
         <div class="board-detail">
             <p>@Model.Board.Description</p>
             <h4>ประกาศจะหมดอายุวันที่</h4>
@@ -49,41 +48,70 @@
         </div>
         <div class="f-between row-center">
             <p>จำนวนคนที่รับ @Model.Board.MemberList.Count / @Model.Board.MaxMember</p>
-            @if (Model.Board.Auther.Email == Model.User.Email)
+            @{
+                var utcPlus7StartTime = Model.Board.StartTime.AddHours(7);
+                var utcPlus7EndTime = Model.Board.EndTime.AddHours(7);
+                var currentTime = DateTime.UtcNow.AddHours(7);
+            }
+            @if(currentTime >= utcPlus7StartTime && currentTime <= utcPlus7EndTime)
             {
-                if (Model.Board.IsActive)
+                @if (Model.Board.Auther.Email == Model.User.Email)
                 {
-                    <form asp-controller="Board" asp-action="CloseBoard" method="post">
-                        <input type="hidden" name="id" value="@Model.Board.Id" />
-                        <button class="button-board" type="submit">ปิดประกาศ</button>
-                    </form>
+                    if (Model.Board.IsActive)
+                    {
+                        <form asp-controller="Board" asp-action="CloseBoard" method="post">
+                            <input type="hidden" name="id" value="@Model.Board.Id" />
+                            <button class="button-board" type="submit">ปิดประกาศ</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-controller="Board" asp-action="OpenBoard" method="post">
+                            <input type="hidden" name="id" value="@Model.Board.Id" />
+                            <button class="button-board" type="submit">เปิดประกาศ</button>
+                        </form>
+                    }
                 }
                 else
                 {
-                    <form asp-controller="Board" asp-action="OpenBoard" method="post">
-                        <input type="hidden" name="id" value="@Model.Board.Id" />
-                        <button class="button-board" type="submit">เปิดประกาศ</button>
-                    </form>
+                    if (Model.Board.MemberList.Any(u => u.Email == Model.User.Email))
+                    {
+                        <form asp-controller="Board" asp-action="SignOutToBoard" method="post">
+                            <input type="hidden" name="email" value="@Model.User.Email" />
+                            <input type="hidden" name="id" value="@Model.Board.Id" />
+                            <button class="button-board" type="submit">ลงชื่อออกจากบอร์ด</button>
+                        </form>
+                    }
+                    else if (Model.Board.IsActive)
+                    {
+                        <form asp-controller="Board" asp-action="SignInToBoard" method="post">
+                            <input name="email" type="hidden" value="@Model.User.Email" />
+                            <input name="id" type="hidden" value="@Model.Board.Id" />
+                            <button class="button-board" type="submit">ลงชื่อในบอร์ด</button>
+                        </form>
+                    }
                 }
             }
-            else
+        </div>
+        <div class="user-list">
+            @foreach(var user in @Model.Board.MemberList)
             {
-                if (Model.Board.MemberList.Any(u => u.Email == Model.User.Email))
-                {
-                    <form asp-controller="Board" asp-action="SignOutToBoard" method="post">
-                        <input type="hidden" name="email" value="@Model.User.Email" />
-                        <input type="hidden" name="id" value="@Model.Board.Id" />
-                        <button class="button-board" type="submit">ลงชื่อออกจากบอร์ด</button>
-                    </form>
-                }
-                else
-                {
-                    <form asp-controller="Board" asp-action="SignInToBoard" method="post">
-                        <input name="email" type="hidden" value="@Model.User.Email" />
-                        <input name="id" type="hidden" value="@Model.Board.Id" />
-                        <button class="button-board" type="submit">ลงชื่อในบอร์ด</button>
-                    </form>
-                }
+                <div class="user-title">
+                    <div class="avatar">
+                        @if (!string.IsNullOrEmpty(user.ImageUrl))
+                        {
+                            <img src="@user.ImageUrl" alt="Profile Image" class="avatar"/>
+                        }
+                        else
+                        {
+                            <img src="https://p7.hiclipart.com/preview/782/114/405/5bbc3519d674c.jpg" alt="Mockup Image" class="avatar"/>
+                        }
+                    </div>
+                    <div class="user-subtitle">
+                        <p>@user.FirstName @user.LastName</p>
+                        <p>@user.Email</p>
+                    </div>
+                </div>
             }
         </div>
     </div>

@@ -28,6 +28,12 @@ public class NotificationController(AuthRepository authRepository, BoardReposito
                     User = user,
                     Notifications = notificationList
                 };
+
+                foreach(var notification in notificationList)
+                {
+                    notification.IsReaded = true;
+                    await _notificationRepository.UpdateNotificationAsync(notification.Id!, notification);
+                }
                 return View(userAndNotification);
             }
         }

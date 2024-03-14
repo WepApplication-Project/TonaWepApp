@@ -19,7 +19,7 @@ namespace TonaWebApp.Services
 
             using var client = new SmtpClient();
             await client.ConnectAsync("smtp.gmail.com", 587, false);
-            await client.AuthenticateAsync("65010065@kmitl.ac.th", "");
+            await client.AuthenticateAsync("65010065@kmitl.ac.th", "3ypassisYOU");
             await client.SendAsync(emailMessage);
             await client.DisconnectAsync(true);
         }

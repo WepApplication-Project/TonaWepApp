@@ -25,19 +25,19 @@ public class BoardRepository(MongoDBContext context)
     }
 
     public async Task<List<Board>> GetBoardsByTagAsync(string tag)
-{
-    try
     {
-        var filter = Builders<Board>.Filter.Eq(b => b.Tag, tag);
-        var boardList = await _boards.Find(filter).ToListAsync();
-        return boardList;
+        try
+        {
+            var filter = Builders<Board>.Filter.Eq(b => b.Tag, tag);
+            var boardList = await _boards.Find(filter).ToListAsync();
+            return boardList;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred while fetching boards by tag: {ex}");
+            return [];
+        }
     }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"An error occurred while fetching boards by tag: {ex}");
-        return [];
-    }
-}
 
 
     public async Task<Board> GetBoardByIdAsync(string Id)
@@ -114,6 +114,21 @@ public class BoardRepository(MongoDBContext context)
         }
     }
 
+    public async Task<List<Board>> SearchBoardAsync(string keyword)
+    {
+        var boardList = await GetAllBoardAsync();
+        var filteredBoards = boardList.Where(board =>
+            board.Name.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+            board.Description.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+            board.Auther!.FirstName.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+            board.Auther.LastName.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+
+        return filteredBoards;
+    }
+
+
+
 
     public async Task OpenBoardStatus(Board board)
     {
@@ -147,4 +162,31 @@ public class BoardRepository(MongoDBContext context)
         await UpdateBoardAsync(board);
     }
 
+    public async Task CheckBoardsOpenAsync()
+    {
+        var boardList = await GetAllBoardAsync();
+
+        foreach (var board in boardList)
+        {
+            if (board.StartTime.AddHours(7) <= DateTime.UtcNow.AddHours(7) && board.EndTime.AddHours(7) >= DateTime.UtcNow.AddHours(7))
+            {
+                board.IsActive = true;
+                await UpdateBoardAsync(board);
+            }
+        }
+    }
+
+    public async Task CheckBoardsExpiredAsync()
+    {
+        var boardList = await GetAllBoardAsync();
+
+        foreach (var board in boardList)
+        {
+            if (board.EndTime.AddHours(7) < DateTime.UtcNow)
+            {
+                board.IsActive = false;
+                await UpdateBoardAsync(board);
+            }
+        }
+    }
 }
