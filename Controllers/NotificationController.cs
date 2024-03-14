@@ -23,7 +23,6 @@ public class NotificationController(AuthRepository authRepository, BoardReposito
             if (user != null && user.Id != null)
             {
                 var notificationList = await _notificationRepository.GetNotificationsByUserIdAsync(user.Id);
-                
             }
         }
         else
