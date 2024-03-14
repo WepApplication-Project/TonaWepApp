@@ -617,6 +617,7 @@ header .current-date{
   position: relative;
   display: flex;
   justify-content: flex-end;
+  width: max-content;
 }
 .due h2 {
   font-weight: 350;

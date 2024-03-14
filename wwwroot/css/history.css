@@ -195,9 +195,9 @@ form buttons:hover{
 .first-cell{
     text-align: center;
 }
-.last-cell{
+/* .last-cell{
     
-}
+} */
 .history-nav a{
     text-decoration: none;
     color: black;
@@ -276,6 +276,14 @@ form buttons:hover{
     font-weight: bold;
     background-color: rgb(110, 164, 229);
     border: 1px solid rgb(1, 26, 127);
+    border-radius: 10px;
+}
+
+.his-tag{
+    color: #176B87;
+    font-weight: bold;
+    background-color: rgb(205, 222, 244);
+    border: 1px solid #176B87;
     border-radius: 10px;
 }
 

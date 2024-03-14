@@ -14,7 +14,7 @@
             <li><a href="/History/upcoming">Upcoming</a></li>
             <li class = "navBoxU"><a href="/History/completed">Completed</a></li>
         </ul>
-        <form action="#">
+        @* <form action="#">
             <div class="dropdown">
                 <button style="margin: 0;">Filter</button>
                 <div class="content">
@@ -24,7 +24,7 @@
             </div>
             <input class="form-input" type="text" placeholder="Search">
             <buttons type="submit" class="fa fa-search"></buttons>
-        </form>
+        </form> *@
     </nav>
         <div class="table-box">
             <div class="table-head table-row">
@@ -49,44 +49,17 @@
                     <div class="table-cell first-cell tablew1 date-cell">
                         <p>@formattedDueDate</p>
                     </div>
-                    <div id = "tag" class="table-cell tablew2 love tag-cell">
+                    <div id = "tag" class="table-cell tablew2 his-tag tag-cell">
                         <p>@board.Tag</p>
                     </div>
                     <div class="table-cell description-cell tablew3">
                         <p>@board.Name</p>
                     </div>
-                    <div id = "status" class="table-cell last-cell tablew2 incompleted status-cell">
-                        <p>Incompleted</p>
+                    <div class="table-cell last-cell tablew2 status-cell" style="font-weight: bold;">
+                        <p style="color: @(!board.IsActive ? "green" : "#176B87")"> @(board.IsActive ? "Confirmed" : "Completed")</p>
                     </div>
                 </div>
             }
         </div>
     </div>
 </div>
-<script>
-    var element = document.getElementById("tag");
-    if (tag == "Love"){
-        element.classList.add("love");
-    }
-    else if (tag == "Sport") {
-        element.classList.add("sport");
-    }
-    else if (tag == "Food") {
-        element.classList.add("food");
-    }
-    else if (tag == "Traval") {
-        element.classList.add("traval");
-    }
-    else if (tag == "Study") {
-        element.classList.add("study");
-    }
-    var elementS = document.getElementById("status");
-    if (status == "Completed"){
-        elementS.classList.add("completed");
-    }
-    else if (tag == "Incompleted") {
-        elements.classList.add("incompleted");
-    }
-</script>
-    
-    
