@@ -1,3 +1,7 @@
+@model BoardAndUserModel
+
+@await Component.InvokeAsync("Navbar", Model.User.Id)
+
 <h1 class="topic-header">Notification</h1>
 
 <div class="noti-container">

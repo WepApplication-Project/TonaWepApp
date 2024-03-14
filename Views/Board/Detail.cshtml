@@ -1,7 +1,7 @@
 @model BoardAndUserModel
 
 @{
-    string formattedDueDate = @Model.Board.EndTime.ToLocalTime().ToString("dd MMMM yyyy");
+    string formattedDueDate = @Model.Board.EndTime.ToLocalTime().ToString("dd MMMM yyyy h:mm tt");
 }
 @await Component.InvokeAsync("Navbar", Model.User.Id)
 
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="bl-nita">
-                    <div class="board-status">
+                    <div class="board-status" id="board-status">
                         @(Model.Board.IsActive ? "Active" : "Inactive")
                     </div>
                     <div class="location-text">
