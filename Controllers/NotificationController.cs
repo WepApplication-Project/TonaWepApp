@@ -23,11 +23,12 @@ public class NotificationController(AuthRepository authRepository, BoardReposito
             if (user != null && user.Id != null)
             {
                 var notificationList = await _notificationRepository.GetNotificationsByUserIdAsync(user.Id);
-                var boardAndUser = new BoardAndUserModel
+                var userAndNotification = new UserAndNotifications
                 {
                     User = user,
+                    Notifications = notificationList
                 };
-                return View(boardAndUser);
+                return View(userAndNotification);
             }
         }
         else

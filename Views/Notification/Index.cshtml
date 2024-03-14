@@ -1,4 +1,4 @@
-@model BoardAndUserModel
+@model UserAndNotifications
 
 @await Component.InvokeAsync("Navbar", Model.User.Id)
 
@@ -6,47 +6,15 @@
 
 <div class="noti-container">
     
-    
-    <div class="noti-card">
-        <a href="">
-        <div class="noti-title">Your Board has member sign in!</div>
-        <div class="noti-time"><i class='bx bx-time-five' ></i><span>12/03/2566 22.12</span></div>
-        <div class="noti-person"><i class='bx bx-user' ></i> <span>Takdanai</span></div>
-        <div class="noti-subtitle">lor</div>
-        </a>
-    </div>
-
-    <div class="noti-card">
-        <a href="">
-        <div class="noti-title">Your Board has member sign in!</div>
-        <div class="noti-time"><i class='bx bx-time-five' ></i><span>12/03/2566 22.12</span></div>
-        <div class="noti-person"><i class='bx bx-user' ></i> <span>Takdanai</span></div>
-        <div class="noti-subtitle">lor</div>
-        </a>
-    </div>
-    
-    <div class="noti-card">
-        <a href="">
-        <div class="noti-title">Your Board has member sign in!</div>
-        <div class="noti-time"><i class='bx bx-time-five' ></i><span>12/03/2566 22.12</span></div>
-        <div class="noti-person"><i class='bx bx-user' ></i> <span>Takdanai</span></div>
-        <div class="noti-subtitle">lor</div>
-        </a>
-    </div>
-    <div class="noti-card">
-        <a href="">
-        <div class="noti-title">Your Board has member sign in!</div>
-        <div class="noti-time"><i class='bx bx-time-five' ></i><span>12/03/2566 22.12</span></div>
-        <div class="noti-person"><i class='bx bx-user' ></i> <span>Takdanai</span></div>
-        <div class="noti-subtitle">lor</div>
-        </a>
-    </div>
-    <div class="noti-card">
-        <a href="">
-        <div class="noti-title">Your Board has member sign in!</div>
-        <div class="noti-time"><i class='bx bx-time-five' ></i><span>12/03/2566 22.12</span></div>
-        <div class="noti-person"><i class='bx bx-user' ></i> <span>Takdanai</span></div>
-        <div class="noti-subtitle">lor</div>
-        </a>
-    </div>
+    @foreach(var notification in @Model.Notifications)
+    {
+        <div class="noti-card">
+            <a href="">
+            <div class="noti-title">@notification.Title</div>
+            <div class="noti-time"><i class='bx bx-time-five' ></i><span>12/03/2566 22.12</span></div>
+            <div class="noti-person"><i class='bx bx-user' ></i> <span>Takdanai</span></div>
+            <div class="noti-subtitle">@notification.SubTitle</div>
+            </a>
+        </div>
+    }
 </div>
