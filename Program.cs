@@ -74,6 +74,6 @@ app.MapControllerRoute(
 var dbContext = app.Services.GetRequiredService<MongoDBContext>();
 dbContext.InitializeUserDataAsync().Wait();
 dbContext.InitializeBoardDataAsync().Wait();
-dbContext.InitializeNotificationDataAsync().Wait();
+// dbContext.InitializeNotificationDataAsync().Wait();
 
 app.Run();

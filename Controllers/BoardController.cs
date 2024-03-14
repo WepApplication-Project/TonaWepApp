@@ -144,6 +144,7 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
                 Title = "User joined your board!",
                 SubTitle = $"{board.Name} User Is {user.FirstName} {user.LastName}",
                 BoardId = board.Id!,
+                Auther = board.Auther!,
                 User = board.Auther!
             };
             await _notificationRepository.AddNotificationAsync(notification);
@@ -204,6 +205,7 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
                         Title = "Board Is Closed",
                         SubTitle = $"{board.Name} By Auther Is {board.Auther!.FirstName} {board.Auther!.LastName}",
                         BoardId = board.Id!,
+                        Auther = board.Auther!,
                         User = user
                     };
                     await _notificationRepository.AddNotificationAsync(notification);

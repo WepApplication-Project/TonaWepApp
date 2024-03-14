@@ -8,11 +8,13 @@
     
     @foreach(var notification in @Model.Notifications)
     {
+        string formattedDueDate = notification.CreateAt.ToString("dd MMMM yyyy h:mm tt");
+
         <div class="noti-card">
             <a href="/Board/Detail/@(notification.BoardId)">
             <div class="noti-title">@notification.Title</div>
-            <div class="noti-time"><i class='bx bx-time-five' ></i><span>12/03/2566 22.12</span></div>
-            <div class="noti-person"><i class='bx bx-user' ></i> <span>Takdanai</span></div>
+            <div class="noti-time"><i class='bx bx-time-five' ></i><span>@formattedDueDate</span></div>
+            <div class="noti-person"><i class='bx bx-user' ></i> <span>@notification.Auther.FirstName @notification.Auther.LastName</span></div>
             <div class="noti-subtitle">@notification.SubTitle</div>
             </a>
         </div>

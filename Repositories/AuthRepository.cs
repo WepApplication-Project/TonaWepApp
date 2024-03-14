@@ -28,6 +28,12 @@ public class AuthRepository(MongoDBContext context)
         return await _users.Find(filter).FirstOrDefaultAsync();
     }
 
+    public async Task<User> GetUserByIdAsync(string email)
+    {
+        var filter = Builders<User>.Filter.Eq(u => u.Email, email);
+        return await _users.Find(filter).FirstOrDefaultAsync();
+    }
+
     public async Task<string?> CreateUserAsync(User user)
     {
         var existingEmailUser = await _users.Find(u => u.Email == user.Email).FirstOrDefaultAsync();
