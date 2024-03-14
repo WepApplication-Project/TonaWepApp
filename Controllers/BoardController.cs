@@ -149,7 +149,7 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
             };
             await _notificationRepository.AddNotificationAsync(notification);
         }
-        await _emailService.SendEmailAsync(board!.Auther!.Email, board.Name, board.Description);
+        // await _emailService.SendEmailAsync(board!.Auther!.Email, board.Name, board.Description);
         return RedirectToAction("Detail", "Board", new { Id = id });
     }
 
@@ -209,7 +209,7 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
                         User = user
                     };
                     await _notificationRepository.AddNotificationAsync(notification);
-                    await _emailService.SendEmailAsync(user.Email, board.Name, board.Description);
+                    // await _emailService.SendEmailAsync(user.Email, board.Name, board.Description);
                 }
             }
         }
