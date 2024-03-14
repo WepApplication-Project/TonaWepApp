@@ -1,6 +1,7 @@
 @model BoardAndUserModel
 
 @{
+    string formattedMeetingDate = @Model.Board.MeetingTime.ToLocalTime().ToString("dd MMMM yyyy h:mm tt");
     string formattedDueDate = @Model.Board.EndTime.ToLocalTime().ToString("dd MMMM yyyy h:mm tt");
 }
 @await Component.InvokeAsync("Navbar", Model.User.Id)
@@ -44,7 +45,7 @@
             <p>@Model.Board.Description</p>
             <h4>ประกาศจะหมดอายุวันที่</h4>
             <p>@formattedDueDate</p>
-            <h4>ข้อกำหนดเพิ่มเติม</h4>
+            <h4>เวลาที่นัดพบ :@formattedMeetingDate </h4>
             <p></p>
         </div>
         <div class="f-between row-center">
