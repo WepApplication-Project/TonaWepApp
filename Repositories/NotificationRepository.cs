@@ -28,6 +28,12 @@ namespace TonaWebApp.Repositories
             return notification;
         }
 
+        public async Task<Notification> GetNotificationByUserIdAsync(string id)
+        {
+            var notification = await _notifications.Find(n => n.User.Id == id).FirstOrDefaultAsync();
+            return notification;
+        }
+
         public async Task AddNotificationAsync(Notification notification)
         {
             try

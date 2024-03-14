@@ -26,9 +26,16 @@
                 </div>
             </div>
             <div class="board-tail">
-                <div class="avatar"><img
-                        src="@Model.User.ImageUrl"
-                        width="200" /></div>
+                <div class="avatar">
+                @if (!string.IsNullOrEmpty(Model.Board.Auther.ImageUrl))
+                {
+                    <img src="@Model.Board.Auther.ImageUrl" alt="Profile Image" class="avatar"/>
+                }
+                else
+                {
+                    <img src="https://p7.hiclipart.com/preview/782/114/405/5bbc3519d674c.jpg" alt="Mockup Image" class="avatar"/>
+                }
+                </div>
                 <p><br>create by @Model.Board.Auther!.FirstName @Model.Board.Auther.LastName</p>
             </div>
         </div>

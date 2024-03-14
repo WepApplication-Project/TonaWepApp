@@ -5,11 +5,13 @@ using TonaWebApp.Repositories;
 
 namespace TonaWebApp.Controllers;
 
-public class BoardController(BoardRepository boardRepository, AuthRepository authRepository, IEmailService emailService) : Controller
+public class BoardController(BoardRepository boardRepository, AuthRepository authRepository, IEmailService emailService, NotificationRepository notificationRepository) : Controller
 {
     private readonly BoardRepository _boardRepository = boardRepository;
 
     private readonly AuthRepository _authRepository = authRepository;
+
+    private readonly NotificationRepository _notificationRepository = notificationRepository;
 
     private readonly IEmailService _emailService = emailService;
 
@@ -135,6 +137,17 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
             return NotFound();
         }
         await _boardRepository.AddUserToBoard(user, board);
+        if (user != null && user.Id != null && board != null)
+        {
+            var notification = new Notification
+            {
+                Title = "User joined your board!",
+                SubTitle = $"{board.Name} User Is {user.FirstName} {user.LastName}",
+                BoardId = board.Id!,
+                User = board.Auther!
+            };
+            await _notificationRepository.AddNotificationAsync(notification);
+        }
         // await _emailService.SendEmailAsync(board.Auther!.Email, board.Name, board.Description);
         return RedirectToAction("Detail", "Board", new { Id = id });
     }
@@ -181,6 +194,17 @@ public class BoardController(BoardRepository boardRepository, AuthRepository aut
             if (board != null)
             {
                 await _boardRepository.CloseBoardStatus(board);
+                foreach(var user in board.MemberList)
+                {
+                    var notification = new Notification
+                    {
+                        Title = "Board Is Closed",
+                        SubTitle = $"{board.Name} By Auther Is {board.Auther!.FirstName} {board.Auther!.LastName}",
+                        BoardId = board.Id!,
+                        User = user
+                    };
+                    await _notificationRepository.AddNotificationAsync(notification);
+                }
             }
         }
         return RedirectToAction("Detail", "Board", new { Id = id });
